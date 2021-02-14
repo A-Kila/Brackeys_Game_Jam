@@ -26,7 +26,7 @@ public class ShootProjectile : MonoBehaviour
 
     public void startShooting()
     { 
-        if(!targetIsSet) return;
+        if(!targetIsSet || shoot) return;
         shoot = true;
         shootTime = Time.time;
         targetObject.GetComponent<SpriteRenderer>().color = Color.red;
