@@ -25,7 +25,7 @@ public class CellManager : MonoBehaviour {
     }
     void OnTriggerEnter2D(Collider2D collider) {
         // get collider.DamageAmount -- or -- collider.healthAmount
-        // if (collider.tag == damage)
+        if (collider.tag == "Enemy")
             health.DamageHealth(healthAmount);
         // if (collider.tag == powerup)
             // health.Addhealth(healthAmount);
