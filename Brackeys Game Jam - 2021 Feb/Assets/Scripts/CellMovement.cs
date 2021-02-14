@@ -2,7 +2,7 @@
 
 public class CellMovement : MonoBehaviour {
 	
-    public float speed = 15f;
+    private float speed;
     private Rigidbody2D rb;
 
     private Vector2 moveTowards;
@@ -18,6 +18,10 @@ public class CellMovement : MonoBehaviour {
 
     public void MoveLocation(Vector2 moveLocation) {
         moveTowards = moveLocation;
+    }
+
+    public void SetSpeed(float speed) {
+        this.speed = speed;
     }
 
 }

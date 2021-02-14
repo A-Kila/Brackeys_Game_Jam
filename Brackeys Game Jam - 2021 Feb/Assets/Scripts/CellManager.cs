@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CellManager : MonoBehaviour {
 	
@@ -12,7 +11,7 @@ public class CellManager : MonoBehaviour {
         gameCamera = FindObjectOfType<Camera>();
         movement = FindObjectOfType<CellMovement>();
 
-        movement.speed = speed;
+        movement.SetSpeed(speed);
     }
 
     void Update() {
