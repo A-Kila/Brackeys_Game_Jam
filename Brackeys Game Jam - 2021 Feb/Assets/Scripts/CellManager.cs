@@ -12,7 +12,7 @@ public class CellManager : MonoBehaviour {
     void Start() {
         gameCamera = FindObjectOfType<Camera>();
 
-        movement = FindObjectOfType<CellMovement>();
+        movement = GetComponent<CellMovement>();
         movement.SetSpeed(speed);
 
         health = new Health(healthAmount);
@@ -23,6 +23,7 @@ public class CellManager : MonoBehaviour {
         MoveCell();
         ShootOnMouseClick();
     }
+
     void OnTriggerEnter2D(Collider2D collider) {
         // get collider.DamageAmount -- or -- collider.healthAmount
         if (collider.tag == "Enemy")
@@ -46,7 +47,7 @@ public class CellManager : MonoBehaviour {
     }
 
     private void MoveCell() {
-        if (Input.GetMouseButtonDown(0)) { 
+        if (Input.GetMouseButtonDown(0)) {
             Vector2 posOnWorldMap = gameCamera.ScreenToWorldPoint(Input.mousePosition);
             movement.MoveLocation(posOnWorldMap);
         }
