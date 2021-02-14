@@ -14,17 +14,21 @@ public class ShootProjectile : MonoBehaviour
     private GameObject targetObject;
     private Vector3 TargetLoc;
     private bool shoot = false;
+    private bool targetIsSet = false;
     private float shootTime;
     // Start is called before the first frame update
     public void setTarget(Vector3 targ)
     {
        if(targetObject != null) Destroy(targetObject);
+        shoot = false;
         TargetLoc = targ;
         targetObject =  Instantiate(TargetMarker, targ, Quaternion.identity).gameObject;
+        targetIsSet = true;
     }
 
     public void startShooting()
-    {
+    { 
+        if(!targetIsSet) return;
         shoot = true;
         shootTime = Time.time;
         targetObject.GetComponent<SpriteRenderer>().color = Color.red;
@@ -32,8 +36,9 @@ public class ShootProjectile : MonoBehaviour
 
     public void stopShooting()
     {
+        if (!targetIsSet) return;
         shoot = false;
-        targetObject.GetComponent<SpriteRenderer>().color = Color.green;
+        targetObject.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     void Start()
