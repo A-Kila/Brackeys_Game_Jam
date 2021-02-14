@@ -247,6 +247,7 @@ GameObject:
   - component: {fileID: 609147781}
   - component: {fileID: 609147784}
   - component: {fileID: 609147783}
+  - component: {fileID: 609147786}
   - component: {fileID: 609147785}
   m_Layer: 0
   m_Name: TestCell
@@ -366,6 +367,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a32374b1d738954487202b78a9f1260, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &609147786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609147780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8d11c13d61d05343bde0af5b62188a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
