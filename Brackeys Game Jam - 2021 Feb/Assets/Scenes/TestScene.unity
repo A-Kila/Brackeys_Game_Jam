@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 609147787}
   m_Layer: 0
   m_Name: TestCell
-  m_TagString: Untagged
+  m_TagString: Friendly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -408,5 +408,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf3c3a7f1409d684ea683294fd60cceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delay: 1
   Projectile: {fileID: 3987110878244775676, guid: 24a558760e8cc1844b82a81854d060cb,
+    type: 3}
+  TargetMarker: {fileID: 4933579623135033412, guid: 80c271845bf2188418476eaddc500b19,
     type: 3}

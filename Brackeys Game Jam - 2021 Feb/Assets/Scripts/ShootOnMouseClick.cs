@@ -15,7 +15,14 @@ public class ShootOnMouseClick : MonoBehaviour
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             gameObject.GetComponent<ShootProjectile>().setTarget(new Vector3(mousePos.x, mousePos.y, 0));
-           
+        }
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            gameObject.GetComponent<ShootProjectile>().startShooting();
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            gameObject.GetComponent<ShootProjectile>().stopShooting();
         }
     }
 }
