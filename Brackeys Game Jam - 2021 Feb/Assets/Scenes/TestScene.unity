@@ -249,6 +249,8 @@ GameObject:
   - component: {fileID: 609147783}
   - component: {fileID: 609147786}
   - component: {fileID: 609147785}
+  - component: {fileID: 609147788}
+  - component: {fileID: 609147787}
   m_Layer: 0
   m_Name: TestCell
   m_TagString: Untagged
@@ -382,3 +384,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
+--- !u!114 &609147787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609147780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37754b7fd24b0914a93240a49906da53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &609147788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609147780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf3c3a7f1409d684ea683294fd60cceb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Projectile: {fileID: 3987110878244775676, guid: 24a558760e8cc1844b82a81854d060cb,
+    type: 3}
