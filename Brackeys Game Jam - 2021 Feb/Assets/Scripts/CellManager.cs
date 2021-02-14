@@ -21,6 +21,7 @@ public class CellManager : MonoBehaviour {
 
     void Update() {
         MoveCell();
+        ShootOnMouseClick();
     }
     void OnTriggerEnter2D(Collider2D collider) {
         // get collider.DamageAmount -- or -- collider.healthAmount
@@ -31,6 +32,22 @@ public class CellManager : MonoBehaviour {
         // Animation
     }
 
+    private void ShootOnMouseClick()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            gameObject.GetComponent<ShootProjectile>().setTarget(new Vector3(mousePos.x, mousePos.y, 0));
+        }
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            gameObject.GetComponent<ShootProjectile>().startShooting();
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            gameObject.GetComponent<ShootProjectile>().stopShooting();
+        }
+    }
 
     private void MoveCell() {
         if (Input.GetMouseButtonDown(0)) { 
