@@ -6,11 +6,13 @@ public class CellMovement : MonoBehaviour {
     private Rigidbody2D rb;
 
     private Vector2 moveTowards;
+    private Vector2 nextPosition;
     private float halfWidth, halfHeight, halfRBRadius;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
         moveTowards = transform.position;
+        nextPosition = moveTowards;
 
         halfHeight = Camera.main.orthographicSize;
         halfWidth = halfHeight * Camera.main.aspect;
@@ -18,12 +20,16 @@ public class CellMovement : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        rb.MovePosition(Vector3.MoveTowards(rb.position, moveTowards, speed * Time.deltaTime));
+        nextPosition = Vector2.MoveTowards(rb.position, moveTowards, speed * Time.deltaTime);
+        if (rb.isKinematic) transform.position = nextPosition;
+        else rb.MovePosition(nextPosition);
     }
 
     public void MoveLocation(Vector2 moveLocation) {
-        moveLocation.x = Mathf.Clamp(moveLocation.x, -halfWidth + halfRBRadius, halfWidth - halfRBRadius);
-        moveLocation.y = Mathf.Clamp(moveLocation.y, -halfHeight + halfRBRadius, halfHeight - halfRBRadius);
+        if (!(rb.isKinematic)) { 
+            moveLocation.x = Mathf.Clamp(moveLocation.x, -halfWidth + halfRBRadius, halfWidth - halfRBRadius);
+            moveLocation.y = Mathf.Clamp(moveLocation.y, -halfHeight + halfRBRadius, halfHeight - halfRBRadius);
+        }
         moveTowards = moveLocation;
     }
 

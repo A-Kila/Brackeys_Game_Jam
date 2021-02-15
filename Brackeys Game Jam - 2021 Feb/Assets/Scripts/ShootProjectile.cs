@@ -11,38 +11,45 @@ public class ShootProjectile : MonoBehaviour
     private Transform TargetMarker;
 
     private GameObject targetObject;
-    private Vector3 TargetLoc;
+    private Vector2 TargetLoc;
+    private Vector2[] shootDirecitons;
     private bool shoot = false;
     private bool targetIsSet = false;
+    private bool directionIsSet = false;
     private float shootTime;
-    // Start is called before the first frame update
-    public void setTarget(Vector3 targ)
+
+    public void setTarget(Vector2 targ)
     {
-       if(targetObject != null) Destroy(targetObject);
+        if(targetObject != null) Destroy(targetObject);
         shoot = false;
         TargetLoc = targ;
         targetObject =  Instantiate(TargetMarker, targ, Quaternion.identity).gameObject;
         targetIsSet = true;
+        directionIsSet = false;
+    }
+
+    public void setDirections(Vector2[] dir)
+    {
+        if(targetObject != null) Destroy(targetObject);
+        shoot = false;
+        shootDirecitons = dir;
+        targetIsSet = false;
+        directionIsSet = true;
     }
 
     public void startShooting()
     { 
-        if(!targetIsSet || shoot) return;
+        if(!(targetIsSet || directionIsSet) || shoot) return;
         shoot = true;
         shootTime = Time.time;
-        targetObject.GetComponent<SpriteRenderer>().color = Color.red;
+        if (targetIsSet) targetObject.GetComponent<SpriteRenderer>().color = Color.red;
     }
 
     public void stopShooting()
     {
-        if (!targetIsSet) return;
+        if (!(targetIsSet || directionIsSet)) return;
         shoot = false;
-        targetObject.GetComponent<SpriteRenderer>().color = Color.white;
-    }
-
-    void Start()
-    {
-      
+        if (targetIsSet) targetObject.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     // Update is called once per frame
@@ -50,27 +57,31 @@ public class ShootProjectile : MonoBehaviour
     {
         if (shoot && shootTime < Time.time)
         {
-            creatProjectile();
+            Shoot();
             shootTime = Time.time + delay;
         }
     }
-
+    
     public void SetMarkerVisibility(bool b)
     {
         if (targetObject != null) targetObject.SetActive(b);
     }
 
-    void creatProjectile()
-    {
-        Transform projTransform = Instantiate(Projectile, transform.position, Quaternion.identity);
-        projTransform.GetComponent<MoveProjectile>().setup(aimDirection());
-        projTransform.localScale *= ProjectileScale;
+    void Shoot() {
+        if (targetIsSet) { 
+            Vector2 dir = (TargetLoc - (Vector2)transform.position).normalized;
+            creatProjectile(dir);
+        } else {
+            foreach (Vector2 dir in shootDirecitons)
+                creatProjectile(dir);
+        }
     }
 
-    Vector3 aimDirection()
+    void creatProjectile(Vector2 dir)
     {
-        Vector3 dir = (TargetLoc - transform.position).normalized;
-        return dir;
+        Transform projTransform = Instantiate(Projectile, transform.position, Quaternion.identity);
+        projTransform.tag = transform.tag;
+        projTransform.GetComponent<ProjectileManager>().setup(dir);
     }
 
 }
