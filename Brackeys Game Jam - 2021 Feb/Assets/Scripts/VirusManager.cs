@@ -13,7 +13,7 @@ public class VirusManager : MonoBehaviour {
     [HideInInspector]
     public int waypointIndex = 0;
     [HideInInspector]
-    public bool isVirusShooting = false;
+    public bool isShootingStart = false;
 
     private CellMovement movement;
     private Health health;
@@ -46,9 +46,12 @@ public class VirusManager : MonoBehaviour {
         projectiles = gameObject.GetComponent<ShootProjectile>();
     }
     
+    private bool isVirusShooting = false;
     void Update() {
         MoveCell();
-        if (!isVirusShooting && (Vector2)transform.position == waypoints[0]) {
+        if (!isShootingStart && (Vector2)transform.position == waypoints[0])
+            isShootingStart = true;
+        if (!isVirusShooting && isShootingStart) {
             isVirusShooting = true;
             StartVirusShoot();
         }
@@ -117,7 +120,7 @@ public class VirusManager : MonoBehaviour {
         else cloneManager.waypointIndex = (waypointIndex + 1) % waypoints.Length;
         cloneManager.isClockwizeMove = !isClockwizeMove;
         cloneManager.health = health;
-        cloneManager.isVirusShooting = true;
+        cloneManager.isShootingStart = true;
     }
 
 }
