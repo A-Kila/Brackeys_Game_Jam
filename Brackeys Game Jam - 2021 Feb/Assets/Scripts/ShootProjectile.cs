@@ -54,6 +54,11 @@ public class ShootProjectile : MonoBehaviour
         }
     }
 
+    public void SetMarkerVisibility(bool b)
+    {
+        if (targetObject != null) targetObject.SetActive(b);
+    }
+
     void creatProjectile()
     {
         Transform projTransform = Instantiate(Projectile, transform.position, Quaternion.identity);
