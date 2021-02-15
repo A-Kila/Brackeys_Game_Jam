@@ -241,7 +241,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 293483793}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 8.5, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 1902086458}
@@ -288,8 +288,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f03054ab613d0b4b90dc0df2db2ef7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 10
   healthAmount: 10
+  ShootWait: 1
   path: {fileID: 755575842}
   isClockwizeMove: 1
 --- !u!50 &293483798
@@ -641,7 +642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
-  healthAmount: 100
+  healthAmount: 10
 --- !u!114 &609147788
 MonoBehaviour:
   m_ObjectHideFlags: 0

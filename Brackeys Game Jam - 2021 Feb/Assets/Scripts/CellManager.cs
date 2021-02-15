@@ -3,11 +3,12 @@
 public class CellManager : MonoBehaviour {
 	
     public float speed = 15f;
-    public int healthAmount = 100;
+    public int healthAmount = 10;
 
     private CellMovement movement;
     private Camera gameCamera;
     private Health health;
+    private ShootProjectile projectile;
 
     void Start() {
         gameCamera = FindObjectOfType<Camera>();
@@ -17,6 +18,8 @@ public class CellManager : MonoBehaviour {
 
         health = new Health(healthAmount);
         health.onPlayerDeath += PlayerDeath;
+
+        projectile = gameObject.GetComponent<ShootProjectile>();
     }
 
     void Update() {
@@ -41,13 +44,13 @@ public class CellManager : MonoBehaviour {
     private void ShootOnMouseClick() {
         if (Input.GetMouseButtonDown(1)) {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            gameObject.GetComponent<ShootProjectile>().setTarget(new Vector3(mousePos.x, mousePos.y, 0));
+            projectile.setTarget(new Vector3(mousePos.x, mousePos.y, 0));
         }
         if (Input.GetKeyDown(KeyCode.Z)) {
-            gameObject.GetComponent<ShootProjectile>().startShooting();
+            projectile.startShooting();
         }
         if (Input.GetKeyDown(KeyCode.X)) {
-            gameObject.GetComponent<ShootProjectile>().stopShooting();
+            projectile.stopShooting();
         }
     }
 
