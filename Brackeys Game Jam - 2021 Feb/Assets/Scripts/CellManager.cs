@@ -3,8 +3,9 @@
 public class CellManager : MonoBehaviour {
 	
     public float speed = 15f;
-    public int healthAmount = 10;
-
+    public int healthAmount = 10;    
+ 
+    private bool selected;
     private CellMovement movement;
     private Camera gameCamera;
     private Health health;
@@ -15,6 +16,8 @@ public class CellManager : MonoBehaviour {
 
         movement = GetComponent<CellMovement>();
         movement.SetSpeed(speed);
+
+        selected = false;
 
         health = new Health(healthAmount);
         health.onPlayerDeath += PlayerDeath;
@@ -41,8 +44,22 @@ public class CellManager : MonoBehaviour {
         // }
     }
 
+    public void Deselect()
+    {
+        gameObject.GetComponent<ShootProjectile>().SetMarkerVisibility(false);
+        selected = false;
+        GetComponent<SpriteRenderer>().color = Color.green;
+    }
+    public void Select(Color color)
+    {
+        gameObject.GetComponent<ShootProjectile>().SetMarkerVisibility(true);
+        selected = true;
+        GetComponent<SpriteRenderer>().color = color;
+    }
+
     private void ShootOnMouseClick() {
-        if (Input.GetMouseButtonDown(1)) {
+        if (!selected) return;
+        if (Input.GetKeyDown(KeyCode.Space)) {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             projectile.setTarget(new Vector3(mousePos.x, mousePos.y, 0));
         }
@@ -55,7 +72,8 @@ public class CellManager : MonoBehaviour {
     }
 
     private void MoveCell() {
-        if (Input.GetMouseButtonDown(0)) {
+        if (!selected) return;
+        if (Input.GetMouseButtonDown(1)) {
             Vector2 posOnWorldMap = gameCamera.ScreenToWorldPoint(Input.mousePosition);
             movement.MoveLocation(posOnWorldMap);
         }

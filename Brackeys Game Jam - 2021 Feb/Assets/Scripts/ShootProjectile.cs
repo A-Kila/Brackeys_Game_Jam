@@ -3,6 +3,7 @@
 public class ShootProjectile : MonoBehaviour
 {
     public float delay = 1;
+    public float ProjectileScale = 1f;
 
     [SerializeField]
     private Transform Projectile;
@@ -59,6 +60,11 @@ public class ShootProjectile : MonoBehaviour
             Shoot();
             shootTime = Time.time + delay;
         }
+    }
+    
+    public void SetMarkerVisibility(bool b)
+    {
+        if (targetObject != null) targetObject.SetActive(b);
     }
 
     void Shoot() {
