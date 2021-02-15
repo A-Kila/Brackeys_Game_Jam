@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class VirusManager : MonoBehaviour {
 	
@@ -14,7 +13,6 @@ public class VirusManager : MonoBehaviour {
     private Health health;
     private Vector2[] waypoints;
     private ShootProjectile projectiles;
-    private bool startShooting;
 
     void OnDrawGizmos() {
         Vector2 prevPos = path.GetChild(0).position;
@@ -40,12 +38,15 @@ public class VirusManager : MonoBehaviour {
             waypoints[i] = path.GetChild(i).position;  
         
         projectiles = gameObject.GetComponent<ShootProjectile>();
-        startShooting = false;
-        StartVirusShoot();
     }
 
+    private bool isVirusShooting = false;
     void Update() {
         MoveCell();
+        if (!isVirusShooting && (Vector2)transform.position == waypoints[0]) {
+            isVirusShooting = true;
+            StartVirusShoot();
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collider) {
@@ -77,12 +78,7 @@ public class VirusManager : MonoBehaviour {
         health.onPlayerDeath -= PlayerDeath;
     }
 
-    private void StartVirusShoot() {
-        while (startShooting == false)
-            if ((Vector2)transform.position == waypoints[0])
-                startShooting = true;
-
-        Vector2[] shootDirections = new Vector2[4];
+    private void StartVirusShoot() {Vector2[] shootDirections = new Vector2[4];
         float sin45 = Mathf.Sin(45f * Mathf.Deg2Rad);
 
         shootDirections[0] = new Vector2(sin45, sin45);  // sin(45) == cos(45)
