@@ -58,14 +58,14 @@ public class CellManager : MonoBehaviour {
     }
 
     private void ShootOnMouseClick() {
-        if (Input.GetMouseButtonDown(1)) {
+        if (Input.GetKeyDown(KeyCode.Space)) {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             projectile.setTarget(new Vector3(mousePos.x, mousePos.y, 0));
         }
-        if (Input.GetKeyDown(KeyCode.Z)) {
+        if (Input.GetKeyDown(KeyCode.Q)) {
             projectile.startShooting();
         }
-        if (Input.GetKeyDown(KeyCode.X)) {
+        if (Input.GetKeyDown(KeyCode.W)) {
             projectile.stopShooting();
         }
     }

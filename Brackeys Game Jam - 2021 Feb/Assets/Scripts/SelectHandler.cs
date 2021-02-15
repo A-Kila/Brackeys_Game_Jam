@@ -11,7 +11,6 @@ public class SelectHandler : MonoBehaviour
     private Transform SelectionArea;
 
     private List<Color> colors;
-    private Canvas canvas;
     private Vector3 startPos;
     private GameObject currSelectionArea;
     private bool pressed;
@@ -20,7 +19,6 @@ public class SelectHandler : MonoBehaviour
     {
         selectedCellGroups = new HashSet<CellGroupManager>();
         pressed = false;
-        canvas = FindObjectOfType<Canvas>();
         colors = new List<Color> { Color.red, Color.yellow, Color.cyan };
     }
 
