@@ -57,7 +57,8 @@ public class ShootProjectile : MonoBehaviour
     void creatProjectile()
     {
         Transform projTransform = Instantiate(Projectile, transform.position, Quaternion.identity);
-        projTransform.GetComponent<MoveProjectile>().setup(aimDirection());
+        projTransform.tag = transform.tag;
+        projTransform.GetComponent<ProjectileManager>().setup(aimDirection());
     }
 
     Vector3 aimDirection()
