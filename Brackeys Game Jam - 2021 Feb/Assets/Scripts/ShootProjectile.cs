@@ -3,6 +3,7 @@
 public class ShootProjectile : MonoBehaviour
 {
     public float delay = 1;
+    public float ProjectileScale = 1f;
 
     [SerializeField]
     private Transform Projectile;
@@ -63,6 +64,7 @@ public class ShootProjectile : MonoBehaviour
     {
         Transform projTransform = Instantiate(Projectile, transform.position, Quaternion.identity);
         projTransform.GetComponent<MoveProjectile>().setup(aimDirection());
+        projTransform.localScale *= ProjectileScale;
     }
 
     Vector3 aimDirection()
