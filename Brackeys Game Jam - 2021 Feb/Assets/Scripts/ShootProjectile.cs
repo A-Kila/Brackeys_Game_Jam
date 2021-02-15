@@ -82,7 +82,10 @@ public class ShootProjectile : MonoBehaviour
     {
         Transform projTransform = Instantiate(Projectile, transform.position, Quaternion.identity);
         projTransform.tag = transform.tag;
-        projTransform.GetComponent<ProjectileManager>().setup(dir);
+
+        ProjectileManager  manager = projTransform.GetComponent<ProjectileManager>();
+        manager.parentObj = gameObject;
+        manager.setup(dir);
     }
 
 }

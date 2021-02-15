@@ -5,19 +5,18 @@ public class CellManager : MonoBehaviour {
     public float speed = 15f;
     public int healthAmount = 10;
  
-    private bool selected;
+    private bool selected = false;
     private CellMovement movement;
     private Camera gameCamera;
     private Health health;
     private ShootProjectile projectile;
+    private GameObject lastVirusThatHit;
 
     void Start() {
         gameCamera = FindObjectOfType<Camera>();
 
         movement = GetComponent<CellMovement>();
         movement.SetSpeed(speed);
-
-        selected = false;
 
         health = new Health(healthAmount);
         health.onPlayerDeath += PlayerDeath;
@@ -31,9 +30,10 @@ public class CellManager : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D collider) {
-        int projectileDamage = collider.GetComponent<ProjectileManager>().damage;
+        ProjectileManager projectile = collider.GetComponent<ProjectileManager>();
         if (collider.tag == "Enemy") { 
-            health.DamageHealth(projectileDamage);
+            health.DamageHealth(projectile.damage);
+            lastVirusThatHit = projectile.parentObj;
             // Animation
             Destroy(collider.gameObject);
         }
@@ -80,6 +80,7 @@ public class CellManager : MonoBehaviour {
 
     private void PlayerDeath() {
         Destroy(gameObject);
+        lastVirusThatHit.GetComponent<VirusManager>().cellsKilled++;
         // Animation
         health.onPlayerDeath -= PlayerDeath;
     }

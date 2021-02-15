@@ -5,6 +5,9 @@ public class ProjectileManager : MonoBehaviour
     public float speed = 10f;
     public int damage = 1;
 
+    [HideInInspector]
+    public GameObject parentObj;
+
     private Vector3 direction;
     private Vector3 screenBounds;
 
