@@ -41,11 +41,13 @@ public class CellManager : MonoBehaviour {
     {
         gameObject.GetComponent<ShootProjectile>().SetMarkerVisibility(false);
         selected = false;
+        GetComponent<SpriteRenderer>().color = Color.green;
     }
     public void Select()
     {
         gameObject.GetComponent<ShootProjectile>().SetMarkerVisibility(true);
         selected = true;
+        GetComponent<SpriteRenderer>().color = Color.cyan;
     }
 
     private void ShootOnMouseClick() {
