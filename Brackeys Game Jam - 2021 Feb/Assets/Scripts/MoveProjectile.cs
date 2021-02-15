@@ -1,18 +1,14 @@
 ﻿using UnityEngine;
 
-public class ProjectileManager : MonoBehaviour
+public class MoveProjectile : MonoBehaviour
 {
     public float speed = 10f;
-    public int damage = 1;
-
     private Vector3 direction;
     private Vector3 screenBounds;
-
     public void setup(Vector3 dir)
     {
         direction = dir;
     }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -22,10 +18,13 @@ public class ProjectileManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+    private void FixedUpdate()
+    {
         transform.position += direction * Time.deltaTime * speed;
         if (transform.position.x > screenBounds.x || transform.position.y > screenBounds.y ||
             transform.position.x < - screenBounds.x || transform.position.y < - screenBounds.y) //Checks if projectile is visible by Camera
             Destroy(gameObject);
-    }
-
+    }   
 }

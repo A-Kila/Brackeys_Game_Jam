@@ -3,13 +3,13 @@
 public class CellManager : MonoBehaviour {
 	
     public float speed = 15f;
-    public int healthAmount = 10;    
+    public int healthAmount = 100;
+    
  
     private bool selected;
     private CellMovement movement;
     private Camera gameCamera;
     private Health health;
-    private ShootProjectile projectile;
 
     void Start() {
         gameCamera = FindObjectOfType<Camera>();
@@ -21,8 +21,6 @@ public class CellManager : MonoBehaviour {
 
         health = new Health(healthAmount);
         health.onPlayerDeath += PlayerDeath;
-
-        projectile = gameObject.GetComponent<ShootProjectile>();
     }
 
     void Update() {
@@ -31,17 +29,12 @@ public class CellManager : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D collider) {
-        int projectileDamage = collider.GetComponent<ProjectileManager>().damage;
-        if (collider.tag == "Enemy") { 
-            health.DamageHealth(projectileDamage);
-            // Animation
-            Destroy(collider.gameObject);
-        }
-        // if (collider.tag == powerup) {
-        //     health.Addhealth(healthAmount);
-        //     Animation
-        //     Destroy(collider.gameObject);
-        // }
+        // get collider.DamageAmount -- or -- collider.healthAmount
+        if (collider.tag == "Enemy")
+            health.DamageHealth(healthAmount);
+        // if (collider.tag == powerup)
+            // health.Addhealth(healthAmount);
+        // Animation
     }
 
     public void Deselect()
@@ -61,13 +54,13 @@ public class CellManager : MonoBehaviour {
         if (!selected) return;
         if (Input.GetKeyDown(KeyCode.Space)) {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            projectile.setTarget(new Vector3(mousePos.x, mousePos.y, 0));
+            gameObject.GetComponent<ShootProjectile>().setTarget(new Vector3(mousePos.x, mousePos.y, 0));
         }
-        if (Input.GetKeyDown(KeyCode.Z)) {
-            projectile.startShooting();
+        if (Input.GetKeyDown(KeyCode.Q)) {
+            gameObject.GetComponent<ShootProjectile>().startShooting();
         }
-        if (Input.GetKeyDown(KeyCode.X)) {
-            projectile.stopShooting();
+        if (Input.GetKeyDown(KeyCode.W)) {
+            gameObject.GetComponent<ShootProjectile>().stopShooting();
         }
     }
 
