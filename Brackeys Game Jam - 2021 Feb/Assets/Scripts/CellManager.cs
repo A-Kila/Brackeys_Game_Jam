@@ -4,7 +4,9 @@ public class CellManager : MonoBehaviour {
 	
     public float speed = 15f;
     public int healthAmount = 100;
-
+    
+ 
+    private bool selected;
     private CellMovement movement;
     private Camera gameCamera;
     private Health health;
@@ -14,6 +16,8 @@ public class CellManager : MonoBehaviour {
 
         movement = GetComponent<CellMovement>();
         movement.SetSpeed(speed);
+
+        selected = false;
 
         health = new Health(healthAmount);
         health.onPlayerDeath += PlayerDeath;
@@ -33,21 +37,34 @@ public class CellManager : MonoBehaviour {
         // Animation
     }
 
+    public void Deselect()
+    {
+        gameObject.GetComponent<ShootProjectile>().SetMarkerVisibility(false);
+        selected = false;
+    }
+    public void Select()
+    {
+        gameObject.GetComponent<ShootProjectile>().SetMarkerVisibility(true);
+        selected = true;
+    }
+
     private void ShootOnMouseClick() {
-        if (Input.GetMouseButtonDown(1)) {
+        if (!selected) return;
+        if (Input.GetKeyDown(KeyCode.Space)) {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             gameObject.GetComponent<ShootProjectile>().setTarget(new Vector3(mousePos.x, mousePos.y, 0));
         }
-        if (Input.GetKeyDown(KeyCode.Z)) {
+        if (Input.GetKeyDown(KeyCode.Q)) {
             gameObject.GetComponent<ShootProjectile>().startShooting();
         }
-        if (Input.GetKeyDown(KeyCode.X)) {
+        if (Input.GetKeyDown(KeyCode.W)) {
             gameObject.GetComponent<ShootProjectile>().stopShooting();
         }
     }
 
     private void MoveCell() {
-        if (Input.GetMouseButtonDown(0)) {
+        if (!selected) return;
+        if (Input.GetMouseButtonDown(1)) {
             Vector2 posOnWorldMap = gameCamera.ScreenToWorldPoint(Input.mousePosition);
             movement.MoveLocation(posOnWorldMap);
         }
