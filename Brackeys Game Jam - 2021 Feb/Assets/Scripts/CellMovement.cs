@@ -19,13 +19,10 @@ public class CellMovement : MonoBehaviour {
         halfRBRadius = rb.transform.localScale.x / 2;   
     }
 
-    void Update() {
-        nextPosition = Vector2.MoveTowards(rb.position, moveTowards, speed * Time.deltaTime);
-    }
-
     void FixedUpdate() {
+        nextPosition = Vector2.MoveTowards(rb.position, moveTowards, speed * Time.deltaTime);
         if (rb.isKinematic) transform.position = nextPosition;
-        else rb.MovePosition(Vector2.MoveTowards(rb.position, moveTowards, speed * Time.deltaTime));
+        else rb.MovePosition(nextPosition);
     }
 
     public void MoveLocation(Vector2 moveLocation) {
