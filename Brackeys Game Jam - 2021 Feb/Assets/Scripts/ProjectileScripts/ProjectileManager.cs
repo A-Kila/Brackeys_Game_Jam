@@ -4,7 +4,7 @@ public class ProjectileManager : MonoBehaviour
 {
     public float speed = 10f;
     public int damage = 1;
-    public Vector2 scale;
+    public Vector2 scale = new Vector2(1, 1);
 
     [HideInInspector]
     public GameObject parentObj;

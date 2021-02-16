@@ -62,9 +62,11 @@ public class VirusManager : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D collider) {
-        int projectileDamage = collider.GetComponent<ProjectileManager>().damage;
+        ProjectileManager projectile = collider.GetComponent<ProjectileManager>();
         if (collider.tag == "Friendly") { 
-            health.DamageHealth(projectileDamage);
+            health.DamageHealth(projectile.damage);
+            ScoreSystem.score += projectile.damage;
+            Debug.Log(ScoreSystem.score);                   // temporary
             // Animation
             Destroy(collider.gameObject);
         }
