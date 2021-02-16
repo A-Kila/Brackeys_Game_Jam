@@ -4,7 +4,6 @@ public class ProjectileManager : MonoBehaviour
 {
     public float speed = 10f;
     public int damage = 1;
-    public Vector2 scale = new Vector2(1, 1);
 
     [HideInInspector]
     public GameObject parentObj;
@@ -21,7 +20,6 @@ public class ProjectileManager : MonoBehaviour
     void Start()
     {
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
-        transform.localScale = scale;
     }
 
     // Update is called once per frame

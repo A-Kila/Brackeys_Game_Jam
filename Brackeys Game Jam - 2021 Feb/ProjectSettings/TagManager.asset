@@ -8,6 +8,7 @@ TagManager:
   - Friendly
   - Projectile
   - Neutral
+  - Buff
   layers:
   - Default
   - TransparentFX
@@ -42,6 +43,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Projectile
+    uniqueID: 2036474487
+    locked: 0
+  - name: Buff
+    uniqueID: 1267084807
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Virus
+    uniqueID: 3923202355
     locked: 0
