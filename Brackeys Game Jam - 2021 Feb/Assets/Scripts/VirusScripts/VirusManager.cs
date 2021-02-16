@@ -8,6 +8,12 @@ public class VirusManager : MonoBehaviour {
 
     [HideInInspector]
     public bool isClockwizeMove = true;
+    [HideInInspector]
+    public int cellsKilled = 0;
+    [HideInInspector]
+    public int waypointIndex = 0;
+    [HideInInspector]
+    public bool isShootingStart = false;
 
     private CellMovement movement;
     private Health health;
@@ -39,20 +45,28 @@ public class VirusManager : MonoBehaviour {
         
         projectiles = gameObject.GetComponent<ShootProjectile>();
     }
-
+    
     private bool isVirusShooting = false;
     void Update() {
         MoveCell();
-        if (!isVirusShooting && (Vector2)transform.position == waypoints[0]) {
+        if (!isShootingStart && (Vector2)transform.position == waypoints[0])
+            isShootingStart = true;
+        if (!isVirusShooting && isShootingStart) {
             isVirusShooting = true;
             StartVirusShoot();
+        }
+        if (cellsKilled >= 10) { 
+            Duplicate(); 
+            cellsKilled -= 10;
         }
     }
 
     void OnTriggerEnter2D(Collider2D collider) {
-        int projectileDamage = collider.GetComponent<ProjectileManager>().damage;
+        ProjectileManager projectile = collider.GetComponent<ProjectileManager>();
         if (collider.tag == "Friendly") { 
-            health.DamageHealth(projectileDamage);
+            health.DamageHealth(projectile.damage);
+            ScoreSystem.score += projectile.damage;
+            Debug.Log(ScoreSystem.score);                   // temporary
             // Animation
             Destroy(collider.gameObject);
         }
@@ -63,13 +77,20 @@ public class VirusManager : MonoBehaviour {
         // }
     }
 
-    private int waypointIndex = 0;
+    void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.collider.tag == "Friendly" || collision.collider.tag == "Neutral") {
+            // Animation
+            Destroy(collision.collider.gameObject);
+            cellsKilled++;
+        }
+    }
+
     private void MoveCell() {
         Vector2 nextPos = waypoints[waypointIndex];
         movement.MoveLocation(nextPos);
         if ((Vector2)transform.position == nextPos)
             if (isClockwizeMove) waypointIndex = (waypointIndex + 1) % waypoints.Length;
-            else waypointIndex = (waypointIndex - 1) % waypoints.Length;
+            else waypointIndex = (waypointIndex - 1 < 0) ? waypoints.Length - 1: waypointIndex - 1;
     }
 
     private void PlayerDeath() {
@@ -88,6 +109,20 @@ public class VirusManager : MonoBehaviour {
 
         projectiles.setDirections(shootDirections);
         projectiles.startShooting();
+    }
+
+    private void Duplicate() {
+        Transform virusHolder = transform.parent.parent.GetComponent<PrefabHolder>().prefab;
+        Transform cloneHolder = Instantiate(virusHolder, transform.parent.position, Quaternion.identity, transform.parent.parent);
+        cloneHolder.GetChild(0).position = transform.position;
+
+        VirusManager cloneManager = cloneHolder.GetChild(0).GetComponent<VirusManager>();
+
+        if (isClockwizeMove) cloneManager.waypointIndex = (waypointIndex - 1) % waypoints.Length;
+        else cloneManager.waypointIndex = (waypointIndex + 1) % waypoints.Length;
+        cloneManager.isClockwizeMove = !isClockwizeMove;
+        cloneManager.health = health;
+        cloneManager.isShootingStart = true;
     }
 
 }
