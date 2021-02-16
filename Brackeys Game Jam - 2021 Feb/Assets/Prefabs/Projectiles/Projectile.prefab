@@ -96,6 +96,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 25
+  damage: 1
+  scale: {x: 0.2, y: 0.2}
+  parentObj: {fileID: 0}
 --- !u!58 &3162218432882642748
 CircleCollider2D:
   m_ObjectHideFlags: 0

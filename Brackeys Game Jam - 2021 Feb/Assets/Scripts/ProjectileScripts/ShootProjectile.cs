@@ -3,7 +3,6 @@
 public class ShootProjectile : MonoBehaviour
 {
     public float delay = 1;
-    public float ProjectileScale = 1f;
 
     [SerializeField]
     private Transform Projectile;
