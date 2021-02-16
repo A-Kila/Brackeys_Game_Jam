@@ -18,12 +18,11 @@ public class VirusManager : MonoBehaviour {
     public int waypointIndex = 0;
     [HideInInspector]
     public bool isShootingStart = false;
+    [HideInInspector]
+    public Vector2[] waypoints;
 
     private CellMovement movement;
     private Health health;
-
-    [HideInInspector]
-    public Vector2[] waypoints;
     private ShootProjectile projectiles;
     private Vector2 screenBounds;
 

@@ -40,7 +40,8 @@ public class CellManager : MonoBehaviour {
             Destroy(collider.gameObject);
         }
         if (collider.tag == "Buff") {
-            collider.GetComponent<BuffManager>().onCollideDoAction(transform);
+            foreach (Transform child in transform.parent)
+                collider.GetComponent<BuffManager>().onCollideDoAction(child);
         //    Animation
             Destroy(collider.gameObject);
         }
@@ -62,12 +63,15 @@ public class CellManager : MonoBehaviour {
     private void ShootOnMouseClick() {
         if (!selected) return;
         if (Input.GetKeyDown(KeyCode.Space)) {
+
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Collider2D[] targetCollider = Physics2D.OverlapAreaAll(mousePos, mousePos);
+
             if (targetCollider.Length == 0)
                 projectile.setTarget(new Vector3(mousePos.x, mousePos.y, 0));
             else
                 projectile.setTarget(targetCollider[0].gameObject);
+        
         }
         if (Input.GetKeyDown(KeyCode.Q)) {
             projectile.startShooting();

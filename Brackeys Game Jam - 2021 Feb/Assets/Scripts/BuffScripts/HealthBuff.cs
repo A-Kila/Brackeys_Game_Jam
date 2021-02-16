@@ -5,11 +5,11 @@ public class HealthBuff : MonoBehaviour {
     public int healthAmount = 3;
 
     void Start() {
-        GetComponent<BuffManager>().onCollide = AddHealth;
+        GetComponent<BuffManager>().onCollide = AddHealthAction;
     }
 
-    private void AddHealth(Transform objTransform) {
-        transform.GetComponent<CellManager>().health.AddHealth(healthAmount);
+    private void AddHealthAction(Transform objTransform) {
+        objTransform.GetComponent<CellManager>().health.AddHealth(healthAmount);
     }
 
 }
