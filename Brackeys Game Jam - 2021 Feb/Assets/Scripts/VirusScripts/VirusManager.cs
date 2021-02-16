@@ -77,7 +77,7 @@ public class VirusManager : MonoBehaviour {
             ProjectileManager projectile = collider.GetComponent<ProjectileManager>();
             health.DamageHealth(projectile.damage);
             ScoreSystem.score += projectile.damage;
-            //Debug.Log(ScoreSystem.score);                   // temporary
+            // Log Score
 
             if (Random.value <= healthBuffDropChance && healthBuffDropChance != 0)
                 DropBuff(healthBuff);

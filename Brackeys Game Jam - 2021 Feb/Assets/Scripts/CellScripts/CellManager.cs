@@ -33,7 +33,6 @@ public class CellManager : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collider) {
         if (collider.tag == "Enemy") {
-            Debug.Log(1);
             ProjectileManager projectile = collider.GetComponent<ProjectileManager>();
             lastVirusThatHit = projectile.parentObj;
             health.DamageHealth(projectile.damage);
