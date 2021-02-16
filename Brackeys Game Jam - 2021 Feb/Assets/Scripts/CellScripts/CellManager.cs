@@ -4,11 +4,13 @@ public class CellManager : MonoBehaviour {
 	
     public float speed = 15f;
     public int healthAmount = 10;
+
+    [HideInInspector]
+    public Health health;
  
     private bool selected = false;
     private CellMovement movement;
     private Camera gameCamera;
-    private Health health;
     private ShootProjectile projectile;
     private GameObject lastVirusThatHit;
 
@@ -30,18 +32,18 @@ public class CellManager : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D collider) {
-        ProjectileManager projectile = collider.GetComponent<ProjectileManager>();
         if (collider.tag == "Enemy") { 
+            ProjectileManager projectile = collider.GetComponent<ProjectileManager>();
             health.DamageHealth(projectile.damage);
             lastVirusThatHit = projectile.parentObj;
             // Animation
             Destroy(collider.gameObject);
         }
-        // if (collider.tag == powerup) {
-        //     health.Addhealth(healthAmount);
-        //     Animation
-        //     Destroy(collider.gameObject);
-        // }
+        if (collider.tag == "Buff") {
+            collider.GetComponent<BuffManager>().onCollideDoAction(transform);
+        //    Animation
+            Destroy(collider.gameObject);
+        }
     }
 
     public void Deselect()
