@@ -230,8 +230,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -371764941
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 82a27af0c18c52e49a4579d58fbed293, type: 3}
   m_Color: {r: 0.7830189, g: 0, b: 0, a: 1}
@@ -295,10 +295,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   healthAmount: 10
+  healthBuffDropChance: 0.1
   path: {fileID: 673282555999753009}
-  virusHolder: {fileID: 673282554450916905}
+  healthBuff: {fileID: 7302859984504575237, guid: cbc79ccfda93285469fcb8a6aaf0cfde,
+    type: 3}
   isClockwizeMove: 1
   cellsKilled: 0
+  waypointIndex: 0
+  isShootingStart: 0
 --- !u!114 &673282556063517191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,7 +328,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 1
-  ProjectileScale: 1
   Projectile: {fileID: 3987110878244775676, guid: 24a558760e8cc1844b82a81854d060cb,
     type: 3}
   TargetMarker: {fileID: 4933579623135033412, guid: 80c271845bf2188418476eaddc500b19,

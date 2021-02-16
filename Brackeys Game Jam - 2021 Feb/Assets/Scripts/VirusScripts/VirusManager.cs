@@ -1,10 +1,14 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class VirusManager : MonoBehaviour {
 	
     public float speed = 15f;
     public int healthAmount = 100;
+    [Range(0f, 1f)]
+    public float healthBuffDropChance = .1f;
     public Transform path;
+    public Transform healthBuff;
 
     [HideInInspector]
     public bool isClockwizeMove = true;
@@ -19,6 +23,7 @@ public class VirusManager : MonoBehaviour {
     private Health health;
     private Vector2[] waypoints;
     private ShootProjectile projectiles;
+    private Vector2 screenBounds;
 
     void OnDrawGizmos() {
         Vector2 prevPos = path.GetChild(0).position;
@@ -44,17 +49,22 @@ public class VirusManager : MonoBehaviour {
             waypoints[i] = path.GetChild(i).position;  
         
         projectiles = gameObject.GetComponent<ShootProjectile>();
+
+        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
     }
     
     private bool isVirusShooting = false;
     void Update() {
         MoveCell();
+
         if (!isShootingStart && (Vector2)transform.position == waypoints[0])
             isShootingStart = true;
+
         if (!isVirusShooting && isShootingStart) {
             isVirusShooting = true;
             StartVirusShoot();
         }
+
         if (cellsKilled >= 10) { 
             Duplicate(); 
             cellsKilled -= 10;
@@ -62,19 +72,18 @@ public class VirusManager : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D collider) {
-        ProjectileManager projectile = collider.GetComponent<ProjectileManager>();
         if (collider.tag == "Friendly") { 
+            ProjectileManager projectile = collider.GetComponent<ProjectileManager>();
             health.DamageHealth(projectile.damage);
             ScoreSystem.score += projectile.damage;
-            Debug.Log(ScoreSystem.score);                   // temporary
+            //Debug.Log(ScoreSystem.score);                   // temporary
+
+            if (Random.value <= healthBuffDropChance && healthBuffDropChance != 0)
+                DropBuff(healthBuff);
+
             // Animation
             Destroy(collider.gameObject);
         }
-        // if (collider.tag == powerup) {
-        //     health.Addhealth(healthAmount);
-        //     Animation
-        //     Destroy(collider.gameObject);
-        // }
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
@@ -99,7 +108,8 @@ public class VirusManager : MonoBehaviour {
         health.onPlayerDeath -= PlayerDeath;
     }
 
-    private void StartVirusShoot() {Vector2[] shootDirections = new Vector2[4];
+    private void StartVirusShoot() {
+        Vector2[] shootDirections = new Vector2[4];
         float sin45 = Mathf.Sin(45f * Mathf.Deg2Rad);
 
         shootDirections[0] = new Vector2(sin45, sin45);  // sin(45) == cos(45)
@@ -123,6 +133,33 @@ public class VirusManager : MonoBehaviour {
         cloneManager.isClockwizeMove = !isClockwizeMove;
         cloneManager.health = health;
         cloneManager.isShootingStart = true;
+    }
+
+    private void DropBuff(Transform buffType) {
+        Transform buff = Instantiate(buffType, transform.position, Quaternion.identity);
+        StartCoroutine(buffMove(buff));
+    }
+
+    IEnumerator buffMove(Transform buff) {
+        float angle = Random.Range(225f, 315f);
+        Vector2 buffSize = buff.GetComponent<BoxCollider2D>().size;
+
+        float speed = 10f, acceleration = -4f;     // Forgive me father for i have sinned
+        while (speed > 0) {
+            Vector2 direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)).normalized;
+            buff.Translate(direction * speed * Time.deltaTime);
+            
+            if (buff.position.x - buffSize.x / 2 < -screenBounds.x ||
+                buff.position.x + buffSize.x / 2 > screenBounds.x || 
+                buff.position.y + buffSize.y / 2 < -screenBounds.y) 
+            {
+                angle = 2 * 270 - angle;
+            }
+
+            speed += acceleration * Time.deltaTime;
+
+            yield return null;
+        }
     }
 
 }

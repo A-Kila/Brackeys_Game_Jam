@@ -304,7 +304,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 1
-  ProjectileScale: 1
   Projectile: {fileID: 3987110878244775676, guid: 24a558760e8cc1844b82a81854d060cb,
     type: 3}
   TargetMarker: {fileID: 4933579623135033412, guid: 80c271845bf2188418476eaddc500b19,
@@ -471,7 +470,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 1
-  ProjectileScale: 1
   Projectile: {fileID: 3987110878244775676, guid: 24a558760e8cc1844b82a81854d060cb,
     type: 3}
   TargetMarker: {fileID: 4933579623135033412, guid: 80c271845bf2188418476eaddc500b19,
@@ -638,7 +636,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 1
-  ProjectileScale: 1
   Projectile: {fileID: 3987110878244775676, guid: 24a558760e8cc1844b82a81854d060cb,
     type: 3}
   TargetMarker: {fileID: 4933579623135033412, guid: 80c271845bf2188418476eaddc500b19,
@@ -873,6 +870,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TestEnemyHolder
+      objectReference: {fileID: 0}
+    - target: {fileID: 673282556063517190, guid: 60aeea9a7ad99dc499a795fe58d7984f,
+        type: 3}
+      propertyPath: healthBuffDropChance
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60aeea9a7ad99dc499a795fe58d7984f, type: 3}
