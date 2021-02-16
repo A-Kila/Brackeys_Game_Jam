@@ -98,7 +98,7 @@ public class ShootProjectile : MonoBehaviour
             Vector2 dir = (TargetLoc - (Vector2)transform.position).normalized;
             creatProjectile(dir);
         }else if(targetIsSet && targetIsEntity) {
-            Vector2 dir = estDir();
+            Vector2 dir = estDir().normalized;
             creatProjectile(dir);
         }else {
             foreach (Vector2 dir in shootDirecitons)
@@ -106,17 +106,39 @@ public class ShootProjectile : MonoBehaviour
         }
     }
 
+
     private Vector2 estDir()
     {
-        Vector2 difVector = (targetEntity.transform.position - transform.position);
-        Vector2 targetDir = (targetEntity.GetComponent<CellMovement>().moveTowards - (Vector2)targetEntity.transform.position).normalized;
-        float timePassed = difVector.x / (difVector.normalized.x * GetComponent<CellManager>().speed);
-        Vector2 vecSum = difVector + targetDir*timePassed*
-            Mathf.Pow(targetEntity.GetComponent<CellMovement>().speed, 2) * Time.deltaTime;
-        
-        vecSum = vecSum.normalized;
-        return vecSum;
+        Vector2 difPos = (targetEntity.transform.position - transform.position);
+        Vector2 enemyDir = (targetEntity.GetComponent<CellMovement>().moveTowards - (Vector2)targetEntity.transform.position).normalized;
+        Vector2 thisDir = (GetComponent<CellMovement>().moveTowards - (Vector2)transform.position).normalized;
+        Vector2 difVel = enemyDir*targetEntity.GetComponent<CellMovement>().speed
+            - thisDir*GetComponent<CellMovement>().speed;
+
+        float a = difVel.SqrMagnitude() - Mathf.Pow(Projectile.gameObject.GetComponent<ProjectileManager>().speed, 2);
+        float b = 2f*Vector2.Dot(difVel, difPos);
+        float c = difPos.SqrMagnitude();
+
+        float det = Mathf.Pow(b, 2) - 4f * a * c;
+
+        float time = 0;
+
+        if (det < 0)
+        {
+           time = Mathf.Abs(-b/(2f * a));
+
+        }
+        else
+        {
+            float sqrt = Mathf.Sqrt(det);
+            float x1 = (-b - sqrt) / (2f * a);
+            time = x1;
+
+        }
+        Vector2 dir = (Vector2)targetEntity.transform.position + enemyDir * time * targetEntity.GetComponent<CellMovement>().speed - (Vector2)transform.position;
+        return dir;
     }
+
 
     private void creatProjectile(Vector2 dir)
     {
