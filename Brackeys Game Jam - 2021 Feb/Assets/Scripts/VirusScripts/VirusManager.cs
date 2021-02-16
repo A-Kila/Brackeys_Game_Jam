@@ -21,7 +21,9 @@ public class VirusManager : MonoBehaviour {
 
     private CellMovement movement;
     private Health health;
-    private Vector2[] waypoints;
+
+    [HideInInspector]
+    public Vector2[] waypoints;
     private ShootProjectile projectiles;
     private Vector2 screenBounds;
 

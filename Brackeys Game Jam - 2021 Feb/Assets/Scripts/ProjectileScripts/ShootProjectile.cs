@@ -97,7 +97,9 @@ public class ShootProjectile : MonoBehaviour
             Vector2 dir = (TargetLoc - (Vector2)transform.position).normalized;
             creatProjectile(dir);
         }else if(targetIsSet && targetIsEntity) {
-            Vector2 dir = estDir().normalized;
+            Vector2 dir = (estDir(transform.position, targetEntity.transform.position,
+                targetEntity.GetComponent<CellMovement>().moveTowards, 
+                targetEntity.GetComponent<CellMovement>().speed, Projectile.gameObject.GetComponent<ProjectileManager>().speed, 0) - (Vector2)transform.position).normalized;
             creatProjectile(dir);
         }else {
             foreach (Vector2 dir in shootDirecitons)
@@ -106,16 +108,15 @@ public class ShootProjectile : MonoBehaviour
     }
 
 
-    private Vector2 estDir()
+    private Vector2 estDir(Vector2 thisPos, Vector2 enemyPos, Vector2 enemyDes, float enemySpeed, float thisSpeed, float disFromThis)
     {
-        Vector2 difPos = (targetEntity.transform.position - transform.position);
-        Vector2 enemyDir = (targetEntity.GetComponent<CellMovement>().moveTowards - (Vector2)targetEntity.transform.position).normalized;
-      //  Vector2 thisDir = (GetComponent<CellMovement>().moveTowards - (Vector2)transform.position).normalized;
-        Vector2 difVel = enemyDir*targetEntity.GetComponent<CellMovement>().speed;
+        Vector2 difPos = (enemyPos - thisPos);
+        Vector2 enemyDir = (enemyDes - enemyPos).normalized;
+        Vector2 difVel = enemyDir* enemySpeed;
 
-        float a = difVel.SqrMagnitude() - Mathf.Pow(Projectile.gameObject.GetComponent<ProjectileManager>().speed, 2);
-        float b = 2f*Vector2.Dot(difVel, difPos);
-        float c = difPos.SqrMagnitude();
+        float a = difVel.SqrMagnitude() - Mathf.Pow(thisSpeed, 2);
+        float b = 2f*Vector2.Dot(difVel, difPos) - 2f*thisSpeed* disFromThis;
+        float c = difPos.SqrMagnitude() - Mathf.Pow(disFromThis, 2);
 
         float det = Mathf.Pow(b, 2) - 4f * a * c;
 
@@ -141,8 +142,14 @@ public class ShootProjectile : MonoBehaviour
             else time = Mathf.Min(x1, x2);
 
         }
-        Vector2 dir = (Vector2)targetEntity.transform.position + enemyDir * time * targetEntity.GetComponent<CellMovement>().speed - (Vector2)transform.position;
-        return dir;
+        Vector2 estEnemyLoc = enemyPos + enemyDir * time * enemySpeed;
+        VirusManager vm = targetEntity.GetComponent<VirusManager>();
+        if ((enemyDes - enemyPos).magnitude < (estEnemyLoc - enemyPos).magnitude)
+        {
+            float timePassed = (enemyDes - enemyPos).magnitude / enemySpeed;
+            estEnemyLoc = estDir(thisPos, enemyDes, vm.waypoints[(vm.waypointIndex + 1) % vm.waypoints.Length], enemySpeed, thisSpeed, thisSpeed*timePassed);
+        }
+        return estEnemyLoc;
     }
 
 
