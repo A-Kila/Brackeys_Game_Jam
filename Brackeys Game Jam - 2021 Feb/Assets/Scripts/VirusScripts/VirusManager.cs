@@ -141,12 +141,13 @@ public class VirusManager : MonoBehaviour {
         StartCoroutine(buffMove(buff));
     }
 
-    IEnumerator buffMove(Transform buff) {
+    IEnumerator buffMove(Transform buff) { 
         float angle = Random.Range(225f, 315f);
         Vector2 buffSize = buff.GetComponent<BoxCollider2D>().size;
 
         float speed = 10f, acceleration = -4f;     // Forgive me father for i have sinned
         while (speed > 0) {
+            if (buff == null) yield break;
             Vector2 direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)).normalized;
             buff.Translate(direction * speed * Time.deltaTime);
             
