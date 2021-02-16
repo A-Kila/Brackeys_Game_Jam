@@ -52,6 +52,7 @@ public class SelectHandler : MonoBehaviour
 
             foreach(CellGroupManager cgm in selectedCellGroups) //deselects previously selected cells
             {
+                if (cgm == null) continue;
                 cgm.DeselectGroup();
             }
 
@@ -80,6 +81,7 @@ public class SelectHandler : MonoBehaviour
         CellGroupManager firstGroup = null;
         foreach(CellGroupManager cgm in selectedCellGroups)
         {
+            if (cgm == null) continue;
             if (firstGroup == null) firstGroup = cgm;
             else firstGroup.Merge(cgm);
         }
@@ -91,6 +93,7 @@ public class SelectHandler : MonoBehaviour
     {
         foreach (CellGroupManager cgm in selectedCellGroups)
         {
+            if (cgm == null) continue;
             if (cgm.GetComponent<Transform>().childCount < 2) continue;
             cgm.Divide();
         }

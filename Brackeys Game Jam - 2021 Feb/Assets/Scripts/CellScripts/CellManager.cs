@@ -32,10 +32,11 @@ public class CellManager : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D collider) {
-        if (collider.tag == "Enemy") { 
+        if (collider.tag == "Enemy") {
+            Debug.Log(1);
             ProjectileManager projectile = collider.GetComponent<ProjectileManager>();
-            health.DamageHealth(projectile.damage);
             lastVirusThatHit = projectile.parentObj;
+            health.DamageHealth(projectile.damage);
             // Animation
             Destroy(collider.gameObject);
         }
@@ -90,9 +91,11 @@ public class CellManager : MonoBehaviour {
     }
 
     private void PlayerDeath() {
-        Destroy(gameObject);
         lastVirusThatHit.GetComponent<VirusManager>().cellsKilled++;
         // Animation
         health.onPlayerDeath -= PlayerDeath;
+
+        if (transform.parent.childCount == 1) Destroy(transform.parent.gameObject);
+        Destroy(gameObject);
     }
 }
