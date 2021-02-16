@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e650057287df2c41bec4c86010f83c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EmptyCellGroup: {fileID: 1541985724253340085, guid: 32eeae4eeaabc6841b00f9bf6f09fdaf,
+    type: 3}
 --- !u!1 &5920899596002820146
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,6 +195,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a32374b1d738954487202b78a9f1260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
+  moveTowards: {x: 0, y: 0}
 --- !u!114 &5920899596002820154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,7 +210,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 1
-  ProjectileScale: 1
   Projectile: {fileID: 3987110878244775676, guid: 24a558760e8cc1844b82a81854d060cb,
     type: 3}
   TargetMarker: {fileID: 4933579623135033412, guid: 80c271845bf2188418476eaddc500b19,

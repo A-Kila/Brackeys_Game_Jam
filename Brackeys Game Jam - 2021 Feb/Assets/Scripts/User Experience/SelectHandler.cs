@@ -6,11 +6,14 @@ public class SelectHandler : MonoBehaviour
 {
     [HideInInspector]
     public HashSet<CellGroupManager> selectedCellGroups;
+    [HideInInspector]
+    public HashSet<CellGroupManager> dividedCellGroups;
+    [HideInInspector]
+    public List<Color> colors;
 
     [SerializeField]
     private Transform SelectionArea;
 
-    private List<Color> colors;
     private Vector3 startPos;
     private GameObject currSelectionArea;
     private bool pressed;
@@ -18,8 +21,9 @@ public class SelectHandler : MonoBehaviour
     void Start()
     {
         selectedCellGroups = new HashSet<CellGroupManager>();
+        dividedCellGroups = new HashSet<CellGroupManager>();
         pressed = false;
-        colors = new List<Color> { Color.red, Color.yellow, Color.cyan };
+        colors = new List<Color> { Color.red, Color.yellow, Color.cyan, Color.blue, Color.grey, Color.black, Color.white };
     }
 
     // Update is called once per frame
@@ -68,6 +72,7 @@ public class SelectHandler : MonoBehaviour
             }
         }
         if (Input.GetKeyDown(KeyCode.E)) combineSelectedGroups();
+        if (Input.GetKeyDown(KeyCode.R)) divideSelectedGroups();
     }
     private void combineSelectedGroups()
     {
@@ -80,5 +85,17 @@ public class SelectHandler : MonoBehaviour
         }
         selectedCellGroups.Clear();
         selectedCellGroups.Add(firstGroup);
+    }
+
+    private void divideSelectedGroups()
+    {
+        foreach (CellGroupManager cgm in selectedCellGroups)
+        {
+            if (cgm.GetComponent<Transform>().childCount < 2) continue;
+            cgm.Divide();
+        }
+        foreach (CellGroupManager cgm in dividedCellGroups)
+            selectedCellGroups.Add(cgm);
+        dividedCellGroups.Clear();
     }
 }

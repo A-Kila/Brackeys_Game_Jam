@@ -110,9 +110,8 @@ public class ShootProjectile : MonoBehaviour
     {
         Vector2 difPos = (targetEntity.transform.position - transform.position);
         Vector2 enemyDir = (targetEntity.GetComponent<CellMovement>().moveTowards - (Vector2)targetEntity.transform.position).normalized;
-        Vector2 thisDir = (GetComponent<CellMovement>().moveTowards - (Vector2)transform.position).normalized;
-        Vector2 difVel = enemyDir*targetEntity.GetComponent<CellMovement>().speed
-            - thisDir*GetComponent<CellMovement>().speed;
+      //  Vector2 thisDir = (GetComponent<CellMovement>().moveTowards - (Vector2)transform.position).normalized;
+        Vector2 difVel = enemyDir*targetEntity.GetComponent<CellMovement>().speed;
 
         float a = difVel.SqrMagnitude() - Mathf.Pow(Projectile.gameObject.GetComponent<ProjectileManager>().speed, 2);
         float b = 2f*Vector2.Dot(difVel, difPos);
@@ -122,16 +121,24 @@ public class ShootProjectile : MonoBehaviour
 
         float time = 0;
 
-        if (det < 0)
+        if (det < 0.1f)
         {
-           time = Mathf.Abs(-b/(2f * a));
-
+            time = Mathf.Abs(-b/(2f * a));
         }
         else
         {
             float sqrt = Mathf.Sqrt(det);
             float x1 = (-b - sqrt) / (2f * a);
-            time = x1;
+            float x2 = (-b + sqrt) / (2f * a);
+            if(x2 < 0.1f)
+            {
+                if (x1 < 0.1f)
+                {
+                    time = Mathf.Abs(-b / (2f * a));
+                }
+                else time = x1;
+            }
+            else time = Mathf.Min(x1, x2);
 
         }
         Vector2 dir = (Vector2)targetEntity.transform.position + enemyDir * time * targetEntity.GetComponent<CellMovement>().speed - (Vector2)transform.position;
