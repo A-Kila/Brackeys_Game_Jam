@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CellGroupManager : MonoBehaviour
 {
+    public Transform EmptyCellGroup;
     private Color currColor;
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,22 @@ public class CellGroupManager : MonoBehaviour
         
     }
 
+    public void Divide()
+    {
+        Transform newGroup = Instantiate(EmptyCellGroup, transform.position, Quaternion.identity);
+        int count = transform.childCount / 2;
+        for (int i = 0; i < count; ++i)
+        {
+            Transform child = transform.GetChild(0);
+            child.SetParent(newGroup);
+        }
+        SelectHandler sh = FindObjectOfType<SelectHandler>();
+        List<Color> colors = sh.colors;
+        CellGroupManager newCellGroupManager = newGroup.GetComponent<CellGroupManager>();
+        sh.dividedCellGroups.Add(newCellGroupManager);
+        newCellGroupManager.EmptyCellGroup = EmptyCellGroup;
+        newCellGroupManager.SelectGroup(colors[(sh.selectedCellGroups.Count + sh.dividedCellGroups.Count - 1) % colors.Count]);
+    }
     public void Merge(CellGroupManager other)
     {
         if (other == this) return;
