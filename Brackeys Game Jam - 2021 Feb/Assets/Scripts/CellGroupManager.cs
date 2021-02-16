@@ -23,9 +23,18 @@ public class CellGroupManager : MonoBehaviour
         other.SelectGroup(currColor);
         for (int i = 0; i < other.transform.childCount;)
         {
-            other.transform.GetChild(i).SetParent(transform);
+            Transform child = other.transform.GetChild(i);
+            child.SetParent(transform);
+            child.GetComponent<ShootProjectile>().stopShooting();
+            child.GetComponent<ShootProjectile>().deleteTarget();
         }
         Destroy(other.gameObject);
+
+        for(int i = 0; i < transform.childCount; ++i)
+        {
+            transform.GetChild(i).GetComponent<ShootProjectile>().stopShooting();
+            transform.GetChild(i).GetComponent<ShootProjectile>().deleteTarget();
+        }
     }
 
     public void SelectGroup(Color color)

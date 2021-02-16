@@ -58,9 +58,14 @@ public class CellManager : MonoBehaviour {
     }
 
     private void ShootOnMouseClick() {
+        if (!selected) return;
         if (Input.GetKeyDown(KeyCode.Space)) {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            projectile.setTarget(new Vector3(mousePos.x, mousePos.y, 0));
+            Collider2D[] targetCollider = Physics2D.OverlapAreaAll(mousePos, mousePos);
+            if (targetCollider.Length == 0)
+                projectile.setTarget(new Vector3(mousePos.x, mousePos.y, 0));
+            else
+                projectile.setTarget(targetCollider[0].gameObject);
         }
         if (Input.GetKeyDown(KeyCode.Q)) {
             projectile.startShooting();

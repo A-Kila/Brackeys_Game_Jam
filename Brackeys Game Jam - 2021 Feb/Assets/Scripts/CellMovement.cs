@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 
 public class CellMovement : MonoBehaviour {
-	
-    private float speed;
+
+    [HideInInspector]
+    public float speed;
     private Rigidbody2D rb;
 
-    private Vector2 moveTowards;
+    [HideInInspector]
+    public Vector2 moveTowards;
     private float halfWidth, halfHeight, halfRBRadius;
 
     void Start() {
