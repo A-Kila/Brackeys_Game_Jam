@@ -43,6 +43,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: TileMap
+    uniqueID: 3574561613
+    locked: 0
   - name: Projectile
     uniqueID: 2036474487
     locked: 0
