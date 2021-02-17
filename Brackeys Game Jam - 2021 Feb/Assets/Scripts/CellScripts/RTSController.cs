@@ -9,7 +9,6 @@ public class RTSController : MonoBehaviour {
     private Camera gameCamera;
 
     void Start() {
-        selectedCellGroups = GetComponent<SelectHandler>().selectedCellGroups;
         gameCamera = Camera.main;
     }
 
