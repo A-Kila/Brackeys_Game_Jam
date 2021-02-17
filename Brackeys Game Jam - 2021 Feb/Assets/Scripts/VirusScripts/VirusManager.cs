@@ -103,16 +103,6 @@ public class VirusManager : MonoBehaviour {
         }
     }
 
-    void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.collider.tag == "Friendly" || collision.collider.tag == "Neutral")
-        {
-            // Animation
-            collision.collider.gameObject.GetComponent<CellManager>().health.DamageHealth(collisionDamage);
-            cellsKilled++;
-        }
-    }
-
     private void slowDown(int i)
     {
         float newSpeed = speed / ((float)i/ collisionNeeded);

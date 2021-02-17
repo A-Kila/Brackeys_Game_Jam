@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 325892568870417397}
   - component: {fileID: 325892568870417400}
   - component: {fileID: 325892568870417403}
+  - component: {fileID: 7075039329312807200}
   m_Layer: 0
   m_Name: ExplosiveCell
   m_TagString: Friendly
@@ -151,6 +152,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   moveTowards: {x: 0, y: 0}
+--- !u!114 &7075039329312807200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325892568870417398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4640fc5d4d656cf4184a933d62f362d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100
+  radiusOfExplosion: 5
+  speedMultiply: 2
 --- !u!1 &325892569145953142
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,7 +191,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 325892569145953142}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.2106063, y: -12.3700485, z: 45.4686}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -195,5 +211,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e650057287df2c41bec4c86010f83c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EmptyCellGroup: {fileID: 0}
+  EmptyCellGroup: {fileID: 163274496204004089, guid: 71c569dafe2ce1b45a94beff6496e3ae,
+    type: 3}
   type: 2
