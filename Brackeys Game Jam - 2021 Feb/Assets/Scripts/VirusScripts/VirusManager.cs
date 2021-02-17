@@ -27,7 +27,8 @@ public class VirusManager : MonoBehaviour {
 
     private CellMovement movement;
     private Rigidbody2D rb;
-    private Health health;
+    [HideInInspector]
+    public Health health;
     private ShootProjectile projectiles;
     private Vector2 screenBounds;
 

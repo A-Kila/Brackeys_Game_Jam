@@ -9,6 +9,8 @@ public class SelectHandler : MonoBehaviour
     [HideInInspector]
     public List<LockInPlace> selectedAntibodys;
     [HideInInspector]
+    public List<ExplosionHandler> selectedExplosiveCells;
+    [HideInInspector]
     public HashSet<CellGroupManager> dividedCellGroups;
     [HideInInspector]
     public List<Color> colors;
@@ -129,6 +131,7 @@ public class SelectHandler : MonoBehaviour
         }
 
         selectedAntibodys.Clear();
+        selectedExplosiveCells.Clear();
         selectedCellGroups.Clear();
     }
     private void select(Vector2 currPos)

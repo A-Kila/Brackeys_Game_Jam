@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CellGroupManager : MonoBehaviour
 {
-    public enum cellType {cell, antibody };
+    public enum cellType {cell, antibody, explosiveCell };
 
     public Transform EmptyCellGroup;
     public cellType type; 
@@ -64,7 +64,9 @@ public class CellGroupManager : MonoBehaviour
         {
             Transform child = transform.GetChild(i);
             LockInPlace lip = child.GetComponent<LockInPlace>();
+            ExplosionHandler eh = child.GetComponent<ExplosionHandler>();
             if (!reselect && lip != null) sh.selectedAntibodys.Add(lip);
+            if (!reselect && eh != null) sh.selectedExplosiveCells.Add(eh);
            child.GetComponent<CellManager>().Select(color);
         }
     }
