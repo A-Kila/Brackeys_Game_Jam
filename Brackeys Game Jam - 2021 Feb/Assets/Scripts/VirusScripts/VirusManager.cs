@@ -139,30 +139,6 @@ public class VirusManager : MonoBehaviour {
 
     private void DropBuff(Transform buffType) {
         Transform buff = Instantiate(buffType, transform.position, Quaternion.identity);
-        StartCoroutine(buffMove(buff));
-    }
-
-    IEnumerator buffMove(Transform buff) { 
-        float angle = Random.Range(225f, 315f);
-        Vector2 buffSize = buff.GetComponent<BoxCollider2D>().size;
-
-        float speed = 10f, acceleration = -4f;     // Forgive me father for i have sinned
-        while (speed > 0) {
-            if (buff == null) yield break;
-            Vector2 direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)).normalized;
-            buff.Translate(direction * speed * Time.deltaTime);
-            
-            if (buff.position.x - buffSize.x / 2 < -screenBounds.x ||
-                buff.position.x + buffSize.x / 2 > screenBounds.x || 
-                buff.position.y + buffSize.y / 2 < -screenBounds.y) 
-            {
-                angle = 2 * 270 - angle;
-            }
-
-            speed += acceleration * Time.deltaTime;
-
-            yield return null;
-        }
     }
 
 }
