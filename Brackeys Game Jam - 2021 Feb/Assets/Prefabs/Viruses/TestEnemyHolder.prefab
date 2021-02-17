@@ -230,8 +230,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -371764941
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 82a27af0c18c52e49a4579d58fbed293, type: 3}
   m_Color: {r: 0.7830189, g: 0, b: 0, a: 1}
@@ -303,6 +303,7 @@ MonoBehaviour:
   cellsKilled: 0
   waypointIndex: 0
   isShootingStart: 0
+  waypoints: []
 --- !u!114 &673282556063517191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,6 +316,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a32374b1d738954487202b78a9f1260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
+  moveTowards: {x: 0, y: 0}
 --- !u!114 &673282556063517184
 MonoBehaviour:
   m_ObjectHideFlags: 0
