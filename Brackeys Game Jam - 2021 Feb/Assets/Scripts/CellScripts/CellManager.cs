@@ -27,7 +27,6 @@ public class CellManager : MonoBehaviour {
     }
 
     void Update() {
-        MoveCell();
         ShootOnMouseClick();
     }
 
@@ -78,14 +77,6 @@ public class CellManager : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.W)) {
             projectile.stopShooting();
-        }
-    }
-
-    private void MoveCell() {
-        if (!selected) return;
-        if (Input.GetMouseButtonDown(1)) {
-            Vector2 posOnWorldMap = gameCamera.ScreenToWorldPoint(Input.mousePosition);
-            movement.MoveLocation(posOnWorldMap);
         }
     }
 

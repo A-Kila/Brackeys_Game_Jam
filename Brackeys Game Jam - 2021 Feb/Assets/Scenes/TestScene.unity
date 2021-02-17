@@ -131,6 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 310640610}
   - component: {fileID: 310640609}
+  - component: {fileID: 310640611}
   m_Layer: 0
   m_Name: SelectHandlerObject
   m_TagString: Untagged
@@ -167,6 +168,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &310640611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310640608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fb4b18dd19d7da469802221a5cb3e68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceBetweenCircles: 1
 --- !u!4 &349790981 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5920899595190614195, guid: 90f60504770ddb64ba7048c3d5a24b2a,
