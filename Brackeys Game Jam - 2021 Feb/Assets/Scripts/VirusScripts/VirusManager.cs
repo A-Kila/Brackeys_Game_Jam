@@ -4,6 +4,7 @@ using UnityEngine;
 public class VirusManager : MonoBehaviour {
 	
     public float speed = 15f;
+    public float collisionNeeded = 5f;
     public int collisionDamage = 100;
     public int healthAmount = 100;
     [Range(0f, 1f)]
@@ -21,8 +22,11 @@ public class VirusManager : MonoBehaviour {
     public bool isShootingStart = false;
     [HideInInspector]
     public Vector2[] waypoints;
+    [HideInInspector]
+    public int colliderCount = 0;
 
     private CellMovement movement;
+    private Rigidbody2D rb;
     private Health health;
     private ShootProjectile projectiles;
     private Vector2 screenBounds;
@@ -53,13 +57,14 @@ public class VirusManager : MonoBehaviour {
         projectiles = gameObject.GetComponent<ShootProjectile>();
 
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
+        rb = GetComponent<Rigidbody2D>();
     }
     
     private bool isVirusShooting = false;
-    void Update() {
+    void FixedUpdate() {
+        if (colliderCount != 0) slowDown(colliderCount);
         MoveCell();
-
-        if (!isShootingStart && (Vector2)transform.position == waypoints[0])
+        if (!isShootingStart && waypointIndex > 0)
             isShootingStart = true;
 
         if (!isVirusShooting && isShootingStart) {
@@ -68,7 +73,7 @@ public class VirusManager : MonoBehaviour {
         }
 
         if (cellsKilled >= 10) { 
-            Duplicate(); 
+          //  Duplicate(); 
             cellsKilled -= 10;
         }
     }
@@ -88,20 +93,42 @@ public class VirusManager : MonoBehaviour {
         }
     }
 
+   
+
     void OnCollisionEnter2D(Collision2D collision) {
         if (collision.collider.tag == "Friendly" || collision.collider.tag == "Neutral") {
+            // Animation
+            collision.collider.gameObject.GetComponent<CellManager>().health.DamageHealth(collisionDamage);
+        }
+    }
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Friendly" || collision.collider.tag == "Neutral")
+        {
             // Animation
             collision.collider.gameObject.GetComponent<CellManager>().health.DamageHealth(collisionDamage);
             cellsKilled++;
         }
     }
 
+    private void slowDown(int i)
+    {
+        float newSpeed = speed / ((float)i/ collisionNeeded);
+        if (newSpeed > speed) newSpeed = speed;
+        Debug.Log(newSpeed);
+            movement.SetSpeed(newSpeed);
+    }
+
     private void MoveCell() {
         Vector2 nextPos = waypoints[waypointIndex];
         movement.MoveLocation(nextPos);
-        if ((Vector2)transform.position == nextPos)
+        if ((float)rb.position.x - (float)nextPos.x < 0.01f && (float)rb.position.y - (float)nextPos.y < 0.01f)
+        {
+           
             if (isClockwizeMove) waypointIndex = (waypointIndex + 1) % waypoints.Length;
-            else waypointIndex = (waypointIndex - 1 < 0) ? waypoints.Length - 1: waypointIndex - 1;
+            else waypointIndex = (waypointIndex - 1 < 0) ? waypoints.Length - 1 : waypointIndex - 1;
+        }
     }
 
     private void PlayerDeath() {

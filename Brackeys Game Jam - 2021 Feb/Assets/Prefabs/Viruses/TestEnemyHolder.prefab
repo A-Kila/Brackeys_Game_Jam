@@ -294,8 +294,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  collisionNeeded: 5
+  collisionDamage: 1
   healthAmount: 10
-  healthBuffDropChance: 0.1
+  healthBuffDropChance: 1
   path: {fileID: 673282555999753009}
   healthBuff: {fileID: 7302859984504575237, guid: cbc79ccfda93285469fcb8a6aaf0cfde,
     type: 3}
@@ -304,6 +306,7 @@ MonoBehaviour:
   waypointIndex: 0
   isShootingStart: 0
   waypoints: []
+  colliderCount: 0
 --- !u!114 &673282556063517191
 MonoBehaviour:
   m_ObjectHideFlags: 0

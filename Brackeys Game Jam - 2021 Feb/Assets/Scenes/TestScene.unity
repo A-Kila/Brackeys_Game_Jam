@@ -4882,6 +4882,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestEnemyHolder
       objectReference: {fileID: 0}
+    - target: {fileID: 673282556063517186, guid: 60aeea9a7ad99dc499a795fe58d7984f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 673282556063517189, guid: 60aeea9a7ad99dc499a795fe58d7984f,
+        type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 673282556063517189, guid: 60aeea9a7ad99dc499a795fe58d7984f,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 673282556063517190, guid: 60aeea9a7ad99dc499a795fe58d7984f,
+        type: 3}
+      propertyPath: collisionDamage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 673282556063517190, guid: 60aeea9a7ad99dc499a795fe58d7984f,
         type: 3}
       propertyPath: healthBuffDropChance
