@@ -63,7 +63,7 @@ public class VirusManager : MonoBehaviour {
     private bool isVirusShooting = false;
     void FixedUpdate() {
         if (colliderCount != 0) slowDown(colliderCount);
-        MoveCell();
+            MoveCell();
         if (!isShootingStart && waypointIndex > 0)
             isShootingStart = true;
 
