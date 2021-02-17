@@ -27,7 +27,8 @@ public class VirusManager : MonoBehaviour {
 
     private CellMovement movement;
     private Rigidbody2D rb;
-    private Health health;
+    [HideInInspector]
+    public Health health;
     private ShootProjectile projectiles;
     private Vector2 screenBounds;
 
@@ -73,7 +74,7 @@ public class VirusManager : MonoBehaviour {
         }
 
         if (cellsKilled >= 10) { 
-          //  Duplicate(); 
+            Duplicate(); 
             cellsKilled -= 10;
         }
     }
@@ -99,16 +100,6 @@ public class VirusManager : MonoBehaviour {
         if (collision.collider.tag == "Friendly" || collision.collider.tag == "Neutral") {
             // Animation
             collision.collider.gameObject.GetComponent<CellManager>().health.DamageHealth(collisionDamage);
-        }
-    }
-
-    void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.collider.tag == "Friendly" || collision.collider.tag == "Neutral")
-        {
-            // Animation
-            collision.collider.gameObject.GetComponent<CellManager>().health.DamageHealth(collisionDamage);
-            cellsKilled++;
         }
     }
 

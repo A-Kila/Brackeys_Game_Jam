@@ -7,6 +7,7 @@ public class RTSController : MonoBehaviour {
 
     private HashSet<CellGroupManager> selectedCellGroups;
     private List<LockInPlace> selectedAntibodys;
+    private List<ExplosionHandler> selectedExplosiveCells;
     private Camera gameCamera;
 
     void Start() {
@@ -16,8 +17,29 @@ public class RTSController : MonoBehaviour {
     void Update() {
         moveControl();
         lockControl();
+        explosiveCellControl();
     }
 
+    private void explosiveCellControl()
+    {
+        selectedExplosiveCells = GetComponent<SelectHandler>().selectedExplosiveCells;
+        if (selectedAntibodys == null) return;
+        if (Input.GetKeyDown(MyInput.targetSelect))
+        {
+            GameObject target = null;
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Collider2D[] targetCollider = Physics2D.OverlapAreaAll(mousePos, mousePos);
+            if (targetCollider.Length != 0)
+            {
+                target = targetCollider[0].gameObject;
+                if(target.tag == "Enemy")
+                foreach(ExplosionHandler eh in selectedExplosiveCells)
+                {
+                    eh.setTarget(target);
+                }
+            }
+        }
+    }
     private void lockControl()
     {
         selectedAntibodys = GetComponent<SelectHandler>().selectedAntibodys;
@@ -66,13 +88,14 @@ public class RTSController : MonoBehaviour {
 
             int numCells = 0;
             foreach (CellGroupManager cellGroup in selectedCellGroups)
-                numCells += cellGroup.transform.childCount;
+                if(cellGroup != null)numCells += cellGroup.transform.childCount;
 
             List<Vector2> positions = GetPositionCircle(posOnWorldMap, numCells, distanceBetweenCircles);
 
             int listIndex = 0;
             foreach (CellGroupManager cellGroup in selectedCellGroups)
             {
+                if (cellGroup == null) continue;
                 foreach (Transform child in cellGroup.transform)
                 {
                     CellMovement childMovement = child.GetComponent<CellMovement>();

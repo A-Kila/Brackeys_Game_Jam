@@ -15,6 +15,8 @@ public class CellManager : MonoBehaviour {
     public System.Action deSelectFuncs;
     [HideInInspector]
     public System.Action stopActionsFuncs;
+    [HideInInspector]
+    public System.Action onPlayerDeathFuncs;
 
     private CellMovement movement;
     private GameObject lastVirusThatHit;
@@ -58,12 +60,13 @@ public class CellManager : MonoBehaviour {
     }
 
 
-    private void PlayerDeath() {
+    public void PlayerDeath() {
         if(lastVirusThatHit != null) lastVirusThatHit.GetComponent<VirusManager>().cellsKilled++;
         // Animation
         health.onPlayerDeath -= PlayerDeath;
 
         if (transform.parent.childCount == 1) Destroy(transform.parent.gameObject);
         Destroy(gameObject);
+        if (onPlayerDeathFuncs != null) onPlayerDeathFuncs();
     }
 }

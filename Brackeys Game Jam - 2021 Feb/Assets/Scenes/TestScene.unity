@@ -303,6 +303,81 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &280614390
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1625293350}
+    m_Modifications:
+    - target: {fileID: 325892569145953142, guid: cd57f38f15a770947be9118b4fcbf872,
+        type: 3}
+      propertyPath: m_Name
+      value: 'TestExplosiveCellGroup '
+      objectReference: {fileID: 0}
+    - target: {fileID: 325892569145953143, guid: cd57f38f15a770947be9118b4fcbf872,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 325892569145953143, guid: cd57f38f15a770947be9118b4fcbf872,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 325892569145953143, guid: cd57f38f15a770947be9118b4fcbf872,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -12.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 325892569145953143, guid: cd57f38f15a770947be9118b4fcbf872,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 45.4686
+      objectReference: {fileID: 0}
+    - target: {fileID: 325892569145953143, guid: cd57f38f15a770947be9118b4fcbf872,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 325892569145953143, guid: cd57f38f15a770947be9118b4fcbf872,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 325892569145953143, guid: cd57f38f15a770947be9118b4fcbf872,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 325892569145953143, guid: cd57f38f15a770947be9118b4fcbf872,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 325892569145953143, guid: cd57f38f15a770947be9118b4fcbf872,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 325892569145953143, guid: cd57f38f15a770947be9118b4fcbf872,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 325892569145953143, guid: cd57f38f15a770947be9118b4fcbf872,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cd57f38f15a770947be9118b4fcbf872, type: 3}
+--- !u!4 &280614391 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 325892569145953143, guid: cd57f38f15a770947be9118b4fcbf872,
+    type: 3}
+  m_PrefabInstance: {fileID: 280614390}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &310640608
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,6 +409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedAntibodys: []
+  selectedExplosiveCells: []
   colors: []
   SelectionArea: {fileID: 1321680891334434446, guid: e716b0614762a5c41aa9dd708a3dad95,
     type: 3}
@@ -7520,6 +7596,7 @@ Transform:
   m_Children:
   - {fileID: 5920899595538160567}
   - {fileID: 1473321661228656284}
+  - {fileID: 280614391}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
