@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class CellGroupManager : MonoBehaviour
 {
+    public enum cellType {cell, antibody };
+
     public Transform EmptyCellGroup;
+    public cellType type; 
     private Color currColor;
     private SelectHandler sh;
 
@@ -19,6 +22,7 @@ public class CellGroupManager : MonoBehaviour
     public void Divide()
     {
         Transform newGroup = Instantiate(EmptyCellGroup, transform.position, Quaternion.identity);
+        newGroup.SetParent(transform.parent);
         int count = transform.childCount / 2;
         for (int i = 0; i < count; ++i)
         {
@@ -30,12 +34,12 @@ public class CellGroupManager : MonoBehaviour
         CellGroupManager newCellGroupManager = newGroup.GetComponent<CellGroupManager>();
         sh.dividedCellGroups.Add(newCellGroupManager);
         newCellGroupManager.EmptyCellGroup = EmptyCellGroup;
-        newCellGroupManager.SelectGroup(colors[(sh.selectedCellGroups.Count + sh.dividedCellGroups.Count - 1) % colors.Count]);
+        newCellGroupManager.SelectGroup(colors[(sh.selectedCellGroups.Count + sh.dividedCellGroups.Count - 1) % colors.Count], true);
     }
     public void Merge(CellGroupManager other)
     {
         if (other == this) return;
-        other.SelectGroup(currColor);
+        other.SelectGroup(currColor, true);
         for (int i = 0; i < other.transform.childCount;)
         {
             Transform child = other.transform.GetChild(i);
@@ -53,14 +57,14 @@ public class CellGroupManager : MonoBehaviour
         }
     }
 
-    public void SelectGroup(Color color)
+    public void SelectGroup(Color color, bool reselect)
     {
         currColor = color;
         for (int i = 0; i < transform.childCount; ++i)
         {
             Transform child = transform.GetChild(i);
             LockInPlace lip = child.GetComponent<LockInPlace>();
-            if (lip != null) sh.selectedAntibodys.Add(lip);
+            if (!reselect && lip != null) sh.selectedAntibodys.Add(lip);
            child.GetComponent<CellManager>().Select(color);
         }
     }
