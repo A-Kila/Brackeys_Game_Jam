@@ -78,6 +78,7 @@ public class SelectHandler : MonoBehaviour
         if (selectedCellGroups.Count < 2) return;
         CellGroupManager firstTypeFirstGroup = null;
         CellGroupManager secondTypeFirstGroup = null;
+        CellGroupManager thirdTypeFirstGroup = null;
         foreach (CellGroupManager cgm in selectedCellGroups)
         {
             if (cgm == null) continue;
@@ -86,6 +87,9 @@ public class SelectHandler : MonoBehaviour
 
             if (secondTypeFirstGroup == null && cgm.type == CellGroupManager.cellType.antibody) secondTypeFirstGroup = cgm;
             else if (cgm.type == CellGroupManager.cellType.antibody) secondTypeFirstGroup.Merge(cgm);
+
+            if (thirdTypeFirstGroup == null && cgm.type == CellGroupManager.cellType.explosiveCell) thirdTypeFirstGroup = cgm;
+            else if (cgm.type == CellGroupManager.cellType.explosiveCell) thirdTypeFirstGroup.Merge(cgm);
         }
         selectedCellGroups.Clear();
        if (firstTypeFirstGroup != null) selectedCellGroups.Add(firstTypeFirstGroup);

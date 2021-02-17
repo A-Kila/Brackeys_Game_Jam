@@ -74,7 +74,7 @@ public class VirusManager : MonoBehaviour {
         }
 
         if (cellsKilled >= 10) { 
-          //  Duplicate(); 
+            Duplicate(); 
             cellsKilled -= 10;
         }
     }

@@ -49,7 +49,7 @@ public class Shooting : MonoBehaviour
 
             if (targetCollider.Length == 0)
                 projectile.setTarget(new Vector3(mousePos.x, mousePos.y, 0));
-            else
+            else if(targetCollider[0].gameObject.tag == "Enemy")
                 projectile.setTarget(targetCollider[0].gameObject);
 
         }

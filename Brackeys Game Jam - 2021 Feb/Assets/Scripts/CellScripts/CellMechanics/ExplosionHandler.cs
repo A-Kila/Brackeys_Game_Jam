@@ -46,12 +46,10 @@ public class ExplosionHandler : MonoBehaviour
             if (cm != null)
             {
                 cm.health.DamageHealth(damage);
-                Debug.Log(cm.gameObject.tag + " " + cm.health.health);
             }
             if (vm != null)
             {
                 vm.health.DamageHealth(damage);
-                Debug.Log(vm.gameObject.tag + " " + vm.health.health);
             }
         }
     }
