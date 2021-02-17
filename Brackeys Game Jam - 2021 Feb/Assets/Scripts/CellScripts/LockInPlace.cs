@@ -7,14 +7,13 @@ public class LockInPlace : MonoBehaviour
     // Start is called before the first frame update
     private GameObject target;
     private CellMovement cellMovement;
-    private CellManager cellManager;
+
 
     [HideInInspector]
     public Vector2 moveTowards;
     void Start()
     {
         cellMovement = GetComponent<CellMovement>();
-        cellManager = GetComponent<CellManager>();
         target = null;
     }
 
@@ -27,19 +26,24 @@ public class LockInPlace : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject == target)
+        if (collision.gameObject == target && collision.gameObject.tag == "Enemy")
             target.GetComponent<VirusManager>().colliderCount++;
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject == target)
+        if (collision.gameObject == target && collision.gameObject.tag == "Enemy")
             target.GetComponent<VirusManager>().colliderCount--;
     }
 
     public void selectTarget(GameObject target)
     {
         this.target = target;
+    }
+
+    public void removeTarget()
+    {
+        target = null;
     }
 }
 

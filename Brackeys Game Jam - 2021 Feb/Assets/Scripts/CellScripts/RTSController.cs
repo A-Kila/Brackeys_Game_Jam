@@ -35,17 +35,24 @@ public class RTSController : MonoBehaviour {
 
                 Vector2 center = target.transform.position;
                 int numCells = selectedAntibodys.Count;
-                float targetRad = target.transform.localScale.magnitude/2;
+                float targetRad = target.transform.localScale.magnitude / 2;
 
-                List <Vector2> positions = GetPositionCircleHelper(center, targetRad *4.0f / 10.0f, numCells);
+                List<Vector2> positions = GetPositionCircleHelper(center, targetRad * 4.0f / 10.0f, numCells);
                 int index = 0;
-                foreach(LockInPlace lip in selectedAntibodys)
+                foreach (LockInPlace lip in selectedAntibodys)
                 {
                     lip.selectTarget(target);
-                    lip.moveTowards = positions[index++] - (Vector2 )target.transform.position;
+                    lip.moveTowards = positions[index++] - (Vector2)target.transform.position;
                 }
-             
 
+            }
+            else
+            {
+                foreach(LockInPlace lip in selectedAntibodys)
+                {
+                    lip.removeTarget();
+                    lip.moveTowards = lip.gameObject.transform.position; 
+                }
             }
         }
     }
