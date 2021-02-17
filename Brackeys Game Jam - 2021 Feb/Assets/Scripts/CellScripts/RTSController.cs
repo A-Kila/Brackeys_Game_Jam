@@ -16,7 +16,7 @@ public class RTSController : MonoBehaviour {
         selectedCellGroups = GetComponent<SelectHandler>().selectedCellGroups;
         if (selectedCellGroups == null) return;
         
-        if (Input.GetMouseButtonDown(1)) {
+        if (Input.GetKeyDown(MyInput.move)) {
             Vector2 posOnWorldMap = gameCamera.ScreenToWorldPoint(Input.mousePosition);
             
             int numCells = 0;

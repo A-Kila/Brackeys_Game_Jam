@@ -30,7 +30,7 @@ public class SelectHandler : MonoBehaviour
     void Update()
     {
         Vector3 currPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(MyInput.select))
         {
             startPos = currPos;
             startPos.z = 0;
@@ -44,7 +44,7 @@ public class SelectHandler : MonoBehaviour
             currSelectionArea.transform.localScale = size;
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetKeyUp(MyInput.select))
         {
             Destroy(currSelectionArea);
             pressed = false;
@@ -72,8 +72,8 @@ public class SelectHandler : MonoBehaviour
                 cgm.SelectGroup(colors[groupNum++ % colors.Count]); //seting different color for different groups
             }
         }
-        if (Input.GetKeyDown(KeyCode.E)) combineSelectedGroups();
-        if (Input.GetKeyDown(KeyCode.R)) divideSelectedGroups();
+        if (Input.GetKeyDown(MyInput.combineGroups)) combineSelectedGroups();
+        if (Input.GetKeyDown(MyInput.divideGroups)) divideSelectedGroups();
     }
     private void combineSelectedGroups()
     {
