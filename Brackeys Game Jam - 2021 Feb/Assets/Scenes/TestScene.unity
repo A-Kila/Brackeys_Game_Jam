@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fb4b18dd19d7da469802221a5cb3e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceBetweenCircles: 5
+  distanceBetweenCircles: 1
 --- !u!4 &349790981 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5920899595190614195, guid: 90f60504770ddb64ba7048c3d5a24b2a,
