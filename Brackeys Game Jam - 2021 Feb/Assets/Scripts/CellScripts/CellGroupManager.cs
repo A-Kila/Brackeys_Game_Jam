@@ -6,9 +6,15 @@ public class CellGroupManager : MonoBehaviour
 {
     public Transform EmptyCellGroup;
     private Color currColor;
+    private SelectHandler sh;
 
     [HideInInspector]
     public System.Action<Transform> stopActionFunc;
+
+    private void Start()
+    {
+        sh = FindObjectOfType<SelectHandler>();
+    }
 
     public void Divide()
     {
@@ -52,7 +58,10 @@ public class CellGroupManager : MonoBehaviour
         currColor = color;
         for (int i = 0; i < transform.childCount; ++i)
         {
-            transform.GetChild(i).GetComponent<CellManager>().Select(color);
+            Transform child = transform.GetChild(i);
+            LockInPlace lip = child.GetComponent<LockInPlace>();
+            if (lip != null) sh.selectedAntibodys.Add(lip);
+           child.GetComponent<CellManager>().Select(color);
         }
     }
     public void DeselectGroup()
