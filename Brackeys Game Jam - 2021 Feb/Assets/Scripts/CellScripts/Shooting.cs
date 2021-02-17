@@ -41,8 +41,8 @@ public class Shooting : MonoBehaviour
     private void ShootOnMouseClick()
     {
         if (!cm.selected) return;
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
+        if (Input.GetKeyDown(MyInput.targetSelect))
+        { 
 
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Collider2D[] targetCollider = Physics2D.OverlapAreaAll(mousePos, mousePos);
@@ -53,11 +53,11 @@ public class Shooting : MonoBehaviour
                 projectile.setTarget(targetCollider[0].gameObject);
 
         }
-        if(Input.GetKeyDown(KeyCode.Q))
+        if(Input.GetKeyDown(MyInput.startShoot))
         {
             projectile.startShooting();
         }
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(MyInput.stopShoot))
         {
             projectile.stopShooting();
         }
