@@ -7,6 +7,8 @@ public class SelectHandler : MonoBehaviour
     [HideInInspector]
     public HashSet<CellGroupManager> selectedCellGroups;
     [HideInInspector]
+    public List<LockInPlace> selectedAntibodys;
+    [HideInInspector]
     public HashSet<CellGroupManager> dividedCellGroups;
     [HideInInspector]
     public List<Color> colors;
@@ -56,15 +58,19 @@ public class SelectHandler : MonoBehaviour
                 cgm.DeselectGroup();
             }
 
+            selectedAntibodys.Clear();
             selectedCellGroups.Clear();
+
             foreach (Collider2D col in colliders) 
             {
                 CellManager cm = col.GetComponent<CellManager>();
+                LockInPlace lip = col.GetComponent<LockInPlace>();
                 if(cm != null) //checks if object has CellManage(if it is a cell)
                 {
                     CellGroupManager groupManager = cm.GetComponent<Transform>().GetComponentInParent<CellGroupManager>();
                     selectedCellGroups.Add(groupManager);
                 }
+                if (lip != null) selectedAntibodys.Add(lip);
             }
             int groupNum = 0;
             foreach(CellGroupManager cgm in selectedCellGroups)

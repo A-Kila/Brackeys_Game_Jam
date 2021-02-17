@@ -8,6 +8,9 @@ public class LockInPlace : MonoBehaviour
     private GameObject target;
     private CellMovement cellMovement;
     private CellManager cellManager;
+
+    [HideInInspector]
+    public Vector2 moveTowards;
     void Start()
     {
         cellMovement = GetComponent<CellMovement>();
@@ -19,21 +22,42 @@ public class LockInPlace : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(target != null) cellMovement.moveTowards = target.transform.position;
-        selectTarget();
+       if(target != null) cellMovement.moveTowards = (Vector2)target.transform.position + moveTowards;
     }
 
-    private void selectTarget()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!cellManager.selected) return;
+        if (collision.gameObject == target)
+            target.GetComponent<VirusManager>().colliderCount++;
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject == target)
+            target.GetComponent<VirusManager>().colliderCount--;
+    }
+
+    public void selectTarget(GameObject target)
+    {
+        this.target = target;
+    }
+}
+
+/*
+  if (!cellManager.selected) return;
+      
 
         if (Input.GetKeyDown(MyInput.targetSelect))
         {
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Collider2D[] targetCollider = Physics2D.OverlapAreaAll(mousePos, mousePos);
+            if (target != null) target = null;
+            else
+            {
+                Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Collider2D[] targetCollider = Physics2D.OverlapAreaAll(mousePos, mousePos);
 
-            if (targetCollider.Length != 0)
-                target = targetCollider[0].gameObject;
+                if (targetCollider.Length != 0)
+                    target = targetCollider[0].gameObject;
+            }
         }
     }
-}
+ */
