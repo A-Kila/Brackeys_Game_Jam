@@ -6,17 +6,6 @@ public class CellGroupManager : MonoBehaviour
 {
     public Transform EmptyCellGroup;
     private Color currColor;
-    // Start is called before the first frame update
-    void Start()
-    {
-     
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void Divide()
     {
