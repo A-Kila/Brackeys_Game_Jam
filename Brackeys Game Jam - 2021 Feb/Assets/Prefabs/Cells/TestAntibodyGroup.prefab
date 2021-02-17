@@ -209,5 +209,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e650057287df2c41bec4c86010f83c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EmptyCellGroup: {fileID: 1541985724253340085, guid: 32eeae4eeaabc6841b00f9bf6f09fdaf,
+  EmptyCellGroup: {fileID: 3990720284762155531, guid: 4fa183b297ff1ee40b56b8327aeee480,
     type: 3}
+  type: 1

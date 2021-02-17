@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class CellGroupManager : MonoBehaviour
 {
+
+    public enum cellType {cell, antibody, explosiveCell };
+
+
     public Transform EmptyCellGroup;
     private Color currColor;
     private SelectHandler sh;
