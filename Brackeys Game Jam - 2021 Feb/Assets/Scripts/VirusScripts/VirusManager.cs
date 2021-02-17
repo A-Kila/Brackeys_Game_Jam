@@ -4,6 +4,7 @@ using UnityEngine;
 public class VirusManager : MonoBehaviour {
 	
     public float speed = 15f;
+    public int collisionDamage = 100;
     public int healthAmount = 100;
     [Range(0f, 1f)]
     public float healthBuffDropChance = .1f;
@@ -90,7 +91,7 @@ public class VirusManager : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D collision) {
         if (collision.collider.tag == "Friendly" || collision.collider.tag == "Neutral") {
             // Animation
-            Destroy(collision.collider.gameObject);
+            collision.collider.gameObject.GetComponent<CellManager>().health.DamageHealth(collisionDamage);
             cellsKilled++;
         }
     }

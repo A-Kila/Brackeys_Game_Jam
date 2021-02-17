@@ -90,7 +90,7 @@ public class CellManager : MonoBehaviour {
     }
 
     private void PlayerDeath() {
-        lastVirusThatHit.GetComponent<VirusManager>().cellsKilled++;
+        if(lastVirusThatHit != null) lastVirusThatHit.GetComponent<VirusManager>().cellsKilled++;
         // Animation
         health.onPlayerDeath -= PlayerDeath;
 
