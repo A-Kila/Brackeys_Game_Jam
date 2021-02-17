@@ -9,6 +9,7 @@ TagManager:
   - Projectile
   - Neutral
   - Buff
+  - Obstacle
   layers:
   - Default
   - TransparentFX
