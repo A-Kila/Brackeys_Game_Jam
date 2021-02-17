@@ -13,6 +13,7 @@ public class Shooting : MonoBehaviour
         projectile = GetComponent<ShootProjectile>();
         cm.selectFuncs += onSelect;
         cm.deSelectFuncs += onDeselect;
+        cm.stopActionsFuncs += stopShooting;
     }
 
     // Update is called once per frame
@@ -21,15 +22,20 @@ public class Shooting : MonoBehaviour
 
         ShootOnMouseClick();
     }
+    private void stopShooting()
+    {
+        GetComponent<ShootProjectile>().stopShooting();
+        GetComponent<ShootProjectile>().deleteTarget();
+    }
 
     private void onSelect()
     {
-        gameObject.GetComponent<ShootProjectile>().SetMarkerVisibility(true);
+       GetComponent<ShootProjectile>().SetMarkerVisibility(true);
     }
 
     private void onDeselect()
     {
-        gameObject.GetComponent<ShootProjectile>().SetMarkerVisibility(false);
+       GetComponent<ShootProjectile>().SetMarkerVisibility(false);
     }
 
     private void ShootOnMouseClick()

@@ -7,6 +7,9 @@ public class CellGroupManager : MonoBehaviour
     public Transform EmptyCellGroup;
     private Color currColor;
 
+    [HideInInspector]
+    public System.Action<Transform> stopActionFunc;
+
     public void Divide()
     {
         Transform newGroup = Instantiate(EmptyCellGroup, transform.position, Quaternion.identity);
@@ -31,15 +34,16 @@ public class CellGroupManager : MonoBehaviour
         {
             Transform child = other.transform.GetChild(i);
             child.SetParent(transform);
-            child.GetComponent<ShootProjectile>().stopShooting();
-            child.GetComponent<ShootProjectile>().deleteTarget();
+            CellManager cm = child.GetComponent<CellManager>();
+            if (cm.stopActionsFuncs != null) cm.stopActionsFuncs();
         }
         Destroy(other.gameObject);
 
         for(int i = 0; i < transform.childCount; ++i)
         {
-            transform.GetChild(i).GetComponent<ShootProjectile>().stopShooting();
-            transform.GetChild(i).GetComponent<ShootProjectile>().deleteTarget();
+            Transform child = transform.GetChild(i);
+            CellManager cm = child.GetComponent<CellManager>();
+            if (cm.stopActionsFuncs != null) cm.stopActionsFuncs();
         }
     }
 

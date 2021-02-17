@@ -13,6 +13,8 @@ public class CellManager : MonoBehaviour {
     public System.Action selectFuncs;
     [HideInInspector]
     public System.Action deSelectFuncs;
+    [HideInInspector]
+    public System.Action stopActionsFuncs;
 
     private CellMovement movement;
     private GameObject lastVirusThatHit;
