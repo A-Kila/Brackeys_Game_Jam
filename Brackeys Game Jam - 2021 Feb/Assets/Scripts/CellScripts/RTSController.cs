@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class RTSController : MonoBehaviour {
 	
-    public float distanceBetweenCircles = 5f;
+    public float distanceBetweenCircles = 1f;
 
     private HashSet<CellGroupManager> selectedCellGroups;
     private Camera gameCamera;
@@ -30,9 +30,9 @@ public class RTSController : MonoBehaviour {
                 foreach (Transform child in cellGroup.transform) { 
                     CellMovement childMovement = child.GetComponent<CellMovement>();
                     childMovement.MoveLocation(positions[listIndex]);
-                }
 
-                listIndex = (listIndex + 1) % positions.Count;
+                    listIndex = (listIndex + 1) % positions.Count;
+                }
             }
         }
     }
@@ -54,7 +54,7 @@ public class RTSController : MonoBehaviour {
         List<Vector2> result = new List<Vector2>();
         for (int i = 0; i < numPos; i++) {
             float angle = (360f / numPos) * i;
-            Vector2 direction = new Vector2(Mathf.Cos(angle * Mathf.Rad2Deg), Mathf.Sin(angle * Mathf.Rad2Deg)).normalized;
+            Vector2 direction = Quaternion.Euler(0, 0, angle) * new Vector2(1, 0);
             Vector2 position = startPosition + direction * distance;
             result.Add(position);
         }
