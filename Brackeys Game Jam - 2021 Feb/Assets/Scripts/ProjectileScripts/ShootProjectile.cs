@@ -93,7 +93,7 @@ public class ShootProjectile : MonoBehaviour
 
 
     private void Shoot() {
-        if (targetIsSet && !targetEntity) { 
+        if (targetIsSet && !targetIsEntity) {
             Vector2 dir = (TargetLoc - (Vector2)transform.position).normalized;
             creatProjectile(dir);
         }else if(targetIsSet && targetIsEntity) {

@@ -7,27 +7,27 @@ public class CellManager : MonoBehaviour {
 
     [HideInInspector]
     public Health health;
- 
-    private bool selected = false;
+    [HideInInspector]
+    public bool selected = false;
+    [HideInInspector]
+    public System.Action selectFuncs;
+    [HideInInspector]
+    public System.Action deSelectFuncs;
+
     private CellMovement movement;
-    private Camera gameCamera;
-    private ShootProjectile projectile;
     private GameObject lastVirusThatHit;
 
     void Start() {
-        gameCamera = FindObjectOfType<Camera>();
 
         movement = GetComponent<CellMovement>();
         movement.SetSpeed(speed);
 
         health = new Health(healthAmount);
         health.onPlayerDeath += PlayerDeath;
-
-        projectile = gameObject.GetComponent<ShootProjectile>();
     }
 
     void Update() {
-        ShootOnMouseClick();
+       
     }
 
     void OnTriggerEnter2D(Collider2D collider) {
@@ -48,37 +48,17 @@ public class CellManager : MonoBehaviour {
 
     public void Deselect()
     {
-        gameObject.GetComponent<ShootProjectile>().SetMarkerVisibility(false);
+        if(deSelectFuncs != null) deSelectFuncs();
         selected = false;
         GetComponent<SpriteRenderer>().color = Color.green;
     }
     public void Select(Color color)
     {
-        gameObject.GetComponent<ShootProjectile>().SetMarkerVisibility(true);
+        if(selectFuncs != null)selectFuncs();
         selected = true;
         GetComponent<SpriteRenderer>().color = color;
     }
 
-    private void ShootOnMouseClick() {
-        if (!selected) return;
-        if (Input.GetKeyDown(KeyCode.Space)) {
-
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Collider2D[] targetCollider = Physics2D.OverlapAreaAll(mousePos, mousePos);
-
-            if (targetCollider.Length == 0)
-                projectile.setTarget(new Vector3(mousePos.x, mousePos.y, 0));
-            else
-                projectile.setTarget(targetCollider[0].gameObject);
-        
-        }
-        if (Input.GetKeyDown(KeyCode.Q)) {
-            projectile.startShooting();
-        }
-        if (Input.GetKeyDown(KeyCode.W)) {
-            projectile.stopShooting();
-        }
-    }
 
     private void PlayerDeath() {
         if(lastVirusThatHit != null) lastVirusThatHit.GetComponent<VirusManager>().cellsKilled++;
