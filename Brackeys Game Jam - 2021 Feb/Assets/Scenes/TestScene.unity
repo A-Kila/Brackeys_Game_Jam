@@ -285,7 +285,7 @@ GameObject:
   - component: {fileID: 838232196}
   - component: {fileID: 838232195}
   - component: {fileID: 838232194}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TestCell (2)
   m_TagString: Friendly
   m_Icon: {fileID: 0}
@@ -453,7 +453,7 @@ GameObject:
   - component: {fileID: 1022820946}
   - component: {fileID: 1022820945}
   - component: {fileID: 1022820944}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TestCell (1)
   m_TagString: Friendly
   m_Icon: {fileID: 0}
@@ -621,7 +621,7 @@ GameObject:
   - component: {fileID: 1076460046}
   - component: {fileID: 1076460045}
   - component: {fileID: 1076460044}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TestCell (3)
   m_TagString: Friendly
   m_Icon: {fileID: 0}

@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 5920899596002820156}
   - component: {fileID: 5920899596002820159}
   - component: {fileID: 5920899596002820154}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TestCell
   m_TagString: Friendly
   m_Icon: {fileID: 0}
