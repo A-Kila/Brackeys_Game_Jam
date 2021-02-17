@@ -19,7 +19,6 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         ShootOnMouseClick();
     }
     private void stopShooting()

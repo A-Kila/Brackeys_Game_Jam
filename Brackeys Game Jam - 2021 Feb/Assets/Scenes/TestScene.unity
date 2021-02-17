@@ -374,6 +374,8 @@ GameObject:
   m_Component:
   - component: {fileID: 316110074}
   - component: {fileID: 316110075}
+  - component: {fileID: 316110076}
+  - component: {fileID: 316110077}
   m_Layer: 0
   m_Name: MiddleRight
   m_TagString: Obstacle
@@ -430,6 +432,39 @@ PolygonCollider2D:
       - {x: 6.6464977, y: -1.3657503}
       - {x: 8.600084, y: -0.43970203}
       - {x: 8.715686, y: 6.2865524}
+--- !u!50 &316110076
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316110073}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &316110077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316110073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ac84243c4086d446a72e543599acca7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &329820762
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,6 +475,8 @@ GameObject:
   m_Component:
   - component: {fileID: 329820763}
   - component: {fileID: 329820764}
+  - component: {fileID: 329820765}
+  - component: {fileID: 329820766}
   m_Layer: 0
   m_Name: BottomRight
   m_TagString: Obstacle
@@ -497,6 +534,39 @@ PolygonCollider2D:
       - {x: -15.681058, y: -1.964651}
       - {x: 7.5916266, y: -2.1397455}
       - {x: 7.604701, y: 11.235006}
+--- !u!50 &329820765
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329820762}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &329820766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329820762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ac84243c4086d446a72e543599acca7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &382869437
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,6 +848,8 @@ GameObject:
   m_Component:
   - component: {fileID: 616108426}
   - component: {fileID: 616108427}
+  - component: {fileID: 616108428}
+  - component: {fileID: 616108429}
   m_Layer: 0
   m_Name: BottomSmaller
   m_TagString: Obstacle
@@ -829,6 +901,39 @@ PolygonCollider2D:
       - {x: 4.9563737, y: -0.8737353}
       - {x: 2.8960547, y: 0.61477494}
       - {x: 1.8571062, y: 2.2721252}
+--- !u!50 &616108428
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616108425}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &616108429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616108425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ac84243c4086d446a72e543599acca7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &735145302
 GameObject:
   m_ObjectHideFlags: 0
@@ -1764,6 +1869,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1049334266}
   - component: {fileID: 1049334267}
+  - component: {fileID: 1049334268}
+  - component: {fileID: 1049334269}
   m_Layer: 0
   m_Name: MiddleLeft
   m_TagString: Obstacle
@@ -1819,6 +1926,39 @@ PolygonCollider2D:
       - {x: -6.5955987, y: -1.729755}
       - {x: -3.6015716, y: -4.745171}
       - {x: 3.275918, y: -4.8010774}
+--- !u!50 &1049334268
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049334265}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1049334269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049334265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ac84243c4086d446a72e543599acca7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1234560276
 GameObject:
   m_ObjectHideFlags: 0
@@ -1829,6 +1969,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1234560277}
   - component: {fileID: 1234560278}
+  - component: {fileID: 1234560279}
+  - component: {fileID: 1234560280}
   m_Layer: 0
   m_Name: Right
   m_TagString: Obstacle
@@ -1884,6 +2026,39 @@ PolygonCollider2D:
       - {x: -1.6017203, y: -16.829134}
       - {x: 1.6422707, y: -16.748018}
       - {x: 1.6730185, y: 12.96458}
+--- !u!50 &1234560279
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234560276}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1234560280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234560276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ac84243c4086d446a72e543599acca7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1266241855
 GameObject:
   m_ObjectHideFlags: 0
@@ -7403,6 +7578,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1861363857}
   - component: {fileID: 1861363858}
+  - component: {fileID: 1861363859}
+  - component: {fileID: 1861363860}
   m_Layer: 0
   m_Name: Top
   m_TagString: Obstacle
@@ -7455,6 +7632,39 @@ PolygonCollider2D:
       - {x: -0.18608856, y: -2.0253468}
       - {x: 2.324203, y: -2.0756776}
       - {x: 2.3183794, y: 1.2485294}
+--- !u!50 &1861363859
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861363856}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1861363860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861363856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ac84243c4086d446a72e543599acca7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1902086458 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 673282554450916905, guid: 60aeea9a7ad99dc499a795fe58d7984f,
@@ -7653,6 +7863,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1962481752}
   - component: {fileID: 1962481753}
+  - component: {fileID: 1962481754}
+  - component: {fileID: 1962481755}
   m_Layer: 0
   m_Name: BottomBigger
   m_TagString: Obstacle
@@ -7704,6 +7916,39 @@ PolygonCollider2D:
       - {x: -7.7808113, y: -1.4147452}
       - {x: 8.613688, y: -1.313791}
       - {x: 8.598377, y: 1.8485775}
+--- !u!50 &1962481754
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962481751}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1962481755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962481751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ac84243c4086d446a72e543599acca7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2032281987
 GameObject:
   m_ObjectHideFlags: 0
@@ -7714,6 +7959,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2032281988}
   - component: {fileID: 2032281989}
+  - component: {fileID: 2032281990}
+  - component: {fileID: 2032281991}
   m_Layer: 0
   m_Name: BottomLeft
   m_TagString: Obstacle
@@ -7768,6 +8015,39 @@ PolygonCollider2D:
       - {x: 2.0963502, y: -5.344862}
       - {x: 4.172292, y: -3.8838766}
       - {x: 5.0791845, y: -2.0353508}
+--- !u!50 &2032281990
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032281987}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &2032281991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032281987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ac84243c4086d446a72e543599acca7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &673282556318990099
 PrefabInstance:
   m_ObjectHideFlags: 0
