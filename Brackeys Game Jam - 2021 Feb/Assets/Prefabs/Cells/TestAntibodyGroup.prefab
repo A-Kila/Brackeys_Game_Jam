@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EmptyCellGroup: {fileID: 7422214980492691076, guid: 4fa183b297ff1ee40b56b8327aeee480,
     type: 3}
-  type: 0
+  type: 1
 --- !u!1 &5209921641699524950
 GameObject:
   m_ObjectHideFlags: 0
