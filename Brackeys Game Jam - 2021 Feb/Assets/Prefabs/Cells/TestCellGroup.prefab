@@ -228,4 +228,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EmptyCellGroup: {fileID: 1541985724253340085, guid: 32eeae4eeaabc6841b00f9bf6f09fdaf,
     type: 3}
-  type: 1
+  type: 0
