@@ -122,6 +122,7 @@ public class MainMenuManager : MonoBehaviour {
                     }
                 }
             }
+            if (Time.deltaTime > 5) break;
         }
     }
 
