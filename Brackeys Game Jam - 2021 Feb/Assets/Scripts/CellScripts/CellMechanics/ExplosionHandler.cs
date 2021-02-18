@@ -46,7 +46,7 @@ public class ExplosionHandler : MonoBehaviour
         ParticleSystem eParticle = Instantiate(explosionParticle, transform.position, Quaternion.identity);
 
        if(!eParticle.isPlaying) eParticle.Play();
-        Destroy(eParticle, eParticle.main.duration);
+        Destroy(eParticle.gameObject, eParticle.main.duration);
 
 
         foreach (Collider2D collider in colliders)

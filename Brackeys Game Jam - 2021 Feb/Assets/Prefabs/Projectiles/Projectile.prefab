@@ -98,6 +98,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 25
   damage: 1
+  ProjectileParticle: {fileID: 4780900736951455424, guid: b2b3e0c88e003ff43a75331392dcf180,
+    type: 3}
   parentObj: {fileID: 0}
 --- !u!58 &3162218432882642748
 CircleCollider2D:
