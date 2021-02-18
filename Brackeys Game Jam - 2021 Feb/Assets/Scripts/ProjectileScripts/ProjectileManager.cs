@@ -4,6 +4,7 @@ public class ProjectileManager : MonoBehaviour
 {
     public float speed = 10f;
     public int damage = 1;
+    public ParticleSystem ProjectileParticle;
 
     [HideInInspector]
     public GameObject parentObj;
@@ -20,6 +21,14 @@ public class ProjectileManager : MonoBehaviour
     void Start()
     {
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
+    }
+
+    private void OnDestroy()
+    {
+        ParticleSystem tmp = Instantiate(ProjectileParticle, transform.position, Quaternion.identity);
+        tmp.Play();
+        Debug.Log(tmp.main.duration);
+        Destroy(tmp.gameObject, tmp.main.duration);
     }
 
     // Update is called once per frame

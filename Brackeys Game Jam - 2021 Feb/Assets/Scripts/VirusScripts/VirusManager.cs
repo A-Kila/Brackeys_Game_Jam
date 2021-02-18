@@ -110,7 +110,7 @@ public class VirusManager : MonoBehaviour {
     private void MoveCell() {
         Vector2 nextPos = waypoints[waypointIndex];
         movement.MoveLocation(nextPos);
-        if ((float)rb.position.x - (float)nextPos.x < 0.01f && (float)rb.position.y - (float)nextPos.y < 0.01f)
+        if ((Vector2)transform.position == nextPos)    
         {
            
             if (isClockwizeMove) waypointIndex = (waypointIndex + 1) % waypoints.Length;
