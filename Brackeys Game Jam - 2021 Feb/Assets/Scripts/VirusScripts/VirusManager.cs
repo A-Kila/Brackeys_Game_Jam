@@ -30,7 +30,6 @@ public class VirusManager : MonoBehaviour {
     [HideInInspector]
     public Health health;
     private ShootProjectile projectiles;
-    private Vector2 screenBounds;
 
     void OnDrawGizmos() {
         Vector2 prevPos = path.GetChild(0).position;
@@ -57,7 +56,6 @@ public class VirusManager : MonoBehaviour {
         
         projectiles = gameObject.GetComponent<ShootProjectile>();
 
-        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
         rb = GetComponent<Rigidbody2D>();
     }
     
@@ -94,8 +92,6 @@ public class VirusManager : MonoBehaviour {
         }
     }
 
-   
-
     void OnCollisionEnter2D(Collision2D collision) {
         if (collision.collider.tag == "Friendly" || collision.collider.tag == "Neutral") {
             // Animation
@@ -107,8 +103,8 @@ public class VirusManager : MonoBehaviour {
     {
         float newSpeed = speed / ((float)i/ collisionNeeded);
         if (newSpeed > speed) newSpeed = speed;
-        Debug.Log(newSpeed);
-            movement.SetSpeed(newSpeed);
+        // Debug.Log(newSpeed);
+        movement.SetSpeed(newSpeed);
     }
 
     private void MoveCell() {
