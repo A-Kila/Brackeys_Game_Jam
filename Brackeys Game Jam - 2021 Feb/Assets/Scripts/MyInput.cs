@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 
 public static class MyInput {
+
+    public static KeyCode none = KeyCode.None;
 	
     public static KeyCode select = KeyCode.Mouse0;
     public static KeyCode move = KeyCode.Mouse1;

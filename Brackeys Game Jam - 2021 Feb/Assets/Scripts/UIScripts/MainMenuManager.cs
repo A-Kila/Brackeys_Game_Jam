@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
@@ -17,6 +18,9 @@ public class MainMenuManager : MonoBehaviour {
 
     private GameObject activeOverlay;
     private GameObject[] keybindButtons;
+    private Event keyEvent;
+    private KeyCode eventKeyCode;
+    private bool isWaitingKey = false;
 
     void Start() {
         panel.color = new Color(0, 0, 0, helpPanelAlpha.x / 255); // (r,g,b) => (0,0,0) == Color.Black
@@ -29,6 +33,15 @@ public class MainMenuManager : MonoBehaviour {
             button.GetComponentInChildren<TextMeshProUGUI>().text = GetKeybind(text.text).ToString();
         }
 
+    }
+
+    void OnGUI() {
+        keyEvent = Event.current;
+
+        if (keyEvent.isKey && isWaitingKey) {
+            eventKeyCode = keyEvent.keyCode;
+            isWaitingKey = false;
+        }
     }
 
     public void Play() {
@@ -80,50 +93,82 @@ public class MainMenuManager : MonoBehaviour {
         KeyCode result = KeyCode.None;
         switch (action) {
             case "Select": 
-                result =  MyInput.select;
+                result = MyInput.select;
                 break;
             case "Move": 
-                result =  MyInput.move;
+                result = MyInput.move;
                 break;
             case "Start Shooting": 
-                result =  MyInput.startShoot;
+                result = MyInput.startShoot;
                 break;
             case "Stop Shooting": 
-                result =  MyInput.stopShoot;
+                result = MyInput.stopShoot;
                 break;
             case "Combine Groups": 
-                result =  MyInput.combineGroups;
+                result = MyInput.combineGroups;
                 break;
             case "Divide Groups": 
-                result =  MyInput.divideGroups;
+                result = MyInput.divideGroups;
                 break;
             case "Target Selection": 
-                result =  MyInput.targetSelect;
+                result = MyInput.targetSelect;
                 break;
             case "Open Shop": 
-                result =  MyInput.openShop;
+                result = MyInput.openShop;
                 break;
         }
         return result;
     }
 
-    private void AssignNewKey(string name) {
-        KeyCode key = GetKeybind(name);
-        while (true) {
-            Event e = Event.current;
-            if (e != null && e.isKey) {
-                key = e.keyCode;
-
-                foreach (GameObject keybind in keybindButtons) {
-                    TextMeshProUGUI text = keybind.GetComponentInChildren<TextMeshProUGUI>();
-                    if (text.text == name) { 
-                        GameObject button = keybind.transform.GetChild(1).gameObject;
-                        button.GetComponentInChildren<TextMeshProUGUI>().text = key.ToString();
-                    }
-                }
-            }
-            if (Time.deltaTime > 5) break;
+    private void ChangeKeybind(string action, KeyCode newKey) {
+        switch (action) {
+            case "Select": 
+                MyInput.select = newKey;
+                break;
+            case "Move": 
+                MyInput.move = newKey;
+                break;
+            case "Start Shooting": 
+                MyInput.startShoot = newKey;
+                break;
+            case "Stop Shooting": 
+                MyInput.stopShoot = newKey;
+                break;
+            case "Combine Groups": 
+                MyInput.combineGroups = newKey;
+                break;
+            case "Divide Groups": 
+                MyInput.divideGroups = newKey;
+                break;
+            case "Target Selection": 
+                MyInput.targetSelect = newKey;
+                break;
+            case "Open Shop": 
+                MyInput.openShop = newKey;
+                break;
         }
+    }
+
+    IEnumerator AssignNewKey(string name) {
+        isWaitingKey = true;
+
+        yield return WaitForKey();
+       
+        ChangeKeybind(name, eventKeyCode);
+        KeyCode key = GetKeybind(name);
+
+        foreach (GameObject keybind in keybindButtons) {
+            TextMeshProUGUI text = keybind.GetComponentInChildren<TextMeshProUGUI>();
+            if (text.text == name) { 
+                GameObject button = keybind.transform.GetChild(1).gameObject;
+                button.GetComponentInChildren<TextMeshProUGUI>().text = key.ToString();
+            }
+        }
+    }
+
+    IEnumerable WaitForKey() {
+        while (!keyEvent.isKey)
+            yield return null;
     }
 
 }
