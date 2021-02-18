@@ -167,6 +167,8 @@ MonoBehaviour:
   damage: 100
   radiusOfExplosion: 5
   speedMultiply: 2
+  explosionParticle: {fileID: 8731639870718409077, guid: 4af492793eaa85447a4f027e9f3f3ca9,
+    type: 3}
 --- !u!1 &325892569145953142
 GameObject:
   m_ObjectHideFlags: 0

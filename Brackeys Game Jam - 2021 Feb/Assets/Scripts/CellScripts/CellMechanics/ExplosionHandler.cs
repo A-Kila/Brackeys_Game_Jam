@@ -7,6 +7,8 @@ public class ExplosionHandler : MonoBehaviour
     public int damage = 100;
     public float radiusOfExplosion = 5f;
     public float speedMultiply = 2f;
+    public ParticleSystem explosionParticle;
+
     private GameObject target;
     private CellMovement cellMovement;
     // Start is called before the first frame update
@@ -38,8 +40,13 @@ public class ExplosionHandler : MonoBehaviour
     {
         Vector2 currLocation = transform.position;
         Collider2D[] colliders = Physics2D.OverlapCircleAll(currLocation, 5);
-        
-        foreach(Collider2D collider in colliders)
+        ParticleSystem eParticle = Instantiate(explosionParticle, transform.position, Quaternion.identity);
+
+        eParticle.Play();
+        Destroy(eParticle, eParticle.main.duration);
+
+
+        foreach (Collider2D collider in colliders)
         {
             CellManager cm = collider.gameObject.GetComponent<CellManager>();
             VirusManager vm = collider.gameObject.GetComponent<VirusManager>();
