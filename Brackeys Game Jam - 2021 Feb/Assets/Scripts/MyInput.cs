@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 
 public static class MyInput {
+
+    public static KeyCode none = KeyCode.None;
 	
     public static KeyCode select = KeyCode.Mouse0;
     public static KeyCode move = KeyCode.Mouse1;
@@ -9,5 +11,7 @@ public static class MyInput {
     public static KeyCode combineGroups = KeyCode.E;
     public static KeyCode divideGroups = KeyCode.R;
     public static KeyCode targetSelect = KeyCode.Space;
+    public static KeyCode openShop = KeyCode.Tab;
+    public static KeyCode pause = KeyCode.Escape;
 
 }
