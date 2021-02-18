@@ -8,6 +8,7 @@ public class ExplosionHandler : MonoBehaviour
     public float radiusOfExplosion = 5f;
     public float speedMultiply = 2f;
     public ParticleSystem explosionParticle;
+    public ParticleSystem speedParticle;
 
     private GameObject target;
     private CellMovement cellMovement;
@@ -33,6 +34,8 @@ public class ExplosionHandler : MonoBehaviour
     public void setTarget(GameObject gObj)
     {
         target = gObj;
+        ParticleSystem sParticle = Instantiate(speedParticle, transform);
+        sParticle.Play();
         cellMovement.SetSpeed(GetComponent<CellManager>().speed * speedMultiply);
     }
 
@@ -42,7 +45,7 @@ public class ExplosionHandler : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(currLocation, 5);
         ParticleSystem eParticle = Instantiate(explosionParticle, transform.position, Quaternion.identity);
 
-        eParticle.Play();
+       if(!eParticle.isPlaying) eParticle.Play();
         Destroy(eParticle, eParticle.main.duration);
 
 
