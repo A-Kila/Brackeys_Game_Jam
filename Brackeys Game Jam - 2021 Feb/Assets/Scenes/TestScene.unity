@@ -8224,6 +8224,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 673282556063517190, guid: 60aeea9a7ad99dc499a795fe58d7984f,
         type: 3}
+      propertyPath: healthAmount
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 673282556063517190, guid: 60aeea9a7ad99dc499a795fe58d7984f,
+        type: 3}
       propertyPath: collisionDamage
       value: 1
       objectReference: {fileID: 0}
