@@ -27,7 +27,7 @@ public class ExplosionHandler : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.tag != "Friendly")
+        if(collision.collider.tag == "Enemy")
         GetComponent<CellManager>().PlayerDeath();
     }
 

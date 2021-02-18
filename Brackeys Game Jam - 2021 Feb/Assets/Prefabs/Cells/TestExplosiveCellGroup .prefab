@@ -169,6 +169,8 @@ MonoBehaviour:
   speedMultiply: 2
   explosionParticle: {fileID: 8731639870718409077, guid: 4af492793eaa85447a4f027e9f3f3ca9,
     type: 3}
+  speedParticle: {fileID: 7951152036139872515, guid: fca50d5d85f82974196d8568673cbad3,
+    type: 3}
 --- !u!1 &325892569145953142
 GameObject:
   m_ObjectHideFlags: 0
