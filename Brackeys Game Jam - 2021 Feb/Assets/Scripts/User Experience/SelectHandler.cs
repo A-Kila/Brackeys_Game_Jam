@@ -65,6 +65,7 @@ public class SelectHandler : MonoBehaviour
                 if (mouseClickedObj == targetCollider[0].gameObject) selectAllOfType(mouseClickedObj.transform.parent.GetComponent<CellGroupManager>().type);
                 else mouseClickedObj = targetCollider[0].gameObject;
             }
+            else mouseClickedObj = null;
             
         }
         else if(Input.anyKeyDown) mouseClickedObj = null;
