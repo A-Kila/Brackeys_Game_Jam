@@ -8235,7 +8235,7 @@ PrefabInstance:
     - target: {fileID: 673282556063517190, guid: 60aeea9a7ad99dc499a795fe58d7984f,
         type: 3}
       propertyPath: healthBuffDropChance
-      value: 1
+      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60aeea9a7ad99dc499a795fe58d7984f, type: 3}
