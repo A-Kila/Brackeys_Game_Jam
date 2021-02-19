@@ -51,9 +51,12 @@ public class RTSController : MonoBehaviour {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Collider2D[] targetCollider = Physics2D.OverlapAreaAll(mousePos, mousePos);
 
-            if (targetCollider.Length != 0)
+            if (targetCollider.Length != 0 && targetCollider[0].gameObject.tag != "Obstacle")
             {
                 target = targetCollider[0].gameObject;
+                float targetSpeed;
+                if (target.tag == "Enemy") targetSpeed = target.GetComponent<VirusManager>().speed;
+                else targetSpeed = target.GetComponent<CellManager>().speed;
 
                 Vector2 center = target.transform.position;
                 int numCells = selectedAntibodys.Count;
@@ -63,7 +66,8 @@ public class RTSController : MonoBehaviour {
                 int index = 0;
                 foreach (LockInPlace lip in selectedAntibodys)
                 {
-                    lip.selectTarget(target);
+                    
+                    lip.selectTarget(target, targetSpeed);
                     lip.moveTowards = positions[index++] - (Vector2)target.transform.position;
                 }
 

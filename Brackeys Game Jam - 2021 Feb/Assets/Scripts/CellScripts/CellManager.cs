@@ -58,8 +58,6 @@ public class CellManager : MonoBehaviour {
         selected = true;
         GetComponent<SpriteRenderer>().color = color;
     }
-
-
     public void PlayerDeath() {
         if(lastVirusThatHit != null) lastVirusThatHit.GetComponent<VirusManager>().cellsKilled++;
         // Animation

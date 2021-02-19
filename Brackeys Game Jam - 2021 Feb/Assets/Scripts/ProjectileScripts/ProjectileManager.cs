@@ -27,7 +27,6 @@ public class ProjectileManager : MonoBehaviour
     {
         ParticleSystem tmp = Instantiate(ProjectileParticle, transform.position, Quaternion.identity);
         tmp.Play();
-        Debug.Log(tmp.main.duration);
         Destroy(tmp.gameObject, tmp.main.duration);
     }
 

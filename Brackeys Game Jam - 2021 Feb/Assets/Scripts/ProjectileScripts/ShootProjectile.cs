@@ -10,6 +10,7 @@ public class ShootProjectile : MonoBehaviour
     private Transform TargetMarker;
 
     private Vector2 TargetLoc;
+    private CellMovement cellMovement;
     private GameObject targetObject;
     private GameObject targetEntity;
     private Vector2[] shootDirecitons;
@@ -19,6 +20,10 @@ public class ShootProjectile : MonoBehaviour
     private bool targetIsEntity = false;
     private float shootTime;
 
+    private void Start()
+    {
+        cellMovement = GetComponent<CellMovement>();
+    }
     public void setTarget(Vector2 targ)
     {
         deleteTarget();
@@ -102,8 +107,9 @@ public class ShootProjectile : MonoBehaviour
                 targetEntity.GetComponent<CellMovement>().speed, Projectile.gameObject.GetComponent<ProjectileManager>().speed, 0) - (Vector2)transform.position).normalized;
             creatProjectile(dir);
         }else {
-            foreach (Vector2 dir in shootDirecitons)
+            foreach (Vector2 dir in shootDirecitons) {
                 creatProjectile(dir);
+            }
         }
     }
 
@@ -155,7 +161,7 @@ public class ShootProjectile : MonoBehaviour
 
     private void creatProjectile(Vector2 dir)
     {
-        Transform projTransform = Instantiate(Projectile, transform.position, Quaternion.identity);
+        Transform projTransform = Instantiate(Projectile, (Vector2)transform.position, Quaternion.identity);
         projTransform.tag = transform.tag;
 
         ProjectileManager  manager = projTransform.GetComponent<ProjectileManager>();
