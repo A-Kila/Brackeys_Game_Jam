@@ -26,7 +26,7 @@ public class OptionsManager : MonoBehaviour {
     public void CombineGroups() { bindToChange  = "Combine Groups"; }
     public void DivideGroups() { bindToChange  = "Divide Groups"; }
     public void TargetSelection() { bindToChange  = "Target Selection"; }
-    public void OpenShop() { bindToChange  = "Open Shop"; }
+    public void Upgrade() { bindToChange  = "Upgrade"; }
 
     /* Options pricate methods */
     private KeyCode GetKeybind(string action) {
@@ -53,8 +53,8 @@ public class OptionsManager : MonoBehaviour {
             case "Target Selection": 
                 result = MyInput.targetSelect;
                 break;
-            case "Open Shop": 
-                result = MyInput.openShop;
+            case "Upgrade": 
+                result = MyInput.upgrade;
                 break;
         }
         return result;
@@ -83,8 +83,8 @@ public class OptionsManager : MonoBehaviour {
             case "Target Selection": 
                 MyInput.targetSelect = newKey;
                 break;
-            case "Open Shop": 
-                MyInput.openShop = newKey;
+            case "Upgrade": 
+                MyInput.upgrade = newKey;
                 break;
         }
     }

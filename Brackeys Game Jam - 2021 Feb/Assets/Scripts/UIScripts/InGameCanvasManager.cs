@@ -1,9 +1,10 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
+using TMPro;
 
 public class InGameCanvasManager : MonoBehaviour {
 	
     public GameObject pause;
+    public TextMeshProUGUI text;
 
     private PauseMenuManager pauseMng;
 
@@ -13,6 +14,8 @@ public class InGameCanvasManager : MonoBehaviour {
 
     void Update() {
         pauseMng.PauseUpdate();
+
+        text.text = GameHandler.money.ToString() + "c";
     }
 
 }
