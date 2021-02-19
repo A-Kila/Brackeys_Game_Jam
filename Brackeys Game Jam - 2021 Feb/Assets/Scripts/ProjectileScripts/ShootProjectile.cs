@@ -10,7 +10,6 @@ public class ShootProjectile : MonoBehaviour
     private Transform TargetMarker;
 
     private Vector2 TargetLoc;
-    private CellMovement cellMovement;
     private GameObject targetObject;
     private GameObject targetEntity;
     private Vector2[] shootDirecitons;
@@ -22,7 +21,6 @@ public class ShootProjectile : MonoBehaviour
 
     private void Start()
     {
-        cellMovement = GetComponent<CellMovement>();
     }
     public void setTarget(Vector2 targ)
     {
@@ -66,7 +64,10 @@ public class ShootProjectile : MonoBehaviour
         if(!(targetIsSet || directionIsSet) || shoot) return;
         shoot = true;
         shootTime = Time.time;
-        if (targetIsSet && !targetIsEntity) targetObject.GetComponent<SpriteRenderer>().color = Color.red;
+        if (targetIsSet && !targetIsEntity)
+        {
+            targetObject.GetComponent<SpriteRenderer>().color = Color.red;
+        }
     }
 
     public void stopShooting()
@@ -79,6 +80,12 @@ public class ShootProjectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CellManager cm = GetComponent<CellManager>();
+        if (cm != null)
+        {
+            if(targetIsEntity)cm.changeDirection(targetEntity.transform.position);
+            else cm.changeDirection(targetObject.transform.position);
+        }
         if (shoot && shootTime < Time.time)
         {
             Shoot();

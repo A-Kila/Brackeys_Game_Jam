@@ -20,6 +20,7 @@ public class ProjectileManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GetComponent<TrailRenderer>().sortingLayerName = "Projectile";
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
     }
 
