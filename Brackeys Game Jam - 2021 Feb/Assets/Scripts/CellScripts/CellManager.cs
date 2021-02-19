@@ -22,6 +22,7 @@ public class CellManager : MonoBehaviour {
     private GameObject lastVirusThatHit;
 
     void Start() {
+        GameHandler.cellCount++;
 
         movement = GetComponent<CellMovement>();
         movement.SetSpeed(speed);
@@ -67,6 +68,7 @@ public class CellManager : MonoBehaviour {
 
         if (transform.parent.childCount == 1) Destroy(transform.parent.gameObject);
         Destroy(gameObject);
+        GameHandler.cellCount--;
         if (onPlayerDeathFuncs != null) onPlayerDeathFuncs();
     }
 }
