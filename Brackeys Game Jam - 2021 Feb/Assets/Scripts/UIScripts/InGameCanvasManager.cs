@@ -6,18 +6,22 @@ public class InGameCanvasManager : MonoBehaviour {
     public GameObject upgradeButton;
     public GameObject shopMenu;
     public GameObject pause;
-    public TextMeshProUGUI text;
+    public TextMeshProUGUI moneyText;
 
     private PauseMenuManager pauseMng;
+    private TextMeshProUGUI upgradeText;
 
     void Start() {
         pauseMng = pause.GetComponent<PauseMenuManager>();
+
+        upgradeText = upgradeButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
     }
 
     void Update() {
         pauseMng.PauseUpdate();
 
-        text.text = GameHandler.money.ToString() + "c";
+        moneyText.text = GameHandler.money.ToString() + "c";
+        upgradeText.text = "UPGRADE (" + MyInput.upgrade.ToString() + ")";
     }
 
     public void Upgrade() {
