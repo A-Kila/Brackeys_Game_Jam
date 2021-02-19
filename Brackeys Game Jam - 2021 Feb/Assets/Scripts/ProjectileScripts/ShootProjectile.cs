@@ -81,20 +81,20 @@ public class ShootProjectile : MonoBehaviour
     void Update()
     {
         CellManager cm = GetComponent<CellManager>();
+        if (targetIsEntity && targetEntity == null)
+        {
+            stopShooting();
+            deleteTarget();
+        }
         if (cm != null)
         {
-            if(targetIsEntity)cm.changeDirection(targetEntity.transform.position);
-            else cm.changeDirection(targetObject.transform.position);
+            if(targetIsEntity && targetEntity != null )cm.changeDirection(targetEntity.transform.position);
+            else if(targetIsSet) cm.changeDirection(targetObject.transform.position);
         }
         if (shoot && shootTime < Time.time)
         {
             Shoot();
             shootTime = Time.time + delay;
-        }
-        if (targetIsEntity && targetEntity == null)
-        {
-            stopShooting();
-            deleteTarget();
         }
     }
 

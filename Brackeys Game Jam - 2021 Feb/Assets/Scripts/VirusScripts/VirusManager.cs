@@ -18,6 +18,7 @@ public class VirusManager : MonoBehaviour {
     public int shootDirectionNum = 4;
     public float shootDirectionRotation = 45f;
     public Vector2 shootArc = new Vector2(0, 360);
+    public ParticleSystem DeathParticle;
 
     [HideInInspector]
     public bool isClockwizeMove = true;
@@ -144,6 +145,9 @@ public class VirusManager : MonoBehaviour {
     }
 
     private void PlayerDeath() {
+        ParticleSystem tp = Instantiate(DeathParticle, transform.position, Quaternion.identity);
+        tp.Play();
+        Destroy(tp.gameObject, tp.main.duration);
         Destroy(gameObject);
         // Animation
         health.onPlayerDeath -= PlayerDeath;
