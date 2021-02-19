@@ -1742,7 +1742,7 @@ GameObject:
   m_Component:
   - component: {fileID: 116178827378528351}
   m_Layer: 5
-  m_Name: OpenShop
+  m_Name: Upgrade
   m_TagString: Keybind
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2208,7 +2208,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Open Shop
+  m_text: Upgrade
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6c8774c6e26623c42b238cdb505fc1ec, type: 2}
   m_sharedMaterial: {fileID: -853056846100482468, guid: 6c8774c6e26623c42b238cdb505fc1ec,
@@ -4416,7 +4416,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 116178827078685319}
-        m_MethodName: OpenShop
+        m_MethodName: Upgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

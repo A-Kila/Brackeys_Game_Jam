@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class GameLostManager : MonoBehaviour {
 
+    public GameObject inGameUI;
+
     void Start() {
         GameHandler.onGameLose += GameLost;
     }
@@ -14,6 +16,7 @@ public class GameLostManager : MonoBehaviour {
     private void GameLost() {
         Time.timeScale = 0f;
         gameObject.SetActive(true);
+        inGameUI.SetActive(false);
     }
 
     public void Restart() {
