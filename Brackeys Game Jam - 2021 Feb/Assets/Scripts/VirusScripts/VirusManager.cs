@@ -26,7 +26,6 @@ public class VirusManager : MonoBehaviour {
     public int colliderCount = 0;
 
     private CellMovement movement;
-    private Rigidbody2D rb;
     [HideInInspector]
     public Health health;
     private ShootProjectile projectiles;
@@ -44,19 +43,19 @@ public class VirusManager : MonoBehaviour {
     }
 
     void Start() {
+        GameHandler.virusCount++;
+
         movement = GetComponent<CellMovement>();
         movement.SetSpeed(speed);
 
         health = new Health(healthAmount);
-        health.onPlayerDeath += PlayerDeath;
+        health.onPlayerDeath += VirusDeath;
 
         waypoints = new Vector2[path.childCount];
         for (int i = 0; i < path.childCount; ++i) 
             waypoints[i] = path.GetChild(i).position;  
         
         projectiles = gameObject.GetComponent<ShootProjectile>();
-
-        rb = GetComponent<Rigidbody2D>();
     }
     
     private bool isVirusShooting = false;
@@ -118,10 +117,11 @@ public class VirusManager : MonoBehaviour {
         }
     }
 
-    private void PlayerDeath() {
+    private void VirusDeath() {
         Destroy(gameObject);
+        GameHandler.virusCount--;
         // Animation
-        health.onPlayerDeath -= PlayerDeath;
+        health.onPlayerDeath -= VirusDeath;
     }
 
     private void StartVirusShoot() {
@@ -152,7 +152,7 @@ public class VirusManager : MonoBehaviour {
     }
 
     private void DropBuff(Transform buffType) {
-        Transform buff = Instantiate(buffType, transform.position, Quaternion.identity);
+        Instantiate(buffType, transform.position, Quaternion.identity);
     }
 
 }
