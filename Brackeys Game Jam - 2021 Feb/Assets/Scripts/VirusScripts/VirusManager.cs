@@ -34,7 +34,6 @@ public class VirusManager : MonoBehaviour {
     public int colliderCount = 0;
 
     private CellMovement movement;
-    private Rigidbody2D rb;
     [HideInInspector]
     public Health health;
     private ShootProjectile projectiles;
@@ -53,11 +52,13 @@ public class VirusManager : MonoBehaviour {
     }
 
     void Start() {
+        GameHandler.virusCount++;
+
         movement = GetComponent<CellMovement>();
         movement.SetSpeed(speed);
 
         health = new Health(healthAmount);
-        health.onPlayerDeath += PlayerDeath;
+        health.onPlayerDeath += VirusDeath;
 
         waypoints = new Vector2[path.childCount];
         for (int i = 0; i < path.childCount; ++i) 
@@ -106,7 +107,7 @@ public class VirusManager : MonoBehaviour {
         if (collider.tag == "Friendly") { 
             ProjectileManager projectile = collider.GetComponent<ProjectileManager>();
             health.DamageHealth(projectile.damage);
-            ScoreSystem.score += projectile.damage;
+            GameHandler.money += projectile.damage;
             // Log Score
 
             if (Random.value <= healthBuffDropChance && healthBuffDropChance != 0)
@@ -144,13 +145,14 @@ public class VirusManager : MonoBehaviour {
         }
     }
 
-    private void PlayerDeath() {
+    private void VirusDeath() {
         ParticleSystem tp = Instantiate(DeathParticle, transform.position, Quaternion.identity);
         tp.Play();
         Destroy(tp.gameObject, tp.main.duration);
         Destroy(gameObject);
+        GameHandler.virusCount--;
         // Animation
-        health.onPlayerDeath -= PlayerDeath;
+        health.onPlayerDeath -= VirusDeath;
     }
 
     private void changeDirection()
@@ -196,7 +198,7 @@ public class VirusManager : MonoBehaviour {
     }
 
     private void DropBuff(Transform buffType) {
-        Transform buff = Instantiate(buffType, transform.position, Quaternion.identity);
+        Instantiate(buffType, transform.position, Quaternion.identity);
     }
 
 }

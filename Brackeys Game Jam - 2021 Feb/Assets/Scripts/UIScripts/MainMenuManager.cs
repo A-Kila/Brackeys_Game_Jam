@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour {
@@ -19,6 +18,11 @@ public class MainMenuManager : MonoBehaviour {
     void Start() {
         panel.color = new Color(0, 0, 0, helpPanelAlpha.x / 255); // (r,g,b) => (0,0,0) == Color.Black
         activeOverlay = mainMenu;
+    }
+
+    void Update() {
+        if (Input.GetKeyDown(MyInput.pause) && activeOverlay != mainMenu)
+            Back();
     }
 
     public void Play() {

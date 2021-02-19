@@ -11,6 +11,7 @@ TagManager:
   - Buff
   - Obstacle
   - Keybind
+  - LevelSelector
   layers:
   - Default
   - TransparentFX
