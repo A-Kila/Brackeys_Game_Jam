@@ -18,7 +18,7 @@ public class LevelSelectorManager : MonoBehaviour {
             if (Levels.isUnlocked[i]) c = unlockedColor;
             else c = lockedColor;
         
-            c /= 255;
+            c /= 255f;
             levelButtons[i].GetComponent<Image>().color = new Color(c.x, c.y, c.z);
         }
     }
