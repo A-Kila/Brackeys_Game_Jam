@@ -11,10 +11,10 @@ public class LevelSelectorManager : MonoBehaviour {
 
     void Start() {
         levelButtons = GameObject.FindGameObjectsWithTag("LevelSelector");
-        Debug.Log(levelButtons.Length);
-        for (int i = 0; i < levelButtons.Length; i++) {
-            Vector3 c;
 
+        for (int i = 0; i < levelButtons.Length; i++) {
+
+            Vector3 c;
             if (Levels.isUnlocked[i]) c = unlockedColor;
             else c = lockedColor;
         
@@ -29,6 +29,12 @@ public class LevelSelectorManager : MonoBehaviour {
     public void Level4() { GoToLevel(4); }
     public void Level5() { GoToLevel(5); }
     public void Level6() { GoToLevel(6); }
+    public void Level7() { GoToLevel(7); }
+    public void Level8() { GoToLevel(8); }
+    public void Level9() { GoToLevel(9); }
+    public void Level10() { GoToLevel(10); }
+    public void Level11() { GoToLevel(11); }
+    public void Level12() { GoToLevel(12); }
 
     private void GoToLevel(int level) {
         if (Levels.isUnlocked[level - 1])

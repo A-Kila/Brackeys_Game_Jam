@@ -80,7 +80,7 @@ public class VirusManager : MonoBehaviour {
         if (collider.tag == "Friendly") { 
             ProjectileManager projectile = collider.GetComponent<ProjectileManager>();
             health.DamageHealth(projectile.damage);
-            ScoreSystem.score += projectile.damage;
+            GameHandler.money += projectile.damage;
             // Log Score
 
             if (Random.value <= healthBuffDropChance && healthBuffDropChance != 0)

@@ -7,9 +7,15 @@ public class GameHandler : MonoBehaviour {
 
     public static int virusCount = 0;
     public static int cellCount = 0;
+    public static int money = 0;
 
     /* in Seconds */
     public float timeLimit = 300f;
+
+    void Start() {
+        money = 0;
+        Debug.Log("yolo");
+    }
 
     void Update() {
         if (cellCount <= 0 || timeLimit <= 0f)
