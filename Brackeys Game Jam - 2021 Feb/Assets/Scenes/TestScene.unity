@@ -1442,6 +1442,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 673282556063517190, guid: 60aeea9a7ad99dc499a795fe58d7984f,
         type: 3}
+      propertyPath: shootDirectionNum
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 673282556063517190, guid: 60aeea9a7ad99dc499a795fe58d7984f,
+        type: 3}
       propertyPath: healthBuffDropChance
       value: 0.05
       objectReference: {fileID: 0}
