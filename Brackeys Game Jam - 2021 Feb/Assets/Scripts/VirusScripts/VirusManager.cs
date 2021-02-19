@@ -79,8 +79,8 @@ public class VirusManager : MonoBehaviour {
             isShootingStart = true;
 
         if (!isVirusShooting && isShootingStart) {
-            StartVirusShoot();
             isVirusShooting = true;
+            StartVirusShoot();
         }
 
         if (cellsKilled >= 10) { 
@@ -176,7 +176,7 @@ public class VirusManager : MonoBehaviour {
         }
 
         projectiles.setDirections(shootDirections);
-        if(!isVirusShooting) projectiles.startShooting();
+        projectiles.startShooting();
     }
 
     private void Duplicate() {
