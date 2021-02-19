@@ -65,8 +65,6 @@ public class VirusManager : MonoBehaviour {
             waypoints[i] = path.GetChild(i).position;  
         
         projectiles = gameObject.GetComponent<ShootProjectile>();
-
-        rb = GetComponent<Rigidbody2D>();
         lastRotateTime = Time.time;
     }
     
@@ -157,7 +155,7 @@ public class VirusManager : MonoBehaviour {
 
     private void changeDirection()
     {
-        Vector2 dif = waypoints[waypointIndex] - rb.position;
+        Vector2 dif = waypoints[waypointIndex] - (Vector2)transform.position;
         float degree = Mathf.Atan2(dif.y, dif.x) * Mathf.Rad2Deg;
         transform.eulerAngles = new Vector3(0, 0, degree); 
         StartVirusShoot();
