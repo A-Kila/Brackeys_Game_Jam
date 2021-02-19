@@ -20,6 +20,11 @@ public class MainMenuManager : MonoBehaviour {
         activeOverlay = mainMenu;
     }
 
+    void Update() {
+        if (Input.GetKeyDown(MyInput.pause) && activeOverlay != mainMenu)
+            Back();
+    }
+
     public void Play() {
         activeOverlay.SetActive(false);
         levelSelector.SetActive(true);
