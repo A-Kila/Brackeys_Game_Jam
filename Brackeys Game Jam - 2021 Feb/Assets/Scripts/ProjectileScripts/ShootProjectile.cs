@@ -53,7 +53,7 @@ public class ShootProjectile : MonoBehaviour
     public void setDirections(Vector2[] dir)
     {
         if(targetObject != null) Destroy(targetObject);
-        shoot = false;
+        //shoot = false;
         shootDirecitons = dir;
         targetIsSet = false;
         directionIsSet = true;
