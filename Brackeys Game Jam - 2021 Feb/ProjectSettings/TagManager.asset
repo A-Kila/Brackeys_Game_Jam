@@ -12,7 +12,6 @@ TagManager:
   - Obstacle
   - Keybind
   - LevelSelector
-  - GameHandler
   layers:
   - Default
   - TransparentFX
