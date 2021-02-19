@@ -24,12 +24,12 @@ public class PauseMenuManager : MonoBehaviour {
 
     public void PauseUpdate() {
         if (Input.GetKeyDown(MyInput.pause))
-            if (!isPaused) OpenOptions();
+            if (!isPaused) OpenPause();
             else if (activeOverlay == pauseMenu) Resume();
             else Back();
     }
 
-    public void OpenOptions() {
+    public void OpenPause() {
         Time.timeScale = 0f;
         isPaused = true;
         gameObject.SetActive(true);
