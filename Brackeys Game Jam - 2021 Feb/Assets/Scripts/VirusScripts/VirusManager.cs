@@ -7,10 +7,18 @@ public class VirusManager : MonoBehaviour {
     public float collisionNeeded = 5f;
     public int collisionDamage = 100;
     public int healthAmount = 100;
+    public bool rotate = false;
+    public float rotateDelay = 1f;
+    [Range(0f, 360f)]
+    public float rotateAngel = 0f;
     [Range(0f, 1f)]
     public float healthBuffDropChance = .1f;
     public Transform path;
     public Transform healthBuff;
+    public int shootDirectionNum = 4;
+    public float shootDirectionRotation = 45f;
+    public Vector2 shootArc = new Vector2(0, 360);
+    public ParticleSystem DeathParticle;
 
     [HideInInspector]
     public bool isClockwizeMove = true;
@@ -29,6 +37,7 @@ public class VirusManager : MonoBehaviour {
     [HideInInspector]
     public Health health;
     private ShootProjectile projectiles;
+    private float lastRotateTime;
 
     void OnDrawGizmos() {
         Vector2 prevPos = path.GetChild(0).position;
@@ -56,12 +65,18 @@ public class VirusManager : MonoBehaviour {
             waypoints[i] = path.GetChild(i).position;  
         
         projectiles = gameObject.GetComponent<ShootProjectile>();
+
+        rb = GetComponent<Rigidbody2D>();
+        lastRotateTime = Time.time;
     }
     
     private bool isVirusShooting = false;
     void FixedUpdate() {
+        Debug.Log(colliderCount);
         if (colliderCount != 0) slowDown(colliderCount);
+        else movement.SetSpeed(speed);
             MoveCell();
+            Rotate();
         if (!isShootingStart && waypointIndex > 0)
             isShootingStart = true;
 
@@ -73,6 +88,18 @@ public class VirusManager : MonoBehaviour {
         if (cellsKilled >= 10) { 
             Duplicate(); 
             cellsKilled -= 10;
+        }
+    }
+
+    private void Rotate()
+    {
+        if (!rotate) return;
+        float currTime = Time.time;
+        if(currTime - lastRotateTime> rotateDelay)
+        {
+            lastRotateTime = currTime;
+            transform.eulerAngles += new Vector3(0, 0, rotateAngel);
+            StartVirusShoot();
         }
     }
 
@@ -114,24 +141,43 @@ public class VirusManager : MonoBehaviour {
            
             if (isClockwizeMove) waypointIndex = (waypointIndex + 1) % waypoints.Length;
             else waypointIndex = (waypointIndex - 1 < 0) ? waypoints.Length - 1 : waypointIndex - 1;
+            if(!rotate) changeDirection();
         }
     }
 
     private void VirusDeath() {
+        ParticleSystem tp = Instantiate(DeathParticle, transform.position, Quaternion.identity);
+        tp.Play();
+        Destroy(tp.gameObject, tp.main.duration);
         Destroy(gameObject);
         GameHandler.virusCount--;
         // Animation
         health.onPlayerDeath -= VirusDeath;
     }
 
+    private void changeDirection()
+    {
+        Vector2 dif = waypoints[waypointIndex] - rb.position;
+        float degree = Mathf.Atan2(dif.y, dif.x) * Mathf.Rad2Deg;
+        transform.eulerAngles = new Vector3(0, 0, degree); 
+        StartVirusShoot();
+    }
     private void StartVirusShoot() {
-        Vector2[] shootDirections = new Vector2[4];
-        float sin45 = Mathf.Sin(45f * Mathf.Deg2Rad);
+        Vector2[] shootDirections = new Vector2[shootDirectionNum];
 
-        shootDirections[0] = new Vector2(sin45, sin45);  // sin(45) == cos(45)
-        shootDirections[1] = new Vector2(-sin45, sin45);
-        shootDirections[2] = new Vector2(-sin45, -sin45);
-        shootDirections[3] = new Vector2(sin45, -sin45);
+        float arcLength = shootArc.y - shootArc.x;
+
+        for(int i = 0; i < shootDirectionNum; ++i)
+        {
+            float rotation = transform.eulerAngles.z;
+            if (rotation < 0) rotation += 360;
+            float degree = ( rotation + shootArc.x + shootDirectionRotation + i * arcLength / shootDirectionNum );
+            Debug.Log(degree);
+            float sin = Mathf.Sin(degree * Mathf.Deg2Rad);
+            float cos = Mathf.Cos(degree * Mathf.Deg2Rad);
+            Debug.Log(sin + " " + cos);
+            shootDirections[i] = new Vector2(cos, sin);
+        }
 
         projectiles.setDirections(shootDirections);
         projectiles.startShooting();

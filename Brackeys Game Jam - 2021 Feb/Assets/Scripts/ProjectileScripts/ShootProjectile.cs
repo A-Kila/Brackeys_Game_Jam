@@ -19,6 +19,9 @@ public class ShootProjectile : MonoBehaviour
     private bool targetIsEntity = false;
     private float shootTime;
 
+    private void Start()
+    {
+    }
     public void setTarget(Vector2 targ)
     {
         deleteTarget();
@@ -61,7 +64,10 @@ public class ShootProjectile : MonoBehaviour
         if(!(targetIsSet || directionIsSet) || shoot) return;
         shoot = true;
         shootTime = Time.time;
-        if (targetIsSet && !targetIsEntity) targetObject.GetComponent<SpriteRenderer>().color = Color.red;
+        if (targetIsSet && !targetIsEntity)
+        {
+            targetObject.GetComponent<SpriteRenderer>().color = Color.red;
+        }
     }
 
     public void stopShooting()
@@ -74,15 +80,21 @@ public class ShootProjectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (shoot && shootTime < Time.time)
-        {
-            Shoot();
-            shootTime = Time.time + delay;
-        }
+        CellManager cm = GetComponent<CellManager>();
         if (targetIsEntity && targetEntity == null)
         {
             stopShooting();
             deleteTarget();
+        }
+        if (cm != null)
+        {
+            if(targetIsEntity && targetEntity != null )cm.changeDirection(targetEntity.transform.position);
+            else if(targetIsSet) cm.changeDirection(targetObject.transform.position);
+        }
+        if (shoot && shootTime < Time.time)
+        {
+            Shoot();
+            shootTime = Time.time + delay;
         }
     }
 
@@ -102,8 +114,9 @@ public class ShootProjectile : MonoBehaviour
                 targetEntity.GetComponent<CellMovement>().speed, Projectile.gameObject.GetComponent<ProjectileManager>().speed, 0) - (Vector2)transform.position).normalized;
             creatProjectile(dir);
         }else {
-            foreach (Vector2 dir in shootDirecitons)
+            foreach (Vector2 dir in shootDirecitons) {
                 creatProjectile(dir);
+            }
         }
     }
 
@@ -155,7 +168,7 @@ public class ShootProjectile : MonoBehaviour
 
     private void creatProjectile(Vector2 dir)
     {
-        Transform projTransform = Instantiate(Projectile, transform.position, Quaternion.identity);
+        Transform projTransform = Instantiate(Projectile, (Vector2)transform.position, Quaternion.identity);
         projTransform.tag = transform.tag;
 
         ProjectileManager  manager = projTransform.GetComponent<ProjectileManager>();

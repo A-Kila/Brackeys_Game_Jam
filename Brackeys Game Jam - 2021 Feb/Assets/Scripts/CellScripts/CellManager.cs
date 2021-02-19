@@ -17,9 +17,12 @@ public class CellManager : MonoBehaviour {
     public System.Action stopActionsFuncs;
     [HideInInspector]
     public System.Action onPlayerDeathFuncs;
+    [HideInInspector]
+    public bool shooting = false;
 
     private CellMovement movement;
     private GameObject lastVirusThatHit;
+    
 
     void Start() {
         GameHandler.cellCount++;
@@ -47,6 +50,25 @@ public class CellManager : MonoBehaviour {
         }
     }
 
+    private void FixedUpdate()
+    {
+        if(selected && !shooting)
+        {
+            Vector2 mousPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 dif = mousPos - (Vector2)transform.position;
+            float angel = Mathf.Atan2(dif.y, dif.x) * Mathf.Rad2Deg;
+            transform.eulerAngles = new Vector3(0, 0, angel);
+        }
+        
+    }
+
+    public void changeDirection(Vector2 targetObj)
+    {
+        Vector2 dif = targetObj - (Vector2)transform.position;
+        float degree = Mathf.Atan2(dif.y, dif.x) * Mathf.Rad2Deg;
+        transform.eulerAngles = new Vector3(0, 0, degree);
+    }
+
     public void Deselect()
     {
         if(deSelectFuncs != null) deSelectFuncs();
@@ -59,8 +81,6 @@ public class CellManager : MonoBehaviour {
         selected = true;
         GetComponent<SpriteRenderer>().color = color;
     }
-
-
     public void PlayerDeath() {
         if(lastVirusThatHit != null) lastVirusThatHit.GetComponent<VirusManager>().cellsKilled++;
         // Animation

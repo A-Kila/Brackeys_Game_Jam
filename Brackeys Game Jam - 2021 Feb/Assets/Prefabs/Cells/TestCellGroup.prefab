@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5241281969709267108}
   - component: {fileID: 5241281969709267111}
-  - component: {fileID: 5241281969709267114}
   - component: {fileID: 5241281969709267109}
   - component: {fileID: 5241281969709267112}
   - component: {fileID: 5241281969709267115}
   - component: {fileID: 5241281969709267118}
   - component: {fileID: 8692183393533209674}
+  - component: {fileID: 1950138108812783546}
   m_Layer: 0
   m_Name: TestCell
   m_TagString: Friendly
@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5241281969709267110}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.07, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5241281969986830375}
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 82a27af0c18c52e49a4579d58fbed293, type: 3}
-  m_Color: {r: 0.05048779, g: 0.764151, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 5e2ef05e588ea5b4f9119010d65d677d, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -87,22 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &5241281969709267114
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5241281969709267110}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!50 &5241281969709267109
 Rigidbody2D:
   serializedVersion: 4
@@ -182,6 +166,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7d0ad88c23334a478d1b00dbb8c46b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!60 &1950138108812783546
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5241281969709267110}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.875, y: 0.75}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.4375, y: 0.2461214}
+      - {x: -0.4375, y: -0.375}
+      - {x: 0.18620801, y: -0.3732071}
+      - {x: 0.19161081, y: -0.123895645}
+      - {x: 0.3112619, y: -0.12885094}
+      - {x: 0.31556702, y: -0.25331593}
+      - {x: 0.4375, y: -0.25255108}
+      - {x: 0.43886733, y: 0.12278652}
+      - {x: 0.31951714, y: 0.11655998}
+      - {x: 0.3146875, y: -0.0012550354}
+      - {x: 0.18849063, y: -0.0025634766}
+      - {x: 0.18985176, y: 0.25117588}
 --- !u!1 &5241281969986830374
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,7 +227,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5241281969986830374}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.2106063, y: -12.3700485, z: 45.4686}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
