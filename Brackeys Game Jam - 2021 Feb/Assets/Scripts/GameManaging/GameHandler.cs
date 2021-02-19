@@ -14,7 +14,6 @@ public class GameHandler : MonoBehaviour {
 
     void Start() {
         money = 0;
-        Debug.Log("yolo");
     }
 
     void Update() {
