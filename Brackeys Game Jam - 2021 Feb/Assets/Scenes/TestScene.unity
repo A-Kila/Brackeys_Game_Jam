@@ -2453,6 +2453,26 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7555444122207606324, guid: 370c1a076a099f546b12381649e4124e,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7555444122207606324, guid: 370c1a076a099f546b12381649e4124e,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7555444122207606324, guid: 370c1a076a099f546b12381649e4124e,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7555444122207606324, guid: 370c1a076a099f546b12381649e4124e,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
     - target: {fileID: 7555444123162701884, guid: 370c1a076a099f546b12381649e4124e,
         type: 3}
       propertyPath: selectHandler
