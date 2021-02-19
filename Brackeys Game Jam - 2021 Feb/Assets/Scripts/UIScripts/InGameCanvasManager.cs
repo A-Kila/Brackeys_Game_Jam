@@ -21,7 +21,7 @@ public class InGameCanvasManager : MonoBehaviour {
         pauseMng.PauseUpdate();
 
         moneyText.text = GameHandler.money.ToString() + "c";
-        upgradeText.text = "UPGRADE " + MyInput.upgrade.ToString();
+        upgradeText.text = "UPGRADE (" + MyInput.upgrade.ToString() + ")";
     }
 
     public void Upgrade() {
