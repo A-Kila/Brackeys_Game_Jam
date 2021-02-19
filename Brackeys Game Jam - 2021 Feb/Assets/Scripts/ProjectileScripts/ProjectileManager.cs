@@ -11,7 +11,7 @@ public class ProjectileManager : MonoBehaviour
 
     private Vector3 direction;
     private Vector3 screenBounds;
-
+    private bool isQuitting = false;
     public void setup(Vector3 dir)
     {
         direction = dir;
@@ -24,11 +24,19 @@ public class ProjectileManager : MonoBehaviour
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
     }
 
+    void OnApplicationQuit()
+    {
+        isQuitting = true;
+    }
+
     private void OnDestroy()
     {
-        ParticleSystem tmp = Instantiate(ProjectileParticle, transform.position, Quaternion.identity);
-        tmp.Play();
-        Destroy(tmp.gameObject, tmp.main.duration);
+        if (!isQuitting)
+        {
+            ParticleSystem tmp = Instantiate(ProjectileParticle, transform.position, Quaternion.identity);
+            tmp.Play();
+            Destroy(tmp.gameObject, tmp.main.duration);
+        }
     }
 
     // Update is called once per frame
