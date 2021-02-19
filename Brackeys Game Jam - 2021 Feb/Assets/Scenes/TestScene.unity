@@ -7737,7 +7737,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1829255474
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7772,8 +7772,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49459ee074653c94c9c19620b05a7a85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelOverMenu: {fileID: 0}
-  gameFinishedMenu: {fileID: 0}
+  LevelOverMenu: {fileID: 1339547441}
+  gameFinishedMenu: {fileID: 1693254879}
 --- !u!1 &1852159742 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2156799315515464446, guid: eee821f7378f6fc469f36c2c8631d9f4,
