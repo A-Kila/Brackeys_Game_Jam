@@ -401,6 +401,8 @@ MonoBehaviour:
   shootDirectionNum: 8
   shootDirectionRotation: 0
   shootArc: {x: 0, y: 360}
+  DeathParticle: {fileID: 7616953928315401056, guid: 1b2051252f3001942b94e447d2e61b42,
+    type: 3}
   isClockwizeMove: 1
   cellsKilled: 0
   waypointIndex: 0

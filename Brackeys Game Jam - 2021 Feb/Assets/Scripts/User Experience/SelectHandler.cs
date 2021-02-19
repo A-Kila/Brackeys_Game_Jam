@@ -14,6 +14,8 @@ public class SelectHandler : MonoBehaviour
     public HashSet<CellGroupManager> dividedCellGroups;
     [HideInInspector]
     public List<Color> colors;
+    [HideInInspector]
+    public bool paused = false;
 
     [SerializeField]
     private Transform SelectionArea;
@@ -35,6 +37,17 @@ public class SelectHandler : MonoBehaviour
     void Update()
     {
         Vector3 currPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (paused)
+        {
+            if (pressed)
+            {
+                deSelect();
+                select(currPos);
+                pressed = false;
+            }
+            paused = false;
+            return;
+        }
         if (Input.GetKeyDown(MyInput.select))
         {
             startPos = currPos;
@@ -95,6 +108,7 @@ public class SelectHandler : MonoBehaviour
         selectedCellGroups.Clear();
        if (firstTypeFirstGroup != null) selectedCellGroups.Add(firstTypeFirstGroup);
        if (secondTypeFirstGroup != null) selectedCellGroups.Add(secondTypeFirstGroup);
+        if (thirdTypeFirstGroup != null) selectedCellGroups.Add(thirdTypeFirstGroup);
     }
 
     private void divideSelectedGroups()

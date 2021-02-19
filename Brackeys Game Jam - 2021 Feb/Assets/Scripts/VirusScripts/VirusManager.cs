@@ -70,7 +70,7 @@ public class VirusManager : MonoBehaviour {
     
     private bool isVirusShooting = false;
     void FixedUpdate() {
-        Debug.Log(colliderCount);
+      
         if (colliderCount != 0) slowDown(colliderCount);
         else movement.SetSpeed(speed);
             MoveCell();
@@ -170,10 +170,8 @@ public class VirusManager : MonoBehaviour {
             float rotation = transform.eulerAngles.z;
             if (rotation < 0) rotation += 360;
             float degree = ( rotation + shootArc.x + shootDirectionRotation + i * arcLength / shootDirectionNum );
-            Debug.Log(degree);
             float sin = Mathf.Sin(degree * Mathf.Deg2Rad);
             float cos = Mathf.Cos(degree * Mathf.Deg2Rad);
-            Debug.Log(sin + " " + cos);
             shootDirections[i] = new Vector2(cos, sin);
         }
 

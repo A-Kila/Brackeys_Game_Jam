@@ -22,10 +22,14 @@ public class CellManager : MonoBehaviour {
 
     private CellMovement movement;
     private GameObject lastVirusThatHit;
+    private SpriteRenderer HighlightSprite;
     
 
     void Start() {
         GameHandler.cellCount++;
+
+        HighlightSprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        HighlightSprite.color = new Color(0,0,0, 0);
 
         movement = GetComponent<CellMovement>();
         movement.SetSpeed(speed);
@@ -73,13 +77,13 @@ public class CellManager : MonoBehaviour {
     {
         if(deSelectFuncs != null) deSelectFuncs();
         selected = false;
-        GetComponent<SpriteRenderer>().color = Color.green;
+        HighlightSprite.color = new Color(0, 0, 0, 0);
     }
     public void Select(Color color)
     {
         if(selectFuncs != null)selectFuncs();
         selected = true;
-        GetComponent<SpriteRenderer>().color = color;
+        HighlightSprite.color = color;
     }
     public void PlayerDeath() {
         if(lastVirusThatHit != null) lastVirusThatHit.GetComponent<VirusManager>().cellsKilled++;

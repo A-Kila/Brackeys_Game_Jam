@@ -34,6 +34,7 @@ public class PauseMenuManager : MonoBehaviour {
         isPaused = true;
         gameObject.SetActive(true);
         selectHandler.SetActive(false);
+        selectHandler.GetComponent<SelectHandler>().paused = true;
     }
 
     public void Resume() {

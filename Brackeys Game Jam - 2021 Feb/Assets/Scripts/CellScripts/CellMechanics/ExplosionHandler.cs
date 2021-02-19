@@ -12,6 +12,8 @@ public class ExplosionHandler : MonoBehaviour
 
     private GameObject target;
     private CellMovement cellMovement;
+    private Vector2 targPlace;
+    private bool targPlaceIsSet = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,8 @@ public class ExplosionHandler : MonoBehaviour
     void Update()
     {
         if (target != null) cellMovement.moveTowards = (Vector2)target.transform.position;
+        if (targPlaceIsSet) cellMovement.moveTowards = targPlace;
+        if(targPlaceIsSet && targPlace == (Vector2)transform.position) GetComponent<CellManager>().PlayerDeath();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -37,6 +41,15 @@ public class ExplosionHandler : MonoBehaviour
         ParticleSystem sParticle = Instantiate(speedParticle, transform);
         sParticle.Play();
         cellMovement.SetSpeed(GetComponent<CellManager>().speed * speedMultiply);
+    }
+
+    public void setTarget(Vector2 targ)
+    {
+        targPlace = targ;
+        ParticleSystem sParticle = Instantiate(speedParticle, transform);
+        sParticle.Play();
+        cellMovement.SetSpeed(GetComponent<CellManager>().speed * speedMultiply);
+        targPlaceIsSet = true;
     }
 
     private void onExplosion()

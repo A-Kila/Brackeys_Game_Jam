@@ -9,6 +9,7 @@ public class LockInPlace : MonoBehaviour
     private CellMovement cellMovement;
     private CellManager cellManager;
     private bool locked = false;
+    private bool isQuitting = false;
 
     [HideInInspector]
     public Vector2 moveTowards;
@@ -19,9 +20,15 @@ public class LockInPlace : MonoBehaviour
         cellManager = GetComponent<CellManager>();
     }
 
+    void OnApplicationQuit()
+    {
+        isQuitting = true;
+    }
+
+
     private void OnDestroy()
     {
-        if (locked) {
+        if (locked && !isQuitting) {
             target.GetComponent<VirusManager>().colliderCount--;
         }
     }
@@ -34,8 +41,8 @@ public class LockInPlace : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject == target && collision.gameObject.tag == "Enemy")
-        { 
+        if (!locked && collision.gameObject == target && collision.gameObject.tag == "Enemy")
+        {
             target.GetComponent<VirusManager>().colliderCount++;
             locked = true;
         }
@@ -43,7 +50,7 @@ public class LockInPlace : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject == target && collision.gameObject.tag == "Enemy")
+        if (locked && collision.gameObject == target && collision.gameObject.tag == "Enemy")
         {
             target.GetComponent<VirusManager>().colliderCount--;
             locked = false;
@@ -60,6 +67,7 @@ public class LockInPlace : MonoBehaviour
     {
         cellMovement.SetSpeed(cellManager.speed);
         if (locked) target.GetComponent<VirusManager>().colliderCount--;
+        locked = false;
         target = null;
     }
 }

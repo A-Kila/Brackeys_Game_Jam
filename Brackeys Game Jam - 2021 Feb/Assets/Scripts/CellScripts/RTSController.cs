@@ -35,7 +35,16 @@ public class RTSController : MonoBehaviour {
                 if(target.tag == "Enemy")
                 foreach(ExplosionHandler eh in selectedExplosiveCells)
                 {
-                    eh.setTarget(target);
+                 if (eh == null) continue;
+                 eh.setTarget(target);
+                }
+            }
+            else
+            {
+                foreach (ExplosionHandler eh in selectedExplosiveCells)
+                {
+                    if (eh == null) continue;
+                    eh.setTarget(mousePos);
                 }
             }
         }
@@ -66,7 +75,7 @@ public class RTSController : MonoBehaviour {
                 int index = 0;
                 foreach (LockInPlace lip in selectedAntibodys)
                 {
-                    
+                    if (lip == null) continue;
                     lip.selectTarget(target, targetSpeed);
                     lip.moveTowards = positions[index++] - (Vector2)target.transform.position;
                 }
@@ -76,6 +85,7 @@ public class RTSController : MonoBehaviour {
             {
                 foreach(LockInPlace lip in selectedAntibodys)
                 {
+                    if (lip == null) continue;
                     lip.removeTarget();
                     lip.moveTowards = lip.gameObject.transform.position; 
                 }
