@@ -1957,6 +1957,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7555444123045455376, guid: 370c1a076a099f546b12381649e4124e,
+        type: 3}
+      propertyPath: m_text
+      value: UPgrade (key)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7555444123045455376, guid: 370c1a076a099f546b12381649e4124e,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 31.7
+      objectReference: {fileID: 0}
     - target: {fileID: 7555444123162701884, guid: 370c1a076a099f546b12381649e4124e,
         type: 3}
       propertyPath: selectHandler
