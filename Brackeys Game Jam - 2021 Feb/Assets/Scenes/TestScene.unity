@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -557,7 +557,7 @@ MonoBehaviour:
   speed: 10
   collisionNeeded: 5
   collisionDamage: 1
-  healthAmount: 1000
+  healthAmount: 10
   rotate: 0
   rotateDelay: 1
   rotateAngel: 0
@@ -568,7 +568,8 @@ MonoBehaviour:
   shootDirectionNum: 8
   shootDirectionRotation: 45
   shootArc: {x: 0, y: 360}
-  DeathParticle: {fileID: 0}
+  DeathParticle: {fileID: 102440164273469212, guid: 99869e04c6a95b44f978cc0ed644e86d,
+    type: 3}
   HighlightIntensity: 1
   isClockwizeMove: 1
   cellsKilled: 0
