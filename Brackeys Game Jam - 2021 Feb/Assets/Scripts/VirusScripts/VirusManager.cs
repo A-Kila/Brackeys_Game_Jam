@@ -79,8 +79,6 @@ public class VirusManager : MonoBehaviour {
         waypoints = new Vector2[path.childCount];
         for (int i = 0; i < path.childCount; ++i) 
             waypoints[i] = path.GetChild(i).position;
-
-        Debug.Log(waypoints.Length);
         
         projectiles = gameObject.GetComponent<ShootProjectile>();
         lastRotateTime = Time.time;

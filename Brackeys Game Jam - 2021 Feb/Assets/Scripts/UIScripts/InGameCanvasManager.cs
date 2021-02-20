@@ -48,6 +48,8 @@ public class InGameCanvasManager : MonoBehaviour {
     void Update() {
         pauseMng.PauseUpdate();
 
+        UpgradeUpdate();
+
         moneyText.text = GameHandler.money.ToString();
         upgradeText.text = "UPGRADE (" + MyInput.upgrade.ToString() + ")";
         timer.text = GetTimeInMinutes();
@@ -61,6 +63,8 @@ public class InGameCanvasManager : MonoBehaviour {
     }
 
     public void Upgrade() {
+        if (GameHandler.isGameOver) return;
+
         Time.timeScale = 0f;
         upgradeButton.SetActive(false);
         shopMenu.SetActive(true);
@@ -113,6 +117,13 @@ public class InGameCanvasManager : MonoBehaviour {
         } else { 
             LevelOverMenu.SetActive(true);
             gameFinishedMenu.SetActive(false);
+        }
+    }
+
+    private void UpgradeUpdate() {
+        if (Input.GetKeyDown(MyInput.upgrade)) {
+            if (!shopMenu.activeSelf) Upgrade();
+            else Back();
         }
     }
 
