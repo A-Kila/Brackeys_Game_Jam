@@ -303,8 +303,14 @@ MonoBehaviour:
   rotateDelay: 0
   rotateAngel: 17
   healthBuffDropChance: 1
+  mechanicBuffDropChance: 1
+  immortalityBuffDropChance: 1
   path: {fileID: 6957847697558008249}
   healthBuff: {fileID: 7302859984504575237, guid: cbc79ccfda93285469fcb8a6aaf0cfde,
+    type: 3}
+  mechanicBuff: {fileID: 3712783702373803251, guid: 02dd1d2958bf4f84b8c93ba6d363f401,
+    type: 3}
+  immortalityBuff: {fileID: 2396664701027664786, guid: 80b460f420d127b47a76ee59c7c232cf,
     type: 3}
   shootDirectionNum: 4
   shootDirectionRotation: 0
@@ -350,7 +356,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 1.2
-  Projectile: {fileID: 0}
+  Projectile: {fileID: 1213274400464738297, guid: a61b48d701ad64448b03c2efea43af3e,
+    type: 3}
   TargetMarker: {fileID: 4933579623135033412, guid: 80c271845bf2188418476eaddc500b19,
     type: 3}
 --- !u!58 &6957847697625835659

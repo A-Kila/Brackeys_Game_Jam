@@ -135,4 +135,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Power: 2
-  Particle: {fileID: 0}
+  Particle: {fileID: 9023953711778518503, guid: d44e2f59b78d2d144b5fe05205ad2eed,
+    type: 3}

@@ -135,4 +135,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Time: 10
-  Particle: {fileID: 0}
+  Particle: {fileID: 4040249957858116406, guid: 4f0944189a12d37499618aecc5d99c63,
+    type: 3}

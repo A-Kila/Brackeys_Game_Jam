@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class RTSController : MonoBehaviour {
 	
-    public float distanceBetweenCircles = 1f;
+    public float distanceBetweenCircles = 2f;
 
     private HashSet<CellGroupManager> selectedCellGroups;
     private List<LockInPlace> selectedAntibodys;
