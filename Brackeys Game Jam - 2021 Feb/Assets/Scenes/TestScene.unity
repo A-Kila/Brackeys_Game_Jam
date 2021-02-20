@@ -199,11 +199,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
+  minSpeed: 10
+  maxSpeed: 20
   collisionNeeded: 5
   healthAmount: 100
   DeathParticle: {fileID: 0}
   colliderCount: 0
   isClockwizeMove: 1
+  HeatlthBar: {fileID: 0}
 --- !u!114 &80004460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1325,11 +1328,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
+  minSpeed: 10
+  maxSpeed: 20
   collisionNeeded: 5
   healthAmount: 100
   DeathParticle: {fileID: 0}
   colliderCount: 0
   isClockwizeMove: 1
+  HeatlthBar: {fileID: 0}
 --- !u!114 &566716572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1738,11 +1744,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
+  minSpeed: 10
+  maxSpeed: 20
   collisionNeeded: 5
   healthAmount: 100
   DeathParticle: {fileID: 0}
   colliderCount: 0
   isClockwizeMove: 1
+  HeatlthBar: {fileID: 0}
 --- !u!114 &688744102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1931,11 +1940,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
+  minSpeed: 10
+  maxSpeed: 20
   collisionNeeded: 5
   healthAmount: 100
   DeathParticle: {fileID: 0}
   colliderCount: 0
   isClockwizeMove: 1
+  HeatlthBar: {fileID: 0}
 --- !u!114 &856420956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2444,11 +2456,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
+  minSpeed: 10
+  maxSpeed: 20
   collisionNeeded: 5
   healthAmount: 100
   DeathParticle: {fileID: 0}
   colliderCount: 0
   isClockwizeMove: 1
+  HeatlthBar: {fileID: 0}
 --- !u!114 &1307968565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2751,11 +2766,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
+  minSpeed: 10
+  maxSpeed: 20
   collisionNeeded: 5
   healthAmount: 100
   DeathParticle: {fileID: 0}
   colliderCount: 0
   isClockwizeMove: 1
+  HeatlthBar: {fileID: 0}
 --- !u!1 &1567735947
 GameObject:
   m_ObjectHideFlags: 0
@@ -2834,11 +2852,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
+  minSpeed: 10
+  maxSpeed: 20
   collisionNeeded: 5
   healthAmount: 100
   DeathParticle: {fileID: 0}
   colliderCount: 0
   isClockwizeMove: 1
+  HeatlthBar: {fileID: 0}
 --- !u!114 &1619995092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2954,7 +2975,7 @@ GameObject:
   - component: {fileID: 1625293350}
   m_Layer: 0
   m_Name: CellGroupHolder
-  m_TagString: Untagged
+  m_TagString: CellGroupHolder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
