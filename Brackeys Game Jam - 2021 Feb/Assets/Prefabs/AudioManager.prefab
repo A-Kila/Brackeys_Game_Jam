@@ -103,3 +103,25 @@ MonoBehaviour:
     mixerGroup: {fileID: 4347105780113061630, guid: 69ce42a382fd8fd46a391de319d50e88,
       type: 2}
     source: {fileID: 0}
+  - name: Buff
+    clip: {fileID: 8300000, guid: 637398699139b1e4db42d3948e0fb3eb, type: 3}
+    volume: 1
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    isMusic: 0
+    mixerGroup: {fileID: 4347105780113061630, guid: 69ce42a382fd8fd46a391de319d50e88,
+      type: 2}
+    source: {fileID: 0}
+  - name: CellDeath
+    clip: {fileID: 8300000, guid: acaa8f9f6954ed141b3b6c8d2c9562df, type: 3}
+    volume: 1
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    isMusic: 0
+    mixerGroup: {fileID: 4347105780113061630, guid: 69ce42a382fd8fd46a391de319d50e88,
+      type: 2}
+    source: {fileID: 0}

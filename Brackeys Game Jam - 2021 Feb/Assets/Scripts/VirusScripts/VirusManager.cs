@@ -129,6 +129,8 @@ public class VirusManager : MonoBehaviour {
             if (Random.value <= healthBuffDropChance && healthBuffDropChance != 0)
                 DropBuff(healthBuff);
 
+            FindObjectOfType<AudioManager>().Play("BulletHit");
+
             projectile.DestroyProjectile();
         }
     }
@@ -163,6 +165,7 @@ public class VirusManager : MonoBehaviour {
     private void VirusDeath() {
         ParticleSystem tp = Instantiate(DeathParticle, transform.position, Quaternion.identity);
         tp.Play();
+        FindObjectOfType<AudioManager>().Play("VirusExplosion");
         Destroy(tp.gameObject, tp.main.duration);
         Destroy(gameObject);
         GameHandler.virusCount--;
