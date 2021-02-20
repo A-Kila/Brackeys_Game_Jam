@@ -8,12 +8,14 @@ public class GameHandler : MonoBehaviour {
     public static int virusCount = 0;
     public static int cellCount = 0;
     public static int money = 0;
+    public static bool isGameOver = false;
 
     /* in Seconds */
     public float timeLimit = 300f;
 
-    void Start() {
+    void Awake() {
         Time.timeScale = 1f;
+        isGameOver = false;
         money = 0;
     }
 

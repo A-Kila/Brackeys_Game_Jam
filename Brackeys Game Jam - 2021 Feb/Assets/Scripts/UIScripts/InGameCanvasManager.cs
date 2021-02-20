@@ -19,7 +19,7 @@ public class InGameCanvasManager : MonoBehaviour {
     public GameObject buffSliderObject;
     public TextMeshProUGUI moneyText;
     public TextMeshProUGUI timer;
-
+    
     private PauseMenuManager pauseMng;
     private TextMeshProUGUI upgradeText;
     private GameHandler gameHandler;
@@ -89,6 +89,7 @@ public class InGameCanvasManager : MonoBehaviour {
 
     private void GameWon() {
         Time.timeScale = 0f;
+        GameHandler.isGameOver = true;
 
         inGameUI.SetActive(false);
         gameWonMenu.SetActive(true);

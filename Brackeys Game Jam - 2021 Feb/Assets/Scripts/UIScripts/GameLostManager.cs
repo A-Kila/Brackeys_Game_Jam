@@ -7,6 +7,7 @@ public class GameLostManager : MonoBehaviour {
 
     public void GameLost() {
         Time.timeScale = 0f;
+        GameHandler.isGameOver = true;
         gameObject.SetActive(true);
         inGameUI.SetActive(false);
     }

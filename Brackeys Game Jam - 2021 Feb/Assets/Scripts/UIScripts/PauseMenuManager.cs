@@ -30,6 +30,8 @@ public class PauseMenuManager : MonoBehaviour {
     }
 
     public void OpenPause() {
+        if (GameHandler.isGameOver) return;
+
         Time.timeScale = 0f;
         isPaused = true;
         gameObject.SetActive(true);
