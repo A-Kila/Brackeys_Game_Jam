@@ -129,8 +129,7 @@ public class VirusManager : MonoBehaviour {
             if (Random.value <= healthBuffDropChance && healthBuffDropChance != 0)
                 DropBuff(healthBuff);
 
-            // Animation
-            Destroy(collider.gameObject);
+            projectile.DestroyProjectile();
         }
     }
 
