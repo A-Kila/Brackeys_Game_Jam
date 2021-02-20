@@ -5,7 +5,7 @@ public class GameLostManager : MonoBehaviour {
 
     public GameObject inGameUI;
 
-    void Start() {
+    void Awake() {
         GameHandler.onGameLose += GameLost;
     }
 

@@ -8,7 +8,7 @@ public class GameWonManager : MonoBehaviour {
     public GameObject LevelOverMenu;
     public GameObject gameFinishedMenu;
 
-    void Start() {
+    void Awake() {
         GameHandler.onGameWin += GameWon;
     }
 
