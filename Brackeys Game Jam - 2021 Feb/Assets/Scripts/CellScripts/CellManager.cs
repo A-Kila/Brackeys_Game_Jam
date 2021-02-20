@@ -96,7 +96,6 @@ public class CellManager : MonoBehaviour {
     {
         if(selectFuncs != null)selectFuncs();
         selected = true;
-        Debug.Log(color);
         Highlight.intensity = highlightIntensity;
         movement.setTargetVisibility(true);
         //Highlight.color = color;

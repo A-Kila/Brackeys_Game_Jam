@@ -45,7 +45,6 @@ public class NeutralManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.Log(health.health);
         if (colliderCount != 0) slowDown(colliderCount);
         else movement.SetSpeed(speed);
         MoveCell();

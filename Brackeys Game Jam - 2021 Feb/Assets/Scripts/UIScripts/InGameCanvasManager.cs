@@ -115,6 +115,7 @@ public class InGameCanvasManager : MonoBehaviour {
             gameFinishedMenu.SetActive(true);
             panel.color = new Color(0f, 0f, 0f, 1f); // Black
         } else { 
+            Levels.isUnlocked[SceneManager.GetActiveScene().buildIndex] = true;  // builIndex = arrayIndex + 1, this code unlockes the next level
             LevelOverMenu.SetActive(true);
             gameFinishedMenu.SetActive(false);
         }
