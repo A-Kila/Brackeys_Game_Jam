@@ -37,10 +37,10 @@ public class NeutralGroupManager : MonoBehaviour
         for (int i = 0; i < path.childCount; ++i)
         {
             waypoints[i] = path.GetChild(i).position;
-            int forIndex = 0;
-            foreach(Vector2 point in moveControl(waypoints[i]))
+            List<Vector2> mc = moveControl(waypoints[i]);
+            for (int j = 0; j < transform.childCount - 1; ++j)
             {
-                moveLocations[i, forIndex++] = point;
+                moveLocations[i, j] = mc[j];
             }
         }
         
@@ -55,7 +55,6 @@ public class NeutralGroupManager : MonoBehaviour
     {
 
         int numCells = transform.childCount - 1;
-
         List<Vector2> positions = GetPositionCircle(posOnWorldMap, numCells, distanceBetweenCircles);
         return positions;
          

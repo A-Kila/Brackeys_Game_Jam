@@ -14,8 +14,14 @@ public class VirusManager : MonoBehaviour {
     public float rotateAngel = 0f;
     [Range(0f, 1f)]
     public float healthBuffDropChance = .1f;
+    [Range(0f, 1f)]
+    public float mechanicBuffDropChance = 1f;
+    [Range(0f, 1f)]
+    public float immortalityBuffDropChance = 1f;
     public Transform path;
     public Transform healthBuff;
+    public Transform mechanicBuff;
+    public Transform immortalityBuff;
     public int shootDirectionNum = 4;
     public float shootDirectionRotation = 45f;
     public Vector2 shootArc = new Vector2(0, 360);
@@ -130,6 +136,11 @@ public class VirusManager : MonoBehaviour {
 
             if (Random.value <= healthBuffDropChance && healthBuffDropChance != 0)
                 DropBuff(healthBuff);
+            if (Random.value <= mechanicBuffDropChance && mechanicBuffDropChance != 0)
+                DropBuff(mechanicBuff);
+            if (Random.value <= immortalityBuffDropChance && immortalityBuffDropChance != 0)
+                DropBuff(immortalityBuff);
+
 
             FindObjectOfType<AudioManager>().Play("BulletHit");
 
@@ -138,9 +149,13 @@ public class VirusManager : MonoBehaviour {
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.collider.tag == "Friendly" || collision.collider.tag == "Neutral") {
+        if (collision.collider.tag == "Friendly") {
             // Animation
             collision.collider.gameObject.GetComponent<CellManager>().health.DamageHealth(collisionDamage);
+        }
+        if(collision.collider.tag == "Neutral")
+        {
+            collision.collider.gameObject.GetComponent<NeutralManager>().health.DamageHealth(collisionDamage);
         }
     }
 

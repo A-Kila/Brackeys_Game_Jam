@@ -38,6 +38,13 @@ public class InGameCanvasManager : MonoBehaviour {
         onBuff += DisplayBuff;
     }
 
+    public static void InvokeOnBuff(float time)
+    {
+        if (onBuff != null)
+            onBuff(time);
+        else Debug.Log(1);
+    }
+
     void Update() {
         pauseMng.PauseUpdate();
 
@@ -72,9 +79,12 @@ public class InGameCanvasManager : MonoBehaviour {
         return (minutes.ToString() + ":" + seconds.ToString());
     }
 
+    private IEnumerator coroutine;
     private void DisplayBuff(float time) {
+        if (buffSliderObject.activeSelf) StopCoroutine(coroutine);
         buffSliderObject.SetActive(true);
-        StartCoroutine(DisplaySlider(time, time));
+        coroutine = DisplaySlider(time, time);
+        StartCoroutine(coroutine);
     }
 
     IEnumerator DisplaySlider(float startTime, float timeRemaining) {

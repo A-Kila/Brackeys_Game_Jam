@@ -7,6 +7,7 @@ public class CellManager : MonoBehaviour {
     public int healthAmount = 10;
     public float highlightIntensity = 1.5f;
 
+
     [HideInInspector]
     public Health health;
     [HideInInspector]
@@ -53,7 +54,7 @@ public class CellManager : MonoBehaviour {
             FindObjectOfType<AudioManager>().Play("BulletHit");
             Destroy(collider.gameObject);
         }
-        if (collider.tag == "Buff") {
+        if (collider.tag == "Buff" && GetComponentInParent<CellGroupManager>().type != CellGroupManager.cellType.explosiveCell) {
             foreach (Transform child in transform.parent)
                 collider.GetComponent<BuffManager>().onCollideDoAction(child);
         //    Animation
@@ -82,28 +83,6 @@ public class CellManager : MonoBehaviour {
         transform.eulerAngles = new Vector3(0, 0, degree);
     }
 
-    private void rotate(float degree)
-    {
-        Transform[] children = new Transform[this.transform.childCount];
-        int i = 0;
-        foreach (Transform child in this.transform)
-        {
-            children[i++] = child;
-        }
-        // Detach
-        this.transform.DetachChildren();
-
-        // Change parent transform
-        this.transform.eulerAngles =  new Vector3(0, 0, degree);
-
-        // Reparent
-        foreach (Transform child in children)
-        {
-            child.parent = this.transform;
-        }
-
-        children = null;
-    }
 
     public void Deselect()
     {

@@ -10,6 +10,8 @@ public class CellGroupManager : MonoBehaviour
     public cellType type; 
     private Color currColor;
     private SelectHandler sh;
+    private bool ImmortalityBuffIsActive = false;
+    private float startTime, duration;
 
     [HideInInspector]
     public System.Action<Transform> stopActionFunc;
@@ -19,6 +21,10 @@ public class CellGroupManager : MonoBehaviour
         sh = FindObjectOfType<SelectHandler>();
     }
 
+    private void Update()
+    {
+        if (ImmortalityBuffIsActive && Time.time - startTime > duration) removeImmortality();
+    }
     public void Divide()
     {
         Transform newGroup = Instantiate(EmptyCellGroup, transform.position, Quaternion.identity);
@@ -54,6 +60,47 @@ public class CellGroupManager : MonoBehaviour
             Transform child = transform.GetChild(i);
             CellManager cm = child.GetComponent<CellManager>();
             if (cm.stopActionsFuncs != null) cm.stopActionsFuncs();
+        }
+    }
+
+    public void applyMechanicBuff(float power)
+    {
+        
+        for(int i = 0; i < transform.childCount; ++i)
+        {
+            if (type == cellType.cell)
+            {
+                ShootProjectile sp = transform.GetChild(i).GetComponent<ShootProjectile>();
+                sp.delay /= power;
+            }
+            if (type == cellType.explosiveCell)
+            {
+                ExplosionHandler eh = transform.GetChild(i).GetComponent<ExplosionHandler>();
+                eh.damage *= (int)power;
+            }
+            if(type == cellType.antibody)
+            {
+                LockInPlace lip = transform.GetChild(i).GetComponent<LockInPlace>();
+                lip.strength *= (int)power;
+            }
+        }
+    }
+
+    public void applyImmortality(float time)
+    {
+        if (type == cellType.explosiveCell) return;
+        for (int i = 0; i < transform.childCount; ++i)
+        {
+            transform.GetChild(i).GetComponent<CellManager>().health.immortal = true;
+        }
+        InGameCanvasManager.InvokeOnBuff(time);
+    }
+
+    public void removeImmortality()
+    {
+        for (int i = 0; i < transform.childCount; ++i)
+        {
+            transform.GetChild(i).GetComponent<CellManager>().health.immortal = false;
         }
     }
 

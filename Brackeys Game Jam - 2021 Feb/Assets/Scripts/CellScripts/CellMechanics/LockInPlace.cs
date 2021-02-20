@@ -11,6 +11,9 @@ public class LockInPlace : MonoBehaviour
     private bool locked = false;
     private bool isQuitting = false;
 
+    public int strength = 1;
+    private int lastAdded;
+
     [HideInInspector]
     public Vector2 moveTowards;
     void Start()
@@ -30,9 +33,9 @@ public class LockInPlace : MonoBehaviour
     {
         if (locked && !isQuitting) {
             if(target.GetComponent<VirusManager>() != null)
-            target.GetComponent<VirusManager>().colliderCount--;
+            target.GetComponent<VirusManager>().colliderCount -= lastAdded;
             else
-                target.GetComponent<NeutralManager>().colliderCount--;
+                target.GetComponent<NeutralManager>().colliderCount -= lastAdded;
         }
     }
 
@@ -46,11 +49,13 @@ public class LockInPlace : MonoBehaviour
     {
         if (!locked && collision.gameObject == target && collision.gameObject.tag == "Enemy")
         {
-            target.GetComponent<VirusManager>().colliderCount++;
+            target.GetComponent<VirusManager>().colliderCount += strength;
+            lastAdded = strength;
             locked = true;
         }else if (!locked && collision.gameObject == target && collision.gameObject.tag == "Neutral")
         {
-            target.GetComponent<NeutralManager>().colliderCount++;
+            target.GetComponent<NeutralManager>().colliderCount += strength;
+            lastAdded = strength;
             locked = true;
         }
     }
@@ -59,12 +64,12 @@ public class LockInPlace : MonoBehaviour
     {
         if (locked && collision.gameObject == target && collision.gameObject.tag == "Enemy")
         {
-            target.GetComponent<VirusManager>().colliderCount--;
+            target.GetComponent<VirusManager>().colliderCount -= lastAdded;
             locked = false;
         }
         else if (!locked && collision.gameObject == target && collision.gameObject.tag == "Neutral")
         {
-            target.GetComponent<NeutralManager>().colliderCount--;
+            target.GetComponent<NeutralManager>().colliderCount -= lastAdded;
             locked = false;
         }
     }
@@ -80,7 +85,7 @@ public class LockInPlace : MonoBehaviour
     {
         cellMovement.SetSpeed(cellManager.speed);
         if (locked && target.GetComponent<VirusManager>() != null) target.GetComponent<VirusManager>().colliderCount--;
-        else if(locked) target.GetComponent<NeutralManager>().colliderCount--;
+        else if(locked) target.GetComponent<NeutralManager>().colliderCount -= lastAdded;
         locked = false;
         target = null;
     }

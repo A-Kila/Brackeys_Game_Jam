@@ -4,6 +4,7 @@ public class Health {
 	
 	public System.Action onPlayerDeath;
 	public HealthBarControler healthBar;
+	public bool immortal = false;
 
 	private int maxHealth;
 	public int health;
@@ -22,6 +23,7 @@ public class Health {
 	}
 
 	public void DamageHealth(int amount) {
+		if (immortal) return;
 		health -= amount;
 		health = Mathf.Clamp(health, 0, maxHealth);
 		if(healthBar != null)healthBar.SetHealth(health);
