@@ -7,7 +7,6 @@ public class CellManager : MonoBehaviour {
     public int healthAmount = 10;
     public float highlightIntensity = 1.5f;
 
-
     [HideInInspector]
     public Health health;
     [HideInInspector]
@@ -31,7 +30,8 @@ public class CellManager : MonoBehaviour {
     public HealthBarControler healthBar;
 
     void Start() {
-        GameHandler.cellCount++;
+        if (GetComponentInParent<CellGroupManager>().type != CellGroupManager.cellType.antibody)
+            GameHandler.cellCount++;
 
         Highlight = transform.GetChild(0).GetComponent<Light2D>();
         Highlight.intensity = 0;
@@ -104,7 +104,7 @@ public class CellManager : MonoBehaviour {
     public void PlayerDeath() {
         if(lastVirusThatHit != null) lastVirusThatHit.GetComponent<VirusManager>().cellsKilled++;
 
-        ExplosionHandler noUse;;
+        ExplosionHandler noUse;
         if (!transform.TryGetComponent(out noUse))
             FindObjectOfType<AudioManager>().Play("CellDeath");
 
@@ -113,7 +113,10 @@ public class CellManager : MonoBehaviour {
 
         if (transform.parent.childCount == 1) Destroy(transform.parent.gameObject);
         Destroy(gameObject);
-        GameHandler.cellCount--;
+
+        if (GetComponentInParent<CellGroupManager>().type != CellGroupManager.cellType.antibody)
+            GameHandler.cellCount--;
+        
         if (onPlayerDeathFuncs != null) onPlayerDeathFuncs();
     }
 }
