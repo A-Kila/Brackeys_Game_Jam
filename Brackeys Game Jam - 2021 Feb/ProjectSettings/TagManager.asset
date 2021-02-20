@@ -12,6 +12,7 @@ TagManager:
   - Obstacle
   - Keybind
   - LevelSelector
+  - GameHandler
   layers:
   - Default
   - TransparentFX
@@ -54,6 +55,12 @@ TagManager:
     locked: 0
   - name: Projectile
     uniqueID: 2036474487
+    locked: 0
+  - name: Particles
+    uniqueID: 3607662337
+    locked: 0
+  - name: Highlight
+    uniqueID: 3360925033
     locked: 0
   - name: Buff
     uniqueID: 1267084807

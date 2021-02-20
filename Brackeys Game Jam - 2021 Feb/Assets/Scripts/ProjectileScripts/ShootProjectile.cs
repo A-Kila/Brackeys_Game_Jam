@@ -41,11 +41,13 @@ public class ShootProjectile : MonoBehaviour
         targetIsSet = true;
         targetIsEntity = true;
         directionIsSet = false;
+        targetEntity.GetComponent<VirusManager>().HighlightSet(true);
     }
 
     public void deleteTarget()
     {
         targetIsSet = false;
+        if(targetIsEntity && targetEntity != null) targetEntity.GetComponent<VirusManager>().HighlightSet(false);
         targetIsEntity = false;
         if (targetObject != null) Destroy(targetObject);
     }
@@ -74,6 +76,7 @@ public class ShootProjectile : MonoBehaviour
     {
         if (!(targetIsSet || directionIsSet)) return;
         shoot = false;
+        if (GetComponent<CellManager>() != null) GetComponent<CellManager>().shooting = false;
         if (targetIsSet && !targetIsEntity) targetObject.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
@@ -101,6 +104,7 @@ public class ShootProjectile : MonoBehaviour
     public void SetMarkerVisibility(bool b)
     {
         if (targetObject != null) targetObject.SetActive(b);
+        else if (targetIsEntity && targetEntity != null) targetEntity.GetComponent<VirusManager>().HighlightSet(b);
     }
 
 
