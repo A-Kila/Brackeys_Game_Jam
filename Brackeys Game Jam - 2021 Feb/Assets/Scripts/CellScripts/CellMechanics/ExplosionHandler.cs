@@ -48,6 +48,7 @@ public class ExplosionHandler : MonoBehaviour
         target = gObj;
         ParticleSystem sParticle = Instantiate(speedParticle, transform);
         sParticle.Play();
+        FindObjectOfType<AudioManager>().Play("ExplosiveAcceleration");
         cellMovement.SetSpeed(GetComponent<CellManager>().speed * speedMultiply);
         target.GetComponent<VirusManager>().HighlightSet(true);
     }
@@ -57,6 +58,7 @@ public class ExplosionHandler : MonoBehaviour
         targPlace = targ;
         ParticleSystem sParticle = Instantiate(speedParticle, transform);
         sParticle.Play();
+        FindObjectOfType<AudioManager>().Play("ExplosiveAcceleration");
         cellMovement.SetSpeed(GetComponent<CellManager>().speed * speedMultiply);
         targetMarkerObj = Instantiate(targetMarker, targ, Quaternion.identity).gameObject;
         targPlaceIsSet = true;
@@ -92,6 +94,8 @@ public class ExplosionHandler : MonoBehaviour
 
        if(!eParticle.isPlaying) eParticle.Play();
         Destroy(eParticle.gameObject, eParticle.main.duration);
+
+        FindObjectOfType<AudioManager>().Play("CellExplosion");
 
 
         foreach (Collider2D collider in colliders)

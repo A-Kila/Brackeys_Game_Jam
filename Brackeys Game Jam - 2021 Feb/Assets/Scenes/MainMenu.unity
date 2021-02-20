@@ -4428,57 +4428,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1619723042532560267, guid: 12253590d18951d46868525dcb4710cd,
-        type: 3}
-      propertyPath: sounds.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1619723042532560267, guid: 12253590d18951d46868525dcb4710cd,
-        type: 3}
-      propertyPath: sounds.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: b1b3352d47dae7f44a51db1cbc944849, type: 3}
-    - target: {fileID: 1619723042532560267, guid: 12253590d18951d46868525dcb4710cd,
-        type: 3}
-      propertyPath: sounds.Array.data[0].loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1619723042532560267, guid: 12253590d18951d46868525dcb4710cd,
-        type: 3}
-      propertyPath: sounds.Array.data[0].name
-      value: Music
-      objectReference: {fileID: 0}
-    - target: {fileID: 1619723042532560267, guid: 12253590d18951d46868525dcb4710cd,
-        type: 3}
-      propertyPath: sounds.Array.data[0].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1619723042532560267, guid: 12253590d18951d46868525dcb4710cd,
-        type: 3}
-      propertyPath: sounds.Array.data[0].volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1619723042532560267, guid: 12253590d18951d46868525dcb4710cd,
-        type: 3}
-      propertyPath: sounds.Array.data[0].isMusic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1619723042532560267, guid: 12253590d18951d46868525dcb4710cd,
-        type: 3}
-      propertyPath: sounds.Array.data[0].mixerGroup
-      value: 
-      objectReference: {fileID: 4354102126272385814, guid: 69ce42a382fd8fd46a391de319d50e88,
-        type: 2}
-    - target: {fileID: 1619723042532560267, guid: 12253590d18951d46868525dcb4710cd,
-        type: 3}
-      propertyPath: sounds.Array.data[0].pitchVariance
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1619723042532560267, guid: 12253590d18951d46868525dcb4710cd,
-        type: 3}
-      propertyPath: sounds.Array.data[0].volumeVariance
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 2941796292879348916, guid: 12253590d18951d46868525dcb4710cd,
         type: 3}
       propertyPath: m_Name

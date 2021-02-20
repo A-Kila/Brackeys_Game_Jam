@@ -49,12 +49,14 @@ public class CellManager : MonoBehaviour {
             lastVirusThatHit = projectile.parentObj;
             health.DamageHealth(projectile.damage);
             // Animation
+            FindObjectOfType<AudioManager>().Play("BulletHit");
             Destroy(collider.gameObject);
         }
         if (collider.tag == "Buff") {
             foreach (Transform child in transform.parent)
                 collider.GetComponent<BuffManager>().onCollideDoAction(child);
         //    Animation
+            FindObjectOfType<AudioManager>().Play("Buff");
             Destroy(collider.gameObject);
         }
     }
@@ -98,6 +100,11 @@ public class CellManager : MonoBehaviour {
     }
     public void PlayerDeath() {
         if(lastVirusThatHit != null) lastVirusThatHit.GetComponent<VirusManager>().cellsKilled++;
+
+        ExplosionHandler noUse;;
+        if (!transform.TryGetComponent(out noUse))
+            FindObjectOfType<AudioManager>().Play("CellDeath");
+
         // Animation
         health.onPlayerDeath -= PlayerDeath;
 
