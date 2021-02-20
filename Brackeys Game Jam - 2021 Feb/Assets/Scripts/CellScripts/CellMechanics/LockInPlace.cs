@@ -60,6 +60,7 @@ public class LockInPlace : MonoBehaviour
     public void selectTarget(GameObject target, float targetSpeed)
     {
         this.target = target;
+        cellMovement.setTargetVisibility(false);
         cellMovement.SetSpeed(targetSpeed);
     }
 
