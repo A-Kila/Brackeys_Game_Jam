@@ -1,8 +1,14 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Audio;
 using TMPro;
 
 public class OptionsManager : MonoBehaviour {
     
+    public Slider musicSlider;
+    public Slider sfxSlider;
+    public AudioMixer audioMixer;
+
     private GameObject[] keybindButtons;
     private string bindToChange = string.Empty;
 
@@ -13,11 +19,22 @@ public class OptionsManager : MonoBehaviour {
             GameObject button = keybind.transform.GetChild(1).gameObject;
             button.GetComponentInChildren<TextMeshProUGUI>().text = GetKeybind(text.text).ToString();
         }
+
+        float musicVolume, sfxVolume;
+        audioMixer.GetFloat("MusicVolume", out musicVolume);
+        audioMixer.GetFloat("SfxVolume", out sfxVolume);
+        
+        musicSlider.value = musicVolume;
+        sfxSlider.value = sfxVolume;
     }
 
-    public void MusicSlider() {}
+    public void MusicSlider(float volume) {
+        audioMixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20);    
+    }
 
-    public void SFXSlider() {}
+    public void SFXSlider(float volume) {
+        audioMixer.SetFloat("SfxVolume", Mathf.Log10(volume) * 20);
+    }
 
     public void Select() { bindToChange  = "Select"; }
     public void Move() { bindToChange  = "Move"; }

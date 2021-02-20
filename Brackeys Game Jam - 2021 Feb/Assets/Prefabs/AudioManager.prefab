@@ -43,6 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c15dae20149a89408bb58d82aba2db1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxMixerGroup: {fileID: 0}
-  musicMixerGroup: {fileID: 0}
+  sfxMixerGroup: {fileID: 4347105780113061630, guid: 69ce42a382fd8fd46a391de319d50e88,
+    type: 2}
+  musicMixerGroup: {fileID: 4354102126272385814, guid: 69ce42a382fd8fd46a391de319d50e88,
+    type: 2}
   sounds: []
