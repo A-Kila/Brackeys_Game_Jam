@@ -2490,56 +2490,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1717643692039123220, guid: 370c1a076a099f546b12381649e4124e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7112396734665447137, guid: 370c1a076a099f546b12381649e4124e,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7555444122207606324, guid: 370c1a076a099f546b12381649e4124e,
-        type: 3}
-      propertyPath: m_fontColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7555444122207606324, guid: 370c1a076a099f546b12381649e4124e,
-        type: 3}
-      propertyPath: m_fontColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7555444122207606324, guid: 370c1a076a099f546b12381649e4124e,
-        type: 3}
-      propertyPath: m_fontColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7555444122207606324, guid: 370c1a076a099f546b12381649e4124e,
-        type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4278190080
-      objectReference: {fileID: 0}
     - target: {fileID: 7555444123162701884, guid: 370c1a076a099f546b12381649e4124e,
         type: 3}
       propertyPath: selectHandler
       value: 
       objectReference: {fileID: 1852159742}
-    - target: {fileID: 7555444123822636623, guid: 370c1a076a099f546b12381649e4124e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 105.6001
-      objectReference: {fileID: 0}
-    - target: {fileID: 8430441784287370721, guid: 370c1a076a099f546b12381649e4124e,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8430441784287370721, guid: 370c1a076a099f546b12381649e4124e,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 370c1a076a099f546b12381649e4124e, type: 3}
 --- !u!1001 &7623780797703821801
@@ -2677,11 +2632,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameHandlerObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 8162197890932680405, guid: 6ab6b6b7002182a40895fd04e187c787,
-        type: 3}
-      propertyPath: m_TagString
-      value: GameHandler
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ab6b6b7002182a40895fd04e187c787, type: 3}

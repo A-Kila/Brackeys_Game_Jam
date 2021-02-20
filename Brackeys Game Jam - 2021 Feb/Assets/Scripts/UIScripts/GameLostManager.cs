@@ -5,15 +5,7 @@ public class GameLostManager : MonoBehaviour {
 
     public GameObject inGameUI;
 
-    void Awake() {
-        GameHandler.onGameLose += GameLost;
-    }
-
-    void OnDestroy() {
-        GameHandler.onGameLose -= GameLost;
-    }
-
-    private void GameLost() {
+    public void GameLost() {
         Time.timeScale = 0f;
         gameObject.SetActive(true);
         inGameUI.SetActive(false);

@@ -1,6 +1,7 @@
 ﻿﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class InGameCanvasManager : MonoBehaviour {
@@ -9,7 +10,12 @@ public class InGameCanvasManager : MonoBehaviour {
 	
     public GameObject upgradeButton;
     public GameObject shopMenu;
+    public GameObject inGameUI;
     public GameObject pause;
+    public GameObject gameWonMenu;
+    public GameObject LevelOverMenu;
+    public GameObject gameFinishedMenu;
+    public GameObject gameLostMenu;
     public GameObject buffSliderObject;
     public TextMeshProUGUI moneyText;
     public TextMeshProUGUI timer;
@@ -25,6 +31,9 @@ public class InGameCanvasManager : MonoBehaviour {
         upgradeText = upgradeButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         gameHandler = GameObject.FindGameObjectWithTag("GameHandler").GetComponent<GameHandler>();
         buffSlider = buffSliderObject.GetComponentInChildren<Slider>();
+        
+        GameHandler.onGameWin += GameWon;
+        GameHandler.onGameLose += gameLostMenu.GetComponent<GameLostManager>().GameLost;
 
         onBuff += DisplayBuff;
     }
@@ -39,6 +48,9 @@ public class InGameCanvasManager : MonoBehaviour {
 
     void OnDestroy() {
         onBuff -= DisplayBuff;
+        
+        GameHandler.onGameWin -= GameWon;
+        GameHandler.onGameLose -= gameLostMenu.GetComponent<GameLostManager>().GameLost;
     }
 
     public void Upgrade() {
@@ -73,6 +85,24 @@ public class InGameCanvasManager : MonoBehaviour {
         }
         buffSliderObject.SetActive(false);
         yield return null;
+    }
+
+    private void GameWon() {
+        Time.timeScale = 0f;
+
+        inGameUI.SetActive(false);
+        gameWonMenu.SetActive(true);
+
+        Image panel = gameWonMenu.transform.GetChild(0).GetComponent<Image>();
+        
+        if (SceneManager.GetActiveScene().buildIndex == Levels.numLevels) {
+            LevelOverMenu.SetActive(false);
+            gameFinishedMenu.SetActive(true);
+            panel.color = new Color(0f, 0f, 0f, 1f); // Black
+        } else { 
+            LevelOverMenu.SetActive(true);
+            gameFinishedMenu.SetActive(false);
+        }
     }
 
 }
