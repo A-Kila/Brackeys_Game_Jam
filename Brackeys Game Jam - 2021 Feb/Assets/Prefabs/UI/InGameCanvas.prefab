@@ -1675,6 +1675,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7555444122259283598}
   - component: {fileID: 7555444122259283599}
+  - component: {fileID: 1602397823}
+  - component: {fileID: 1602397822}
   m_Layer: 5
   m_Name: GameWon
   m_TagString: Untagged
@@ -1716,6 +1718,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49459ee074653c94c9c19620b05a7a85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &1602397823
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7555444122259283597}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!95 &1602397822
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7555444122259283597}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ca3f8b1bbf78bec4fa7178a0286712b1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7555444122299762037
 GameObject:
   m_ObjectHideFlags: 0
@@ -3741,6 +3774,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7555444122991944667}
   - component: {fileID: 7555444122991944660}
+  - component: {fileID: 239023523}
+  - component: {fileID: 239023524}
   m_Layer: 5
   m_Name: GameLost
   m_TagString: Untagged
@@ -3782,6 +3817,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inGameUI: {fileID: 7555444123145305143}
+--- !u!225 &239023523
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7555444122991944666}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!95 &239023524
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7555444122991944666}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 203b379c2c162b942860eabde3a3ecf2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7555444123045455382
 GameObject:
   m_ObjectHideFlags: 0
@@ -4491,6 +4557,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7555444123162702019}
   - component: {fileID: 7555444123162701884}
+  - component: {fileID: 711398981}
+  - component: {fileID: 711398980}
   m_Layer: 5
   m_Name: Pause
   m_TagString: Untagged
@@ -4536,8 +4604,38 @@ MonoBehaviour:
   pauseMenu: {fileID: 7555444122118927060}
   optionsMenu: {fileID: 7585913768419236084}
   helpMenu: {fileID: 5730490877129259615}
-  selectHandler: {fileID: 0}
   helpPanelAlpha: {x: 160, y: 230}
+--- !u!225 &711398981
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7555444123162702018}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!95 &711398980
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7555444123162702018}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 32d9a7468cb5cd04cab695b9b2399beb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7555444123176530078
 GameObject:
   m_ObjectHideFlags: 0

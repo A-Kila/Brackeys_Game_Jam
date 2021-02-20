@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2156799315515464445}
   m_Layer: 0
   m_Name: SelectHandlerObject
-  m_TagString: Untagged
+  m_TagString: SelectHandler
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,6 +47,7 @@ MonoBehaviour:
   selectedAntibodys: []
   selectedExplosiveCells: []
   colors: []
+  paused: 1
   SelectionArea: {fileID: 1321680891334434446, guid: e716b0614762a5c41aa9dd708a3dad95,
     type: 3}
 --- !u!114 &2156799315515464445
