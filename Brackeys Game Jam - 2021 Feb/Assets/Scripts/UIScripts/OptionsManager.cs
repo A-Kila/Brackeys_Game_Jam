@@ -23,9 +23,9 @@ public class OptionsManager : MonoBehaviour {
         float musicVolume, sfxVolume;
         audioMixer.GetFloat("MusicVolume", out musicVolume);
         audioMixer.GetFloat("SfxVolume", out sfxVolume);
-        
-        musicSlider.value = musicVolume;
-        sfxSlider.value = sfxVolume;
+
+        musicSlider.value = Mathf.Pow(10f, musicVolume / 20f);
+        sfxSlider.value = Mathf.Pow(10f, sfxVolume / 20f);
     }
 
     public void MusicSlider(float volume) {
