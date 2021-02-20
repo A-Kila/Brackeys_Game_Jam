@@ -89,7 +89,7 @@ public class ExplosionHandler : MonoBehaviour
     private void onExplosion()
     {
         Vector2 currLocation = transform.position;
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(currLocation, 5);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(currLocation, radiusOfExplosion);
         ParticleSystem eParticle = Instantiate(explosionParticle, transform.position, Quaternion.identity);
 
        if(!eParticle.isPlaying) eParticle.Play();
@@ -102,6 +102,7 @@ public class ExplosionHandler : MonoBehaviour
         {
             CellManager cm = collider.gameObject.GetComponent<CellManager>();
             VirusManager vm = collider.gameObject.GetComponent<VirusManager>();
+            NeutralManager nm = collider.gameObject.GetComponent<NeutralManager>();
             if (cm != null)
             {
                 cm.health.DamageHealth(damage);
@@ -109,6 +110,10 @@ public class ExplosionHandler : MonoBehaviour
             if (vm != null)
             {
                 vm.health.DamageHealth(damage);
+            }
+            if(nm != null)
+            {
+                nm.health.DamageHealth(damage);
             }
         }
     }

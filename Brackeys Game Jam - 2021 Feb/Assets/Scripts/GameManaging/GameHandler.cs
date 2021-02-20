@@ -7,6 +7,7 @@ public class GameHandler : MonoBehaviour {
 
     public static int virusCount = 0;
     public static int cellCount = 0;
+    public static int neutralCount = 0;
     public static int money = 0;
     public static bool isGameOver = false;
 
@@ -20,7 +21,7 @@ public class GameHandler : MonoBehaviour {
     }
 
     void Update() {
-        if (cellCount <= 0 || timeLimit <= 0f) {
+        if (cellCount <= 0 || timeLimit <= 0f || neutralCount <= 0) {
             if (onGameLose != null) onGameLose();
         } else if (virusCount <= 0)
                 onGameWin();

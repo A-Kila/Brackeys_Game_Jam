@@ -27,6 +27,7 @@ public class CellManager : MonoBehaviour {
     private SpriteRenderer HighlightSprite;
     private Light2D Highlight;
 
+    public HealthBarControler healthBar;
 
     void Start() {
         GameHandler.cellCount++;
@@ -39,7 +40,7 @@ public class CellManager : MonoBehaviour {
         movement = GetComponent<CellMovement>();
         movement.SetSpeed(speed);
 
-        health = new Health(healthAmount);
+        health = new Health(healthAmount, healthBar);
         health.onPlayerDeath += PlayerDeath;
     }
 
@@ -73,11 +74,35 @@ public class CellManager : MonoBehaviour {
         
     }
 
+
     public void changeDirection(Vector2 targetObj)
     {
         Vector2 dif = targetObj - (Vector2)transform.position;
         float degree = Mathf.Atan2(dif.y, dif.x) * Mathf.Rad2Deg;
         transform.eulerAngles = new Vector3(0, 0, degree);
+    }
+
+    private void rotate(float degree)
+    {
+        Transform[] children = new Transform[this.transform.childCount];
+        int i = 0;
+        foreach (Transform child in this.transform)
+        {
+            children[i++] = child;
+        }
+        // Detach
+        this.transform.DetachChildren();
+
+        // Change parent transform
+        this.transform.eulerAngles =  new Vector3(0, 0, degree);
+
+        // Reparent
+        foreach (Transform child in children)
+        {
+            child.parent = this.transform;
+        }
+
+        children = null;
     }
 
     public void Deselect()
