@@ -13,14 +13,15 @@ public class GameHandler : MonoBehaviour {
     public float timeLimit = 300f;
 
     void Start() {
+        Time.timeScale = 1f;
         money = 0;
     }
 
     void Update() {
-        if (cellCount <= 0 || timeLimit <= 0f)
+        if (cellCount <= 0 || timeLimit <= 0f) {
             if (onGameLose != null) onGameLose();
-        else if (virusCount == 0)
-            if (onGameWin != null) onGameWin();
+        } else if (virusCount <= 0)
+                onGameWin();
 
         timeLimit -= Time.deltaTime;
     }
