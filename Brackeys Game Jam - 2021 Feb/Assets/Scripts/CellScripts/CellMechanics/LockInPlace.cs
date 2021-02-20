@@ -29,7 +29,10 @@ public class LockInPlace : MonoBehaviour
     private void OnDestroy()
     {
         if (locked && !isQuitting) {
+            if(target.GetComponent<VirusManager>() != null)
             target.GetComponent<VirusManager>().colliderCount--;
+            else
+                target.GetComponent<NeutralManager>().colliderCount--;
         }
     }
 
@@ -45,6 +48,10 @@ public class LockInPlace : MonoBehaviour
         {
             target.GetComponent<VirusManager>().colliderCount++;
             locked = true;
+        }else if (!locked && collision.gameObject == target && collision.gameObject.tag == "Neutral")
+        {
+            target.GetComponent<NeutralManager>().colliderCount++;
+            locked = true;
         }
     }
 
@@ -53,6 +60,11 @@ public class LockInPlace : MonoBehaviour
         if (locked && collision.gameObject == target && collision.gameObject.tag == "Enemy")
         {
             target.GetComponent<VirusManager>().colliderCount--;
+            locked = false;
+        }
+        else if (!locked && collision.gameObject == target && collision.gameObject.tag == "Neutral")
+        {
+            target.GetComponent<NeutralManager>().colliderCount--;
             locked = false;
         }
     }
@@ -67,7 +79,8 @@ public class LockInPlace : MonoBehaviour
     public void removeTarget()
     {
         cellMovement.SetSpeed(cellManager.speed);
-        if (locked) target.GetComponent<VirusManager>().colliderCount--;
+        if (locked && target.GetComponent<VirusManager>() != null) target.GetComponent<VirusManager>().colliderCount--;
+        else if(locked) target.GetComponent<NeutralManager>().colliderCount--;
         locked = false;
         target = null;
     }

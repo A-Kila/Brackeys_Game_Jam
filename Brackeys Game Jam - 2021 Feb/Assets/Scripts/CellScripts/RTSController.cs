@@ -65,6 +65,7 @@ public class RTSController : MonoBehaviour {
                 target = targetCollider[0].gameObject;
                 float targetSpeed;
                 if (target.tag == "Enemy") targetSpeed = target.GetComponent<VirusManager>().speed;
+                else if (target.tag == "Neutral") targetSpeed = target.GetComponent<NeutralManager>().speed;
                 else targetSpeed = target.GetComponent<CellManager>().speed;
 
                 Vector2 center = target.transform.position;
