@@ -113,6 +113,8 @@ public class RTSController : MonoBehaviour {
                 foreach (Transform child in cellGroup.transform)
                 {
                     CellMovement childMovement = child.GetComponent<CellMovement>();
+                    if(childMovement.targetObj != null) Destroy(childMovement.targetObj);
+                    childMovement.targetObj = Instantiate(childMovement.target, positions[listIndex], Quaternion.identity).gameObject;
                     childMovement.MoveLocation(positions[listIndex]);
 
                     listIndex = (listIndex + 1) % positions.Count;

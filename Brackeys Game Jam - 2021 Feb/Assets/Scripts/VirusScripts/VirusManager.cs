@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class VirusManager : MonoBehaviour {
 	
@@ -19,6 +20,7 @@ public class VirusManager : MonoBehaviour {
     public float shootDirectionRotation = 45f;
     public Vector2 shootArc = new Vector2(0, 360);
     public ParticleSystem DeathParticle;
+    public float HighlightIntensity = 1f;
 
     [HideInInspector]
     public bool isClockwizeMove = true;
@@ -39,6 +41,9 @@ public class VirusManager : MonoBehaviour {
     private ShootProjectile projectiles;
     private float lastRotateTime;
 
+    public SpriteRenderer HighlightSprite;
+    public Light2D Highlight;
+
     void OnDrawGizmos() {
         Vector2 prevPos = path.GetChild(0).position;
         
@@ -53,6 +58,11 @@ public class VirusManager : MonoBehaviour {
 
     void Start() {
         GameHandler.virusCount++;
+
+        Highlight = transform.GetChild(0).GetComponent<Light2D>();
+        HighlightSprite = Highlight.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        Highlight.intensity = 0;
+        HighlightSprite.gameObject.SetActive(false);
 
         movement = GetComponent<CellMovement>();
         movement.SetSpeed(speed);
@@ -87,6 +97,14 @@ public class VirusManager : MonoBehaviour {
             Duplicate(); 
             cellsKilled -= 10;
         }
+    }
+
+    public void HighlightSet(bool b)
+    {
+        if (b) Highlight.intensity = HighlightIntensity;
+        else Highlight.intensity = 0;
+
+        HighlightSprite.gameObject.SetActive(b);
     }
 
     private void Rotate()

@@ -30,7 +30,7 @@ public class SelectHandler : MonoBehaviour
         selectedCellGroups = new HashSet<CellGroupManager>();
         dividedCellGroups = new HashSet<CellGroupManager>();
         pressed = false;
-        colors = new List<Color> { Color.red, Color.yellow, Color.cyan, Color.blue, Color.grey, Color.black, Color.white };
+        colors = new List<Color> { Color.red, Color.yellow, Color.cyan, Color.blue, Color.grey, Color.black, Color.white, Color.magenta, Color.green };
     }
 
     // Update is called once per frame

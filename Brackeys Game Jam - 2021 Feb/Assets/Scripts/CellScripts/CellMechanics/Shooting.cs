@@ -6,6 +6,7 @@ public class Shooting : MonoBehaviour
 {
     private CellManager cm;
     private ShootProjectile projectile;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +15,7 @@ public class Shooting : MonoBehaviour
         cm.selectFuncs += onSelect;
         cm.deSelectFuncs += onDeselect;
         cm.stopActionsFuncs += stopShooting;
+        cm.onPlayerDeathFuncs += stopShooting;
     }
 
     // Update is called once per frame

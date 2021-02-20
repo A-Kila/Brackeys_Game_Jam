@@ -14,10 +14,18 @@ public class ExplosionHandler : MonoBehaviour
     private CellMovement cellMovement;
     private Vector2 targPlace;
     private bool targPlaceIsSet = false;
+
+    public Transform targetMarker;
+    private GameObject targetMarkerObj;
+
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<CellManager>().onPlayerDeathFuncs += onExplosion;
+        CellManager cm = GetComponent<CellManager>();
+        cm.onPlayerDeathFuncs += onExplosion;
+        cm.onPlayerDeathFuncs += destroyTarget;
+        cm.selectFuncs += onSelect;
+        cm.deSelectFuncs += onDeselect;
         cellMovement = GetComponent<CellMovement>();
     }
 
@@ -41,6 +49,7 @@ public class ExplosionHandler : MonoBehaviour
         ParticleSystem sParticle = Instantiate(speedParticle, transform);
         sParticle.Play();
         cellMovement.SetSpeed(GetComponent<CellManager>().speed * speedMultiply);
+        target.GetComponent<VirusManager>().HighlightSet(true);
     }
 
     public void setTarget(Vector2 targ)
@@ -49,9 +58,32 @@ public class ExplosionHandler : MonoBehaviour
         ParticleSystem sParticle = Instantiate(speedParticle, transform);
         sParticle.Play();
         cellMovement.SetSpeed(GetComponent<CellManager>().speed * speedMultiply);
+        targetMarkerObj = Instantiate(targetMarker, targ, Quaternion.identity).gameObject;
         targPlaceIsSet = true;
     }
 
+    private void onSelect()
+    {
+        setTargetVisibility(true);
+    }
+    private void onDeselect()
+    {
+        setTargetVisibility(false);
+    }
+    private void setTargetVisibility(bool b)
+    {
+        if (targPlaceIsSet = true && targetMarkerObj != null) targetMarkerObj.SetActive(b);
+        else if (target != null) target.GetComponent<VirusManager>().HighlightSet(b);
+    }
+    private void destroyTarget()
+    {
+        if (targPlaceIsSet = true && targetMarkerObj != null)
+        {
+            targetMarkerObj.SetActive(false);
+            Destroy(targetMarkerObj);
+        }
+        else if (target != null) target.GetComponent<VirusManager>().HighlightSet(false);
+    }
     private void onExplosion()
     {
         Vector2 currLocation = transform.position;

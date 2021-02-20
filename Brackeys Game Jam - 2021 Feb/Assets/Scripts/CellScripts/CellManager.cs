@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class CellManager : MonoBehaviour {
 	
     public float speed = 15f;
     public int healthAmount = 10;
+    public float highlightIntensity = 1.5f;
 
     [HideInInspector]
     public Health health;
@@ -23,13 +25,16 @@ public class CellManager : MonoBehaviour {
     private CellMovement movement;
     private GameObject lastVirusThatHit;
     private SpriteRenderer HighlightSprite;
-    
+    private Light2D Highlight;
+
 
     void Start() {
         GameHandler.cellCount++;
 
-        HighlightSprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
-        HighlightSprite.color = new Color(0,0,0, 0);
+        Highlight = transform.GetChild(0).GetComponent<Light2D>();
+        Highlight.intensity = 0;
+        HighlightSprite = Highlight.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        HighlightSprite.color = new Color(0, 0, 0, 0);
 
         movement = GetComponent<CellMovement>();
         movement.SetSpeed(speed);
@@ -77,12 +82,18 @@ public class CellManager : MonoBehaviour {
     {
         if(deSelectFuncs != null) deSelectFuncs();
         selected = false;
+        movement.setTargetVisibility(false);
+        Highlight.intensity = 0;
         HighlightSprite.color = new Color(0, 0, 0, 0);
     }
     public void Select(Color color)
     {
         if(selectFuncs != null)selectFuncs();
         selected = true;
+        Debug.Log(color);
+        Highlight.intensity = highlightIntensity;
+        movement.setTargetVisibility(true);
+        //Highlight.color = color;
         HighlightSprite.color = color;
     }
     public void PlayerDeath() {
