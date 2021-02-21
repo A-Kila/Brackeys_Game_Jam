@@ -24,6 +24,7 @@ public class InGameCanvasManager : MonoBehaviour {
     private TextMeshProUGUI upgradeText;
     private GameHandler gameHandler;
     private Slider buffSlider;
+    private GameObject selectHandler;
 
     void Start() {
         pauseMng = pause.GetComponent<PauseMenuManager>();
@@ -31,6 +32,7 @@ public class InGameCanvasManager : MonoBehaviour {
         upgradeText = upgradeButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         gameHandler = GameObject.FindGameObjectWithTag("GameHandler").GetComponent<GameHandler>();
         buffSlider = buffSliderObject.GetComponentInChildren<Slider>();
+        selectHandler = GameObject.FindGameObjectWithTag("SelectHandler");
         
         GameHandler.onGameWin += GameWon;
         GameHandler.onGameLose += gameLostMenu.GetComponent<GameLostManager>().GameLost;
@@ -68,9 +70,12 @@ public class InGameCanvasManager : MonoBehaviour {
         Time.timeScale = 0f;
         upgradeButton.SetActive(false);
         shopMenu.SetActive(true);
+        selectHandler.SetActive(false);
+        selectHandler.GetComponent<SelectHandler>().paused = true;
     }
 
     public void Back() {
+        selectHandler.SetActive(true);
         Time.timeScale = 1f;
         upgradeButton.SetActive(true);
         shopMenu.SetActive(false);
