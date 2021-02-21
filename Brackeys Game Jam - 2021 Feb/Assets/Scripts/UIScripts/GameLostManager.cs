@@ -5,6 +5,12 @@ public class GameLostManager : MonoBehaviour {
 
     public GameObject inGameUI;
 
+    private SceneTransition transition;
+
+    void Start() {
+        transition = FindObjectOfType<SceneTransition>();    
+    }
+
     public void GameLost() {
         Time.timeScale = 0f;
         GameHandler.isGameOver = true;
@@ -14,12 +20,12 @@ public class GameLostManager : MonoBehaviour {
 
     public void Restart() {
         Time.timeScale = 1f;
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+        transition.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void MainMenu() {
         Time.timeScale = 1f;
-        SceneManager.LoadSceneAsync(0);
+        transition.LoadScene(0);
     }
 
 }

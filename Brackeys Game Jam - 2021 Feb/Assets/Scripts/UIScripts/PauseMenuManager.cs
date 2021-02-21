@@ -8,18 +8,19 @@ public class PauseMenuManager : MonoBehaviour {
     public GameObject pauseMenu;
     public GameObject optionsMenu;
     public GameObject helpMenu;
-    public GameObject selectHandler;
 
     /* Help window varibles */
     public Vector2 helpPanelAlpha = new Vector2(40f, 230f);
     private Image panel;
 
     private GameObject activeOverlay;
+    private GameObject selectHandler;
     private bool isPaused = false;
 
-    void Start() {
+    void Awake() {
         activeOverlay = pauseMenu;
         panel = transform.GetChild(0).GetComponent<Image>();
+        selectHandler = GameObject.FindGameObjectWithTag("SelectHandler");
     }
 
     public void PauseUpdate() {
@@ -60,7 +61,7 @@ public class PauseMenuManager : MonoBehaviour {
     }
 
     public void MainMenu() {
-        SceneManager.LoadSceneAsync(0);
+        FindObjectOfType<SceneTransition>().LoadScene(0);
     }
 
     public void Back() {

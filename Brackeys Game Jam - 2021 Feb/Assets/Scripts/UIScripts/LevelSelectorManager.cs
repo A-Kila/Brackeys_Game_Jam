@@ -38,7 +38,7 @@ public class LevelSelectorManager : MonoBehaviour {
 
     private void GoToLevel(int level) {
         if (Levels.isUnlocked[level - 1])
-            SceneManager.LoadSceneAsync(level);
+            FindObjectOfType<SceneTransition>().LoadScene(level);
     }
 
 }

@@ -15,7 +15,6 @@ public class GameHandler : MonoBehaviour {
     public float timeLimit = 300f;
 
     void Awake() {
-        Time.timeScale = 1f;
         isGameOver = false;
         money = 0;
     }
