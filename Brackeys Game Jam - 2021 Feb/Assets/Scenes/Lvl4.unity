@@ -5224,6 +5224,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2743099795550558769, guid: 39c179b73e91fec4e87706e48bff1b94,
+        type: 3}
+      propertyPath: healthAmount
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2743099795827269257, guid: 39c179b73e91fec4e87706e48bff1b94,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5233,6 +5238,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 6.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2743099795906726301, guid: 39c179b73e91fec4e87706e48bff1b94,
+        type: 3}
+      propertyPath: healthAmount
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2743099796272576470, guid: 39c179b73e91fec4e87706e48bff1b94,
+        type: 3}
+      propertyPath: healthAmount
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2743099796574813843, guid: 39c179b73e91fec4e87706e48bff1b94,
         type: 3}
@@ -5253,6 +5268,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 17.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 2743099796738677614, guid: 39c179b73e91fec4e87706e48bff1b94,
+        type: 3}
+      propertyPath: healthAmount
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2743099796772403244, guid: 39c179b73e91fec4e87706e48bff1b94,
         type: 3}
@@ -5334,6 +5354,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: NeutralCellGroupHolder (Purple)
       objectReference: {fileID: 0}
+    - target: {fileID: 2743099797237381280, guid: 39c179b73e91fec4e87706e48bff1b94,
+        type: 3}
+      propertyPath: healthAmount
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2743099797286569791, guid: 39c179b73e91fec4e87706e48bff1b94,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5343,6 +5368,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 4.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 2743099797359408798, guid: 39c179b73e91fec4e87706e48bff1b94,
+        type: 3}
+      propertyPath: healthAmount
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2743099797673159774, guid: 39c179b73e91fec4e87706e48bff1b94,
+        type: 3}
+      propertyPath: healthAmount
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3953622882159244455, guid: 39c179b73e91fec4e87706e48bff1b94,
         type: 3}
@@ -11023,6 +11058,46 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 4202550519459096518, guid: 370c1a076a099f546b12381649e4124e,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4202550519459096518, guid: 370c1a076a099f546b12381649e4124e,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4202550519459096518, guid: 370c1a076a099f546b12381649e4124e,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4202550519459096518, guid: 370c1a076a099f546b12381649e4124e,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7555444122207606324, guid: 370c1a076a099f546b12381649e4124e,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7555444122207606324, guid: 370c1a076a099f546b12381649e4124e,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7555444122207606324, guid: 370c1a076a099f546b12381649e4124e,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7555444122207606324, guid: 370c1a076a099f546b12381649e4124e,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 7555444123162701884, guid: 370c1a076a099f546b12381649e4124e,
         type: 3}
       propertyPath: selectHandler
@@ -11512,25 +11587,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4666283488986000102, guid: cf214a1c10ce8c14dbd62283c222907e,
         type: 3}
-      propertyPath: mechanicBuff
-      value: 
-      objectReference: {fileID: 3712783702373803251, guid: 02dd1d2958bf4f84b8c93ba6d363f401,
-        type: 3}
+      propertyPath: healthBuffDropChance
+      value: 0.02
+      objectReference: {fileID: 0}
     - target: {fileID: 4666283488986000102, guid: cf214a1c10ce8c14dbd62283c222907e,
         type: 3}
-      propertyPath: immortalityBuff
-      value: 
-      objectReference: {fileID: 2396664701027664786, guid: 80b460f420d127b47a76ee59c7c232cf,
+      propertyPath: mechanicBuffDropChance
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666283488986000102, guid: cf214a1c10ce8c14dbd62283c222907e,
         type: 3}
+      propertyPath: immortalityBuffDropChance
+      value: 0.008
+      objectReference: {fileID: 0}
     - target: {fileID: 4666283489513619301, guid: cf214a1c10ce8c14dbd62283c222907e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4666283489513619301, guid: cf214a1c10ce8c14dbd62283c222907e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4666283489524864713, guid: cf214a1c10ce8c14dbd62283c222907e,
         type: 3}
@@ -11540,12 +11618,12 @@ PrefabInstance:
     - target: {fileID: 4666283489524864713, guid: cf214a1c10ce8c14dbd62283c222907e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -41.13677
+      value: -0.161057
       objectReference: {fileID: 0}
     - target: {fileID: 4666283489524864713, guid: cf214a1c10ce8c14dbd62283c222907e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.897518
+      value: -8.450995
       objectReference: {fileID: 0}
     - target: {fileID: 4666283489524864713, guid: cf214a1c10ce8c14dbd62283c222907e,
         type: 3}
@@ -11856,16 +11934,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4666283488986000102, guid: cf214a1c10ce8c14dbd62283c222907e,
         type: 3}
-      propertyPath: mechanicBuff
-      value: 
-      objectReference: {fileID: 3712783702373803251, guid: 02dd1d2958bf4f84b8c93ba6d363f401,
-        type: 3}
+      propertyPath: healthBuffDropChance
+      value: 0.02
+      objectReference: {fileID: 0}
     - target: {fileID: 4666283488986000102, guid: cf214a1c10ce8c14dbd62283c222907e,
         type: 3}
-      propertyPath: immortalityBuff
-      value: 
-      objectReference: {fileID: 2396664701027664786, guid: 80b460f420d127b47a76ee59c7c232cf,
+      propertyPath: mechanicBuffDropChance
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4666283488986000102, guid: cf214a1c10ce8c14dbd62283c222907e,
         type: 3}
+      propertyPath: immortalityBuffDropChance
+      value: 0.008
+      objectReference: {fileID: 0}
     - target: {fileID: 4666283489513619301, guid: cf214a1c10ce8c14dbd62283c222907e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12505,7 +12586,7 @@ MonoBehaviour:
   minSpeed: 10
   maxSpeed: 20
   collisionNeeded: 1
-  healthAmount: 10
+  healthAmount: 100
   DeathParticle: {fileID: 0}
   colliderCount: 0
   isClockwizeMove: 1
@@ -12806,7 +12887,7 @@ MonoBehaviour:
   minSpeed: 10
   maxSpeed: 20
   collisionNeeded: 1
-  healthAmount: 10
+  healthAmount: 100
   DeathParticle: {fileID: 0}
   colliderCount: 0
   isClockwizeMove: 1
@@ -13000,7 +13081,7 @@ MonoBehaviour:
   minSpeed: 10
   maxSpeed: 20
   collisionNeeded: 1
-  healthAmount: 10
+  healthAmount: 100
   DeathParticle: {fileID: 0}
   colliderCount: 0
   isClockwizeMove: 1
@@ -13309,7 +13390,7 @@ MonoBehaviour:
   minSpeed: 10
   maxSpeed: 20
   collisionNeeded: 1
-  healthAmount: 10
+  healthAmount: 100
   DeathParticle: {fileID: 0}
   colliderCount: 0
   isClockwizeMove: 1

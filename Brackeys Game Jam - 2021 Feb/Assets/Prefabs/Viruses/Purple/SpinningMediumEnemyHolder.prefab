@@ -233,6 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f03054ab613d0b4b90dc0df2db2ef7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  duplicates: 1
   speed: 10
   collisionNeeded: 5
   collisionDamage: 1
@@ -241,8 +242,14 @@ MonoBehaviour:
   rotateDelay: 0
   rotateAngel: 10
   healthBuffDropChance: 1
+  mechanicBuffDropChance: 1
+  immortalityBuffDropChance: 1
   path: {fileID: 4666283488246297553}
   healthBuff: {fileID: 7302859984504575237, guid: cbc79ccfda93285469fcb8a6aaf0cfde,
+    type: 3}
+  mechanicBuff: {fileID: 3712783702373803251, guid: 02dd1d2958bf4f84b8c93ba6d363f401,
+    type: 3}
+  immortalityBuff: {fileID: 2396664701027664786, guid: 80b460f420d127b47a76ee59c7c232cf,
     type: 3}
   shootDirectionNum: 5
   shootDirectionRotation: 0
