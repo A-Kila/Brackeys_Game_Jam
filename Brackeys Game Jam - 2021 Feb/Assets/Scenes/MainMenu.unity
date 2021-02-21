@@ -7390,7 +7390,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2126965688
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7546,10 +7546,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1115923351}
     m_Modifications:
+    - target: {fileID: 880914300496463165, guid: 8aa6ed1881ca8104b9c381bf7488ea30,
+        type: 3}
+      propertyPath: m_text
+      value: grouping the cells together will allow you to aplly the powerups every
+        member of the group
+      objectReference: {fileID: 0}
+    - target: {fileID: 880914300496463165, guid: 8aa6ed1881ca8104b9c381bf7488ea30,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2836317174270673556, guid: 8aa6ed1881ca8104b9c381bf7488ea30,
         type: 3}
       propertyPath: m_Name
       value: Help
+      objectReference: {fileID: 0}
+    - target: {fileID: 2836317174270673556, guid: 8aa6ed1881ca8104b9c381bf7488ea30,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2836317174270673559, guid: 8aa6ed1881ca8104b9c381bf7488ea30,
         type: 3}
@@ -7661,5 +7677,30 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1115923352}
+    - target: {fileID: 7414369486504870631, guid: 8aa6ed1881ca8104b9c381bf7488ea30,
+        type: 3}
+      propertyPath: m_Name
+      value: LastLine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8160798201898678971, guid: 8aa6ed1881ca8104b9c381bf7488ea30,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8160798201898678971, guid: 8aa6ed1881ca8104b9c381bf7488ea30,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -950
+      objectReference: {fileID: 0}
+    - target: {fileID: 8160798201898678971, guid: 8aa6ed1881ca8104b9c381bf7488ea30,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8160798201898678971, guid: 8aa6ed1881ca8104b9c381bf7488ea30,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -475
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8aa6ed1881ca8104b9c381bf7488ea30, type: 3}
