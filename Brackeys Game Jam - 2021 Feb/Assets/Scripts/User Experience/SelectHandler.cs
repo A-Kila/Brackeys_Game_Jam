@@ -29,6 +29,8 @@ public class SelectHandler : MonoBehaviour
     {
         selectedCellGroups = new HashSet<CellGroupManager>();
         dividedCellGroups = new HashSet<CellGroupManager>();
+        selectedAntibodys = new List<LockInPlace>();
+        selectedExplosiveCells = new List<ExplosionHandler>();
         pressed = false;
         colors = new List<Color> { Color.red, Color.yellow, Color.cyan, Color.blue, Color.grey, Color.black, Color.white, Color.magenta, Color.green };
     }

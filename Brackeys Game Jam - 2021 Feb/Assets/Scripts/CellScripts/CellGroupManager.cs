@@ -23,6 +23,7 @@ public class CellGroupManager : MonoBehaviour
 
     private void Update()
     {
+        if(sh == null) sh = FindObjectOfType<SelectHandler>();
         if (ImmortalityBuffIsActive && Time.time - startTime > duration) removeImmortality();
     }
     public void Divide()

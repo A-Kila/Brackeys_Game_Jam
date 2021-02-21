@@ -764,13 +764,13 @@ MonoBehaviour:
   speed: 10
   collisionNeeded: 5
   collisionDamage: 1
-  healthAmount: 10
+  healthAmount: 1000
   rotate: 0
   rotateDelay: 1
   rotateAngel: 0
-  healthBuffDropChance: 0.05
-  mechanicBuffDropChance: 1
-  immortalityBuffDropChance: 1
+  healthBuffDropChance: 0.1
+  mechanicBuffDropChance: 0.04
+  immortalityBuffDropChance: 0.01
   path: {fileID: 1101574246}
   healthBuff: {fileID: 7302859984504575237, guid: cbc79ccfda93285469fcb8a6aaf0cfde,
     type: 3}
