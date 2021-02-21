@@ -61,7 +61,7 @@ public class PauseMenuManager : MonoBehaviour {
     }
 
     public void MainMenu() {
-        SceneManager.LoadSceneAsync(0);
+        FindObjectOfType<SceneTransition>().LoadScene(0);
     }
 
     public void Back() {
