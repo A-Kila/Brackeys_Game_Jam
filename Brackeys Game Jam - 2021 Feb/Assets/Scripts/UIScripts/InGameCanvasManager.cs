@@ -69,12 +69,12 @@ public class InGameCanvasManager : MonoBehaviour {
         Time.timeScale = 0f;
         upgradeButton.SetActive(false);
         shopMenu.SetActive(true);
-        selectHandler.SetActive(false);
+        // selectHandler.SetActive(false);
         selectHandler.GetComponent<SelectHandler>().paused = true;
     }
 
     public void Back() {
-        selectHandler.SetActive(true);
+        // selectHandler.SetActive(true);
         Time.timeScale = 1f;
         upgradeButton.SetActive(true);
         shopMenu.SetActive(false);
