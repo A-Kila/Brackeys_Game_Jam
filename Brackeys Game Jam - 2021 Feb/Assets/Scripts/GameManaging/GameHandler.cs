@@ -17,13 +17,18 @@ public class GameHandler : MonoBehaviour {
     void Awake() {
         isGameOver = false;
         money = 0;
+        virusCount = 0;
+        cellCount = 0;
+        neutralCount = 0;
     }
 
     void Update() {
-        if (cellCount <= 0 || timeLimit <= 0f || neutralCount <= 0) {
-            if (onGameLose != null) onGameLose();
-        } else if (virusCount <= 0)
-                onGameWin();
+        if (!isGameOver) { 
+            if (cellCount <= 0 || timeLimit <= 0f || neutralCount <= 0) {
+                if (onGameLose != null) onGameLose(); 
+            } else if (virusCount <= 0)
+                if (onGameWin != null) onGameWin();
+        }
 
         timeLimit -= Time.deltaTime;
     }

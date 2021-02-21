@@ -546,7 +546,7 @@ PrefabInstance:
     - target: {fileID: 3698224011537466291, guid: 1fce38f325f5d26409c4cb126036a21f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3698224011537466291, guid: 1fce38f325f5d26409c4cb126036a21f,
         type: 3}
@@ -2923,7 +2923,7 @@ PrefabInstance:
     - target: {fileID: 7324719592272300438, guid: 67e06b3a441ebc949b4cfb8758e0c1e9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7324719592272300438, guid: 67e06b3a441ebc949b4cfb8758e0c1e9,
         type: 3}
@@ -3099,21 +3099,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2147167782192033500, guid: 370c1a076a099f546b12381649e4124e,
+    - target: {fileID: 1492700126717854645, guid: 370c1a076a099f546b12381649e4124e,
         type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -961.5
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
-    - target: {fileID: 2147167782192033500, guid: 370c1a076a099f546b12381649e4124e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -207.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7555444123162701884, guid: 370c1a076a099f546b12381649e4124e,
-        type: 3}
-      propertyPath: selectHandler
-      value: 
-      objectReference: {fileID: 1852159742}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 370c1a076a099f546b12381649e4124e, type: 3}
 --- !u!1001 &7623780797703821801

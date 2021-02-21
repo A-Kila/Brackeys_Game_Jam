@@ -20,7 +20,7 @@ public class GameWonManager : MonoBehaviour {
     }
 
     public void MainMenu() {
-        Time.timeScale = 1f;
+         Time.timeScale = 1f;
          transition.LoadScene(0);
     }
 

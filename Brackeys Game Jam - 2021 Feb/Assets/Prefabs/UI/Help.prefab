@@ -2112,7 +2112,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2836317174270673559
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2419,7 +2419,7 @@ GameObject:
   - component: {fileID: 6662488764949598760}
   - component: {fileID: 880914300496463165}
   m_Layer: 5
-  m_Name: Instructions (1)
+  m_Name: LastLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2441,8 +2441,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 759.19995, y: -350}
-  m_SizeDelta: {x: -718.42896, y: -510}
+  m_AnchoredPosition: {x: 0, y: -475}
+  m_SizeDelta: {x: 0, y: -950}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6662488764949598760
 CanvasRenderer:
@@ -2471,7 +2471,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ENEmy Cell. Tries to kill every other cell
+  m_text: grouping the cells together will allow you to aplly the powerups every
+    member of the group
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6c8774c6e26623c42b238cdb505fc1ec, type: 2}
   m_sharedMaterial: {fileID: -853056846100482468, guid: 6c8774c6e26623c42b238cdb505fc1ec,
@@ -2506,7 +2507,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 16
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0

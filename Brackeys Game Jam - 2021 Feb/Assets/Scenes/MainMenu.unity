@@ -6490,16 +6490,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneTransition
       objectReference: {fileID: 0}
-    - target: {fileID: 3089508284287213379, guid: 2800d88b0cadad447a4a10628bf84db0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3089508284591383267, guid: 2800d88b0cadad447a4a10628bf84db0,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2800d88b0cadad447a4a10628bf84db0, type: 3}
 --- !u!1 &1696557273
@@ -7546,26 +7536,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1115923351}
     m_Modifications:
-    - target: {fileID: 880914300496463165, guid: 8aa6ed1881ca8104b9c381bf7488ea30,
-        type: 3}
-      propertyPath: m_text
-      value: grouping the cells together will allow you to aplly the powerups every
-        member of the group
-      objectReference: {fileID: 0}
-    - target: {fileID: 880914300496463165, guid: 8aa6ed1881ca8104b9c381bf7488ea30,
-        type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 2836317174270673556, guid: 8aa6ed1881ca8104b9c381bf7488ea30,
         type: 3}
       propertyPath: m_Name
       value: Help
-      objectReference: {fileID: 0}
-    - target: {fileID: 2836317174270673556, guid: 8aa6ed1881ca8104b9c381bf7488ea30,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2836317174270673559, guid: 8aa6ed1881ca8104b9c381bf7488ea30,
         type: 3}
@@ -7677,30 +7651,5 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1115923352}
-    - target: {fileID: 7414369486504870631, guid: 8aa6ed1881ca8104b9c381bf7488ea30,
-        type: 3}
-      propertyPath: m_Name
-      value: LastLine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8160798201898678971, guid: 8aa6ed1881ca8104b9c381bf7488ea30,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8160798201898678971, guid: 8aa6ed1881ca8104b9c381bf7488ea30,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -950
-      objectReference: {fileID: 0}
-    - target: {fileID: 8160798201898678971, guid: 8aa6ed1881ca8104b9c381bf7488ea30,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8160798201898678971, guid: 8aa6ed1881ca8104b9c381bf7488ea30,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -475
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8aa6ed1881ca8104b9c381bf7488ea30, type: 3}

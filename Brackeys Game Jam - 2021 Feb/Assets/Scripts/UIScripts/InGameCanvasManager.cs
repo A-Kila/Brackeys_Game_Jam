@@ -44,7 +44,6 @@ public class InGameCanvasManager : MonoBehaviour {
     {
         if (onBuff != null)
             onBuff(time);
-        else Debug.Log(1);
     }
 
     void Update() {

@@ -61,6 +61,7 @@ public class PauseMenuManager : MonoBehaviour {
     }
 
     public void MainMenu() {
+        Time.timeScale = 1f;
         FindObjectOfType<SceneTransition>().LoadScene(0);
     }
 
