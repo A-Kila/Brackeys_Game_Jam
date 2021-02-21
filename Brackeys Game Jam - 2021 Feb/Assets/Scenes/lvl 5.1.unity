@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -375,12 +375,12 @@ PrefabInstance:
     - target: {fileID: 3698224009712881738, guid: 1fce38f325f5d26409c4cb126036a21f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.44
+      value: 1.74
       objectReference: {fileID: 0}
     - target: {fileID: 3698224009712881738, guid: 1fce38f325f5d26409c4cb126036a21f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.72
+      value: -3.33
       objectReference: {fileID: 0}
     - target: {fileID: 3698224009973208318, guid: 1fce38f325f5d26409c4cb126036a21f,
         type: 3}
@@ -391,12 +391,12 @@ PrefabInstance:
     - target: {fileID: 3698224010022318160, guid: 1fce38f325f5d26409c4cb126036a21f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.4
+      value: -7.9
       objectReference: {fileID: 0}
     - target: {fileID: 3698224010022318160, guid: 1fce38f325f5d26409c4cb126036a21f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3
+      value: -2.29
       objectReference: {fileID: 0}
     - target: {fileID: 3698224010325080337, guid: 1fce38f325f5d26409c4cb126036a21f,
         type: 3}
@@ -407,12 +407,12 @@ PrefabInstance:
     - target: {fileID: 3698224010581747075, guid: 1fce38f325f5d26409c4cb126036a21f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.41
+      value: 5.83
       objectReference: {fileID: 0}
     - target: {fileID: 3698224010581747075, guid: 1fce38f325f5d26409c4cb126036a21f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.48
+      value: -8.19
       objectReference: {fileID: 0}
     - target: {fileID: 3698224010898339567, guid: 1fce38f325f5d26409c4cb126036a21f,
         type: 3}
@@ -455,12 +455,12 @@ PrefabInstance:
     - target: {fileID: 3698224011475192316, guid: 1fce38f325f5d26409c4cb126036a21f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.88
+      value: -5.07
       objectReference: {fileID: 0}
     - target: {fileID: 3698224011475192316, guid: 1fce38f325f5d26409c4cb126036a21f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.48
+      value: -2.99
       objectReference: {fileID: 0}
     - target: {fileID: 3698224011524535906, guid: 1fce38f325f5d26409c4cb126036a21f,
         type: 3}
@@ -11021,6 +11021,13 @@ PolygonCollider2D:
       - {x: 5.878627, y: -0.86550903}
       - {x: 7.246866, y: -1.5748444}
       - {x: 7.501149, y: -5.608591}
+      - {x: 9.98188, y: -7.043808}
+      - {x: 11.6675, y: -9.685218}
+      - {x: 16.83493, y: -10.956225}
+      - {x: 17.088839, y: -15.086184}
+      - {x: 24.240194, y: -23.453136}
+      - {x: 24.395468, y: -25.25719}
+      - {x: 24.294466, y: -31.37261}
       - {x: 21.107166, y: -34.88444}
       - {x: 16.592226, y: -35.607464}
       - {x: 14.347263, y: -38.525627}
