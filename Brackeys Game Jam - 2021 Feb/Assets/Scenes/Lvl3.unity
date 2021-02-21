@@ -2938,7 +2938,7 @@ PrefabInstance:
     - target: {fileID: 325892569145953143, guid: cd57f38f15a770947be9118b4fcbf872,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 325892569145953143, guid: cd57f38f15a770947be9118b4fcbf872,
         type: 3}
@@ -10212,7 +10212,7 @@ PrefabInstance:
     - target: {fileID: 5241281969986830375, guid: 90f60504770ddb64ba7048c3d5a24b2a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5241281969986830375, guid: 90f60504770ddb64ba7048c3d5a24b2a,
         type: 3}
@@ -10592,7 +10592,7 @@ MonoBehaviour:
   minSpeed: 10
   maxSpeed: 20
   collisionNeeded: 1
-  healthAmount: 10
+  healthAmount: 100
   DeathParticle: {fileID: 0}
   colliderCount: 0
   isClockwizeMove: 1
@@ -10925,7 +10925,7 @@ MonoBehaviour:
   minSpeed: 10
   maxSpeed: 20
   collisionNeeded: 1
-  healthAmount: 10
+  healthAmount: 100
   DeathParticle: {fileID: 0}
   colliderCount: 0
   isClockwizeMove: 1
@@ -11122,7 +11122,7 @@ MonoBehaviour:
   minSpeed: 10
   maxSpeed: 20
   collisionNeeded: 1
-  healthAmount: 10
+  healthAmount: 100
   DeathParticle: {fileID: 0}
   colliderCount: 0
   isClockwizeMove: 1
@@ -11313,7 +11313,7 @@ MonoBehaviour:
   minSpeed: 10
   maxSpeed: 20
   collisionNeeded: 1
-  healthAmount: 10
+  healthAmount: 100
   DeathParticle: {fileID: 0}
   colliderCount: 0
   isClockwizeMove: 1
