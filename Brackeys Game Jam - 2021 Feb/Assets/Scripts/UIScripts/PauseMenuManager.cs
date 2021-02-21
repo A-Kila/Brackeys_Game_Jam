@@ -23,6 +23,11 @@ public class PauseMenuManager : MonoBehaviour {
         selectHandler = GameObject.FindGameObjectWithTag("SelectHandler");
     }
 
+    void Update() {
+        if (selectHandler == null)
+            selectHandler = GameObject.FindGameObjectWithTag("SelectHandler");
+    }
+
     public void PauseUpdate() {
         if (Input.GetKeyDown(MyInput.pause))
             if (!isPaused) OpenPause();
