@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
-  healthAmount: 10
+  healthAmount: 50
   highlightIntensity: 9
   selected: 0
   shooting: 0

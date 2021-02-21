@@ -124,15 +124,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duplicates: 0
   speed: 20
-  collisionNeeded: 5
+  collisionNeeded: 1
   collisionDamage: 1
-  healthAmount: 10
+  healthAmount: 1000
   rotate: 1
   rotateDelay: 0
   rotateAngel: 17
-  healthBuffDropChance: 1
-  mechanicBuffDropChance: 1
-  immortalityBuffDropChance: 1
+  healthBuffDropChance: 0.05
+  mechanicBuffDropChance: 0.01
+  immortalityBuffDropChance: 0.006
   path: {fileID: 1537045118261419864}
   healthBuff: {fileID: 7302859984504575237, guid: cbc79ccfda93285469fcb8a6aaf0cfde,
     type: 3}

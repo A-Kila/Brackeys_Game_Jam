@@ -131,8 +131,9 @@ public class VirusManager : MonoBehaviour {
         if (collider.tag == "Friendly") { 
             ProjectileManager projectile = collider.GetComponent<ProjectileManager>();
             health.DamageHealth(projectile.damage);
-            GameHandler.money += projectile.damage;
+            GameHandler.money += projectile.damage/3;
             // Log Score
+            Debug.Log(health.health);
 
             if (Random.value <= healthBuffDropChance && healthBuffDropChance != 0)
                 DropBuff(healthBuff);

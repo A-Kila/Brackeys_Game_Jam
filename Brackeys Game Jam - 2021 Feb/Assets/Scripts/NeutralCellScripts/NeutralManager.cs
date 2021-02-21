@@ -53,6 +53,7 @@ public class NeutralManager : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
+        Debug.Log(health.health);
         ProjectileManager projectile = collider.GetComponent<ProjectileManager>();
         if (projectile == null) return;
          health.DamageHealth(projectile.damage);

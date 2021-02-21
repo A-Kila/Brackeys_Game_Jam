@@ -110,10 +110,12 @@ public class ExplosionHandler : MonoBehaviour
             if (vm != null)
             {
                 vm.health.DamageHealth(damage);
+                GameHandler.money += damage/10;
             }
             if(nm != null)
             {
                 nm.health.DamageHealth(damage);
+                GameHandler.money += damage/10;
             }
         }
     }

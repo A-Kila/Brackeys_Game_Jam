@@ -72,7 +72,7 @@ public class CellGroupManager : MonoBehaviour
             if (type == cellType.cell)
             {
                 ShootProjectile sp = transform.GetChild(i).GetComponent<ShootProjectile>();
-                sp.delay /= power;
+                sp.delay -= power/10f;
             }
             if (type == cellType.explosiveCell)
             {

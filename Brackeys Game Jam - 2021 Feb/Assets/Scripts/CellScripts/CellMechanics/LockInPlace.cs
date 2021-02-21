@@ -32,7 +32,7 @@ public class LockInPlace : MonoBehaviour
     private void OnDestroy()
     {
         if (locked && !isQuitting) {
-            if(target.GetComponent<VirusManager>() != null)
+            if(target != null &&  target.GetComponent<VirusManager>() != null)
             target.GetComponent<VirusManager>().colliderCount -= lastAdded;
             else
                 target.GetComponent<NeutralManager>().colliderCount -= lastAdded;
