@@ -3,7 +3,9 @@ using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
 public class VirusManager : MonoBehaviour {
-	
+
+
+    public bool duplicates = true;
     public float speed = 15f;
     public float collisionNeeded = 5f;
     public int collisionDamage = 100;
@@ -100,7 +102,7 @@ public class VirusManager : MonoBehaviour {
         }
 
         if (cellsKilled >= 10) { 
-            Duplicate(); 
+            if(duplicates) Duplicate(); 
             cellsKilled -= 10;
         }
     }
