@@ -30,15 +30,10 @@ public class ProjectileExplosion : MonoBehaviour
         foreach (Collider2D collider in colliders)
         {
             CellManager cm = collider.gameObject.GetComponent<CellManager>();
-            VirusManager vm = collider.gameObject.GetComponent<VirusManager>();
             NeutralManager nm = collider.gameObject.GetComponent<NeutralManager>();
             if (cm != null)
             {
                 cm.health.DamageHealth(damage);
-            }
-            if (vm != null)
-            {
-                vm.health.DamageHealth(damage);
             }
             if (nm != null)
             {
