@@ -24,10 +24,10 @@ public class GameHandler : MonoBehaviour {
 
     void Update() {
         if (!isGameOver) { 
-            if (cellCount <= 0 || timeLimit <= 0f || neutralCount <= 0) {
-                if (onGameLose != null) onGameLose(); 
-            } else if (virusCount <= 0)
+            if (virusCount <= 0) { 
                 if (onGameWin != null) onGameWin();
+            } else if (cellCount <= 0 || timeLimit <= 0f || neutralCount <= 0)
+                if (onGameLose != null) onGameLose(); 
         }
 
         timeLimit -= Time.deltaTime;
