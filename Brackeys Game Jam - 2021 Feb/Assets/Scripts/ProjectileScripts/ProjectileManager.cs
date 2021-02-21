@@ -7,6 +7,9 @@ public class ProjectileManager : MonoBehaviour
     public ParticleSystem ProjectileParticle;
 
     [HideInInspector]
+    public System.Action beforeDestroy;
+
+    [HideInInspector]
     public GameObject parentObj;
 
     private Vector3 direction;
@@ -27,6 +30,7 @@ public class ProjectileManager : MonoBehaviour
     {
         ParticleSystem tmp = Instantiate(ProjectileParticle, transform.position, Quaternion.identity);
         tmp.Play();
+        if (beforeDestroy != null) beforeDestroy();
         Destroy(tmp.gameObject, tmp.main.duration);
         Destroy(gameObject);
     }
