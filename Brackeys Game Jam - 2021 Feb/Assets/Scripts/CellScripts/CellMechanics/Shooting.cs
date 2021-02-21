@@ -56,12 +56,10 @@ public class Shooting : MonoBehaviour
         }
         if(Input.GetKeyDown(MyInput.startShoot))
         {
-            GetComponent<CellManager>().shooting = true;
             projectile.startShooting();
         }
         if (Input.GetKeyDown(MyInput.stopShoot))
         {
-            GetComponent<CellManager>().shooting = false;
             projectile.stopShooting();
         }
     }
