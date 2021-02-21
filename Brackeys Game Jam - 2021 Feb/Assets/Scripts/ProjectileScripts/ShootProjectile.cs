@@ -76,7 +76,6 @@ public class ShootProjectile : MonoBehaviour
     {
         if (!(targetIsSet || directionIsSet)) return;
         shoot = false;
-        if (GetComponent<CellManager>() != null) GetComponent<CellManager>().shooting = false;
         if (targetIsSet && !targetIsEntity) targetObject.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
