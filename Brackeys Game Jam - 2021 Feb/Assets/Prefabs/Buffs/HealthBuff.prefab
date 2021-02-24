@@ -136,4 +136,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Particle: {fileID: 6199731517848607797, guid: 1579e58633f6edb468c018575d0ad472,
     type: 3}
-  healthAmount: 3
+  healthAmount: 6

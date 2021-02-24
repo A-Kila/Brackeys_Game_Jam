@@ -11058,6 +11058,16 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 2147167782192033500, guid: 370c1a076a099f546b12381649e4124e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1014.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147167782192033500, guid: 370c1a076a099f546b12381649e4124e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -202.3
+      objectReference: {fileID: 0}
     - target: {fileID: 4202550519459096518, guid: 370c1a076a099f546b12381649e4124e,
         type: 3}
       propertyPath: m_fontColor.b

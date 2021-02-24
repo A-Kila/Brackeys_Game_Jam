@@ -658,7 +658,7 @@ MonoBehaviour:
   rotate: 0
   rotateDelay: 1
   rotateAngel: 0
-  healthBuffDropChance: 0.05
+  healthBuffDropChance: 0.02
   mechanicBuffDropChance: 0.01
   immortalityBuffDropChance: 0.006
   path: {fileID: 1101574246}
